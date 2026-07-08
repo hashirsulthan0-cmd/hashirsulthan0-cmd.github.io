@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hashir Sulthan | Freelance Portfolio</title>
+    <title>Digital Alchemist | Freelance Portfolio</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for Icons -->
@@ -102,7 +102,7 @@
             <div class="flex items-center justify-between h-20">
                 <div class="flex-shrink-0">
                     <a href="#" class="font-serif text-2xl font-bold tracking-wider">
-                        <span class="text-white">Hashir</span> <span class="gradient-text">Sulthan</span>
+                        <span class="text-white">D</span><span class="gradient-text">.Alchemist</span>
                     </a>
                 </div>
                 <div class="hidden md:block">
@@ -373,7 +373,7 @@
                                 </div>
                                 <div>
                                     <h5 class="text-white font-medium">Email Me</h5>
-                                    <p class="text-gray-400 cursor-pointer hover:text-brand-light transition" onclick="copyText('hashirsulthan0@gmail.com')">hashirsulthan0@gmail.com</p>
+                                    <p class="text-gray-400 cursor-pointer hover:text-brand-light transition" onclick="copyText('your.actual.email@example.com')">your.actual.email@example.com</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4">
@@ -396,19 +396,24 @@
 
                     <!-- Contact Form -->
                     <div class="bg-dark-bg/50 rounded-2xl p-6 md:p-8 border border-dark-border">
-                        <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                        <form id="contactForm" action="https://formsubmit.co/hashirsulthan0@gmail.com" method="POST">
+                            <!-- Security and configuration for FormSubmit -->
+                            <input type="hidden" name="_subject" value="New Portfolio Inquiry!">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_next" value="https://hashirsulthan0-cmd.github.io/">
+                            
                             <div class="space-y-4">
                                 <div>
                                     <label for="name" class="block text-sm font-medium text-gray-400 mb-1">Name</label>
-                                    <input type="text" id="name" class="w-full bg-dark-surface border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-DEFAULT focus:ring-1 focus:ring-brand-DEFAULT transition-colors" placeholder="John Doe" required>
+                                    <input type="text" id="name" name="name" class="w-full bg-dark-surface border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-DEFAULT focus:ring-1 focus:ring-brand-DEFAULT transition-colors" placeholder="John Doe" required>
                                 </div>
                                 <div>
                                     <label for="email" class="block text-sm font-medium text-gray-400 mb-1">Email</label>
-                                    <input type="email" id="email" class="w-full bg-dark-surface border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-DEFAULT focus:ring-1 focus:ring-brand-DEFAULT transition-colors" placeholder="john@example.com" required>
+                                    <input type="email" id="email" name="email" class="w-full bg-dark-surface border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-DEFAULT focus:ring-1 focus:ring-brand-DEFAULT transition-colors" placeholder="john@example.com" required>
                                 </div>
                                 <div>
                                     <label for="service" class="block text-sm font-medium text-gray-400 mb-1">Service Required</label>
-                                    <select id="service" class="w-full bg-dark-surface border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-DEFAULT focus:ring-1 focus:ring-brand-DEFAULT transition-colors appearance-none">
+                                    <select id="service" name="service" class="w-full bg-dark-surface border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-DEFAULT focus:ring-1 focus:ring-brand-DEFAULT transition-colors appearance-none">
                                         <option>Graphic Design</option>
                                         <option>Web Creation</option>
                                         <option>AI Automation</option>
@@ -419,7 +424,7 @@
                                 </div>
                                 <div>
                                     <label for="message" class="block text-sm font-medium text-gray-400 mb-1">Project Details</label>
-                                    <textarea id="message" rows="4" class="w-full bg-dark-surface border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-DEFAULT focus:ring-1 focus:ring-brand-DEFAULT transition-colors resize-none" placeholder="Tell me about your project..." required></textarea>
+                                    <textarea id="message" name="message" rows="4" class="w-full bg-dark-surface border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-DEFAULT focus:ring-1 focus:ring-brand-DEFAULT transition-colors resize-none" placeholder="Tell me about your project..." required></textarea>
                                 </div>
                                 <button type="submit" class="w-full bg-brand-DEFAULT hover:bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 mt-4">
                                     <span>Send Request</span>
@@ -441,7 +446,7 @@
     <!-- Footer -->
     <footer class="border-t border-dark-border bg-dark-bg py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-gray-500 text-sm">© 2026 Hashir Sulthan. All rights reserved.</p>
+            <p class="text-gray-500 text-sm">© 2026 Digital Alchemist. All rights reserved.</p>
             <div class="flex gap-6 text-sm text-gray-500">
                 <a href="#" class="hover:text-white transition">Privacy Policy</a>
                 <a href="#" class="hover:text-white transition">Terms of Service</a>
@@ -483,43 +488,13 @@
                 
                 setTimeout(() => {
                     toast.classList.add('hidden');
-                    // Reset toast styles for form submission
-                    toast.classList.remove('bg-blue-500/20', 'border-blue-500/50', 'text-blue-400');
-                    toast.classList.add('bg-green-500/20', 'border-green-500/50', 'text-green-400');
-                    toast.textContent = "Message sent successfully! I will be in touch soon.";
                 }, 3000);
             } catch (err) {
                 console.error('Failed to copy', err);
             }
             document.body.removeChild(textArea);
         }
-
-        // Form Submit Handler (Mock)
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const btn = e.target.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-            
-            // Loading state
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            btn.disabled = true;
-            btn.classList.add('opacity-75', 'cursor-not-allowed');
-
-            // Simulate API call
-            setTimeout(() => {
-                e.target.reset();
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-                btn.classList.remove('opacity-75', 'cursor-not-allowed');
-                
-                const toast = document.getElementById('toast');
-                toast.classList.remove('hidden');
-                
-                setTimeout(() => {
-                    toast.classList.add('hidden');
-                }, 4000);
-            }, 1500);
-        }
+        
     </script>
 </body>
 </html>
