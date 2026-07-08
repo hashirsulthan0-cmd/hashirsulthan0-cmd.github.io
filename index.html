@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hashir Sulthan | Freelance Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            light: '#e0e7ff',
+                            DEFAULT: '#6366f1',
+                            dark: '#312e81',
+                            accent: '#f59e0b'
+                        },
+                        dark: {
+                            bg: '#0f172a',
+                            surface: '#1e293b',
+                            border: '#334155'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569; 
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.2);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-brand-DEFAULT selection:text-white relative">
+    
+    <!-- Decorative background elements -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-brand-dark opacity-30 blur-[100px] animate-pulse-slow"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-purple-900 opacity-20 blur-[100px] animate-pulse-slow" style="animation-delay: 2s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-panel border-b-0 border-t-0 border-x-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="#" class="font-serif text-2xl font-bold tracking-wider">
+                        <span class="text-white">Hashir</span> <span class="gradient-text">Sulthan</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="#services" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a>
+                        <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                        <a href="#contact" class="bg-brand-DEFAULT hover:bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-medium transition-all shadow-lg shadow-indigo-500/30">Hire Me</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-dark-border absolute w-full">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="mobile-link text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#services" class="mobile-link text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <a href="#about" class="mobile-link text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#contact" class="mobile-link text-brand-light block px-3 py-2 rounded-md text-base font-bold">Hire Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Hero Content -->
+                <div class="order-2 lg:order-1 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-surface border border-dark-border mb-6">
+                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                        <span class="text-xs font-medium text-gray-300 tracking-wide uppercase">Available for Freelance</span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+                        I turn <br class="hidden lg:block" />
+                        <span class="gradient-text">Ideas into</span> <br />
+                        Digital Reality.
+                    </h1>
+                    <p class="mt-4 text-xl text-gray-400 max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+                        Multidisciplinary freelancer specializing in design, AI automation, and digital management to scale your business and streamline your workflows.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#services" class="px-8 py-4 bg-brand-DEFAULT hover:bg-indigo-600 text-white rounded-full font-semibold transition-all shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2 group">
+                            Explore Services
+                            <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#contact" class="px-8 py-4 bg-transparent border border-gray-500 hover:border-white text-white rounded-full font-semibold transition-all flex items-center justify-center">
+                            Let's Talk
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
+                    <div class="relative w-72 h-72 md:w-96 md:h-96">
+                        <!-- Decorative frame -->
+                        <div class="absolute inset-0 border-2 border-brand-DEFAULT rounded-full opacity-50 animate-pulse-slow"></div>
+                        <div class="absolute inset-4 border border-purple-500 rounded-full opacity-30 animate-pulse-slow" style="animation-delay: 1s;"></div>
+                        
+                        <!-- Image Container -->
+                        <div class="absolute inset-8 rounded-full overflow-hidden border-4 border-dark-surface shadow-2xl z-10 animate-float bg-dark-surface">
+                            <img src="Gemini_Generated_Image_hwthxvhwthxvhwth.png" alt="Profile Portrait" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x400/1e293b/ffffff?text=Portrait'">
+                        </div>
+                        
+                        <!-- Floating badges -->
+                        <div class="absolute top-10 right-0 glass-panel p-3 rounded-2xl z-20 flex items-center gap-3 animate-float" style="animation-delay: 0.5s;">
+                            <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400">
+                                <i class="fas fa-robot text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 font-medium">Specialist</p>
+                                <p class="text-sm font-bold">AI Automation</p>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute bottom-10 left-0 glass-panel p-3 rounded-2xl z-20 flex items-center gap-3 animate-float" style="animation-delay: 1.5s;">
+                            <div class="w-10 h-10 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-400">
+                                <i class="fas fa-pen-nib text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 font-medium">Creative</p>
+                                <p class="text-sm font-bold">Design & Video</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce text-gray-500 hidden md:flex">
+            <span class="text-xs tracking-widest uppercase mb-2">Scroll</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-dark-bg relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-sm font-bold tracking-widest text-brand-DEFAULT uppercase mb-3">My Arsenal</h2>
+                <h3 class="text-3xl md:text-5xl font-bold font-serif mb-6">Comprehensive <span class="gradient-text">Digital Services</span></h3>
+                <p class="text-gray-400 text-lg">From creative visuals to complex technical workflows, I provide end-to-end solutions tailored to your needs.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Service 1 -->
+                <div class="service-card glass-panel rounded-2xl p-8 border border-dark-border relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-2xl mb-6 shadow-lg shadow-purple-500/10">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Graphic Designing</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Creating compelling visual identities, marketing materials, and digital assets that capture attention and communicate your brand's message effectively.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card glass-panel rounded-2xl p-8 border border-dark-border relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-2xl mb-6 shadow-lg shadow-blue-500/10">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Web Creation with AI</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Rapidly deploying modern, responsive websites leveraging AI tools for efficient structure, compelling copy, and stunning aesthetics.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card glass-panel rounded-2xl p-8 border border-dark-border relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center text-2xl mb-6 shadow-lg shadow-pink-500/10">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Video Editing</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Crafting engaging video content for social media, YouTube, or corporate presentations with professional cuts, transitions, and effects.
+                    </p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card glass-panel rounded-2xl p-8 border border-dark-border relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-green-500/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 rounded-xl bg-green-500/20 text-green-400 flex items-center justify-center text-2xl mb-6 shadow-lg shadow-green-500/10">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">E-Commerce Management</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        End-to-end setup, registration, and daily management of your online store, ensuring smooth operations and optimized product listings.
+                    </p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card glass-panel rounded-2xl p-8 border border-dark-border relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-DEFAULT/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 rounded-xl bg-brand-DEFAULT/20 text-brand-light flex items-center justify-center text-2xl mb-6 shadow-lg shadow-indigo-500/10">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">AI Automation (SLM/LLM)</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Implementing basic Small/Large Language Models and automated workflows to reduce manual tasks and supercharge your business efficiency.
+                    </p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card glass-panel rounded-2xl p-8 border border-dark-border relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-500/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 rounded-xl bg-yellow-500/20 text-yellow-400 flex items-center justify-center text-2xl mb-6 shadow-lg shadow-yellow-500/10">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Marketing, Ads & Social</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Strategic digital management, running targeted ad campaigns, and curating social media presence to build brand awareness and drive conversion.
+                    </p>
+                </div>
+                
+                 <!-- Service 7 -->
+                <div class="service-card glass-panel rounded-2xl p-8 border border-dark-border relative overflow-hidden group md:col-span-2 lg:col-span-1">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center text-2xl mb-6 shadow-lg shadow-orange-500/10">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Doc Ops & Student Help</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Precise document formatting, conversions, data entry, and structural assistance for student assignments and academic projects.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills/Tools Marquee -->
+    <div class="py-10 bg-dark-surface border-y border-dark-border overflow-hidden flex relative">
+        <div class="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-dark-surface to-transparent z-10"></div>
+        <div class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-dark-surface to-transparent z-10"></div>
+        
+        <div class="flex whitespace-nowrap animate-[marquee_20s_linear_infinite] items-center gap-12 px-6">
+            <style>
+                @keyframes marquee {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+            </style>
+            <!-- Duplicate content for seamless loop -->
+            <div class="flex items-center gap-12 text-gray-500 font-semibold tracking-wider uppercase text-sm">
+                <span class="flex items-center gap-2"><i class="fab fa-adobe text-xl"></i> Creative Suite</span>
+                <span>•</span>
+                <span class="flex items-center gap-2"><i class="fas fa-code text-xl"></i> AI Web Gen</span>
+                <span>•</span>
+                <span class="flex items-center gap-2"><i class="fab fa-python text-xl"></i> Automation</span>
+                <span>•</span>
+                <span class="flex items-center gap-2"><i class="fas fa-shopping-cart text-xl"></i> E-Commerce</span>
+                <span>•</span>
+                <span class="flex items-center gap-2"><i class="fas fa-brain text-xl"></i> LLM Integration</span>
+                <span>•</span>
+                <span class="flex items-center gap-2"><i class="fas fa-chart-line text-xl"></i> Digital Marketing</span>
+            </div>
+            <div class="flex items-center gap-12 text-gray-500 font-semibold tracking-wider uppercase text-sm">
+                <span class="flex items-center gap-2"><i class="fab fa-adobe text-xl"></i> Creative Suite</span>
+                <span>•</span>
+                <span class="flex items-center gap-2"><i class="fas fa-code text-xl"></i> AI Web Gen</span>
+                <span>•</span>
+                <span class="flex items-center gap-2"><i class="fab fa-python text-xl"></i> Automation</span>
+                <span>•</span>
+                <span class="flex items-center gap-2"><i class="fas fa-shopping-cart text-xl"></i> E-Commerce</span>
+                <span>•</span>
+                <span class="flex items-center gap-2"><i class="fas fa-brain text-xl"></i> LLM Integration</span>
+                <span>•</span>
+                <span class="flex items-center gap-2"><i class="fas fa-chart-line text-xl"></i> Digital Marketing</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-panel rounded-3xl p-8 md:p-12 border border-dark-border shadow-2xl relative overflow-hidden">
+                
+                <!-- Background decoration inside card -->
+                <div class="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-brand-dark opacity-20 blur-[80px] pointer-events-none"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
+                    
+                    <!-- Contact Info -->
+                    <div>
+                        <h2 class="text-3xl md:text-5xl font-bold font-serif mb-6">Let's build something <span class="gradient-text">together.</span></h2>
+                        <p class="text-gray-400 mb-10 text-lg">
+                            Ready to streamline your workflow or create something beautiful? Drop a message, and I'll get back to you within 24 hours.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-dark-bg border border-dark-border flex items-center justify-center text-brand-DEFAULT shrink-0">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white font-medium">Email Me</h5>
+                                    <p class="text-gray-400 cursor-pointer hover:text-brand-light transition" onclick="copyText('hashirsulthan0@gmail.com')">hashirsulthan0@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-dark-bg border border-dark-border flex items-center justify-center text-brand-DEFAULT shrink-0">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white font-medium">Location</h5>
+                                    <p class="text-gray-400">Available Globally (Remote)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-12 flex gap-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-dark-bg border border-dark-border flex items-center justify-center text-gray-400 hover:text-white hover:border-brand-DEFAULT transition-all"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-dark-bg border border-dark-border flex items-center justify-center text-gray-400 hover:text-white hover:border-brand-DEFAULT transition-all"><i class="fab fa-github"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-dark-bg border border-dark-border flex items-center justify-center text-gray-400 hover:text-white hover:border-brand-DEFAULT transition-all"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="bg-dark-bg/50 rounded-2xl p-6 md:p-8 border border-dark-border">
+                        <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                            <div class="space-y-4">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-400 mb-1">Name</label>
+                                    <input type="text" id="name" class="w-full bg-dark-surface border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-DEFAULT focus:ring-1 focus:ring-brand-DEFAULT transition-colors" placeholder="John Doe" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-400 mb-1">Email</label>
+                                    <input type="email" id="email" class="w-full bg-dark-surface border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-DEFAULT focus:ring-1 focus:ring-brand-DEFAULT transition-colors" placeholder="john@example.com" required>
+                                </div>
+                                <div>
+                                    <label for="service" class="block text-sm font-medium text-gray-400 mb-1">Service Required</label>
+                                    <select id="service" class="w-full bg-dark-surface border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-DEFAULT focus:ring-1 focus:ring-brand-DEFAULT transition-colors appearance-none">
+                                        <option>Graphic Design</option>
+                                        <option>Web Creation</option>
+                                        <option>AI Automation</option>
+                                        <option>Video Editing</option>
+                                        <option>Marketing / E-Commerce</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-gray-400 mb-1">Project Details</label>
+                                    <textarea id="message" rows="4" class="w-full bg-dark-surface border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-DEFAULT focus:ring-1 focus:ring-brand-DEFAULT transition-colors resize-none" placeholder="Tell me about your project..." required></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-brand-DEFAULT hover:bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 mt-4">
+                                    <span>Send Request</span>
+                                    <i class="fas fa-paper-plane text-sm"></i>
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <!-- Success Message Toast (Hidden by default) -->
+                        <div id="toast" class="hidden mt-4 p-3 bg-green-500/20 border border-green-500/50 rounded-lg text-green-400 text-sm text-center">
+                            Message sent successfully! I will be in touch soon.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-dark-border bg-dark-bg py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-500 text-sm">© 2026 Hashir Sulthan. All rights reserved.</p>
+            <div class="flex gap-6 text-sm text-gray-500">
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Copy Email to Clipboard helper
+        function copyText(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                // Temporary visual feedback
+                const toast = document.getElementById('toast');
+                toast.textContent = "Email copied to clipboard!";
+                toast.classList.remove('hidden', 'bg-green-500/20', 'border-green-500/50', 'text-green-400');
+                toast.classList.add('bg-blue-500/20', 'border-blue-500/50', 'text-blue-400');
+                
+                setTimeout(() => {
+                    toast.classList.add('hidden');
+                    // Reset toast styles for form submission
+                    toast.classList.remove('bg-blue-500/20', 'border-blue-500/50', 'text-blue-400');
+                    toast.classList.add('bg-green-500/20', 'border-green-500/50', 'text-green-400');
+                    toast.textContent = "Message sent successfully! I will be in touch soon.";
+                }, 3000);
+            } catch (err) {
+                console.error('Failed to copy', err);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        // Form Submit Handler (Mock)
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            
+            // Loading state
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            btn.disabled = true;
+            btn.classList.add('opacity-75', 'cursor-not-allowed');
+
+            // Simulate API call
+            setTimeout(() => {
+                e.target.reset();
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                btn.classList.remove('opacity-75', 'cursor-not-allowed');
+                
+                const toast = document.getElementById('toast');
+                toast.classList.remove('hidden');
+                
+                setTimeout(() => {
+                    toast.classList.add('hidden');
+                }, 4000);
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
