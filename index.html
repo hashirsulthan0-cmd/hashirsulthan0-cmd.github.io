@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hashir Sulthan | Digital Alchemist</title>
-    <meta name="description" content="Hashir Sulthan — freelance designer and AI automation specialist. Graphic design, AI-built websites, video editing, e-commerce, marketing and document services.">
+    <meta name="description" content="Hashir Sulthan — freelance creative and AI specialist. Video editing, motion graphics, UI/UX, web development, backend, AI automation, presentations, documents, marketing and more.">
     <meta name="theme-color" content="#0a0907">
     <meta property="og:title" content="Hashir Sulthan | Digital Alchemist">
     <meta property="og:description" content="Design, AI automation and digital management to grow your business.">
@@ -287,6 +287,48 @@
         .card-cta h3 { font-size: 1.5rem; margin-top: 0; }
         .card-cta .btn { margin-top: 1.5rem; }
 
+        /* ---------- Service filter tabs ---------- */
+        .tabs { display: flex; gap: .5rem; margin: -1.5rem 0 2.25rem; overflow-x: auto; scrollbar-width: none; padding: .25rem .1rem .5rem;
+            -webkit-mask-image: linear-gradient(90deg, #000 90%, transparent); mask-image: linear-gradient(90deg, #000 90%, transparent); }
+        .tabs::-webkit-scrollbar { display: none; }
+        @media (min-width: 900px) { .tabs { flex-wrap: wrap; -webkit-mask-image: none; mask-image: none; } }
+        .tab { flex-shrink: 0; display: inline-flex; align-items: center; gap: .5rem; padding: .6rem 1.05rem; border-radius: 999px; cursor: pointer;
+            font: inherit; font-size: .875rem; font-weight: 500; color: var(--muted); border: 1px solid var(--glass-border);
+            background: linear-gradient(150deg, var(--glass-a), var(--glass-b)); transition: color .25s ease, border-color .25s ease, background .25s ease, transform .25s ease; }
+        .tab:hover { color: var(--fg); border-color: rgba(212,166,74,.5); transform: translateY(-1px); }
+        .tab-count { font-size: .7rem; font-weight: 600; min-width: 1.4rem; padding: .05rem .4rem; border-radius: 999px; background: rgba(255,255,255,.08); color: var(--muted); text-align: center; }
+        .tab.active { color: #1a1206; border-color: rgba(150,105,30,.6); background: var(--gold-grad); box-shadow: inset 0 1px 0 rgba(255,255,255,.55), 0 8px 18px -10px rgba(212,166,74,.6); }
+        .tab.active .tab-count { background: rgba(26,18,6,.15); color: #1a1206; }
+        .svc[hidden] { display: none; }
+        @media (max-width: 679.98px) {
+            .svc { display: grid; grid-template-columns: auto 1fr; column-gap: 1rem; padding: 1.35rem 1.25rem; border-radius: 1.3rem; }
+            .svc .app-icon { width: 2.8rem; height: 2.8rem; font-size: 1.05rem; grid-row: span 2; }
+            .svc h3 { margin: .1rem 2rem .35rem 0; font-size: 1.08rem; }
+            .svc p { font-size: .9rem; }
+            .svc .tags { display: none; }
+            .svc .card-num { top: 1.3rem; right: 1.25rem; }
+        }
+        .svc.pop { animation: pop .55s var(--ease) both; animation-delay: var(--pd, 0ms); }
+        @keyframes pop { from { opacity: 0; transform: translateY(18px) scale(.97); } to { opacity: 1; transform: none; } }
+        @media (min-width: 1040px) {
+            .card-last { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: space-between; gap: 2rem; }
+            .card-last .btn { margin-top: 0; flex-shrink: 0; }
+        }
+        .card-last h3 { margin-top: .9rem; }
+
+        /* ---------- AI toolkit ---------- */
+        .toolkit { display: grid; gap: 2.5rem; align-items: center; padding: 2.25rem 1.5rem; border-radius: 2rem; border: 1px solid var(--line);
+            background: radial-gradient(70% 90% at 100% 0%, rgba(212,166,74,.12), transparent 60%), var(--bg-soft); }
+        @media (min-width: 960px) { .toolkit { grid-template-columns: .9fr 1.1fr; gap: 4rem; padding: 3.5rem; } }
+        .tools { display: grid; grid-template-columns: repeat(2, 1fr); gap: .7rem; }
+        @media (min-width: 560px) { .tools { grid-template-columns: repeat(3, 1fr); } }
+        .tool { display: flex; flex-direction: column; gap: .15rem; padding: .95rem 1rem; border-radius: 1rem; border: 1px solid var(--glass-border);
+            background: linear-gradient(150deg, var(--glass-a), var(--glass-b)); box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+            transition: border-color .3s ease, transform .4s var(--ease), box-shadow .3s ease; }
+        .tool:hover { border-color: rgba(212,166,74,.55); transform: translateY(-3px); box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 14px 30px -16px rgba(212,166,74,.45); }
+        .tool-name { font-family: var(--font-display); font-weight: 600; font-size: .95rem; }
+        .tool-by { font-size: .72rem; color: var(--gold-text); letter-spacing: .04em; }
+
         /* ---------- About ---------- */
         .about-grid { display: grid; gap: 3rem; align-items: center; }
         @media (min-width: 960px) { .about-grid { grid-template-columns: .9fr 1.1fr; gap: 5rem; } }
@@ -524,22 +566,28 @@
         <div class="marquee" aria-label="Skills">
             <div class="marquee-track">
                 <div class="marquee-group">
-                    <span class="marquee-item"><i class="fab fa-adobe"></i> Creative Suite</span><span class="marquee-star">✦</span>
-                    <span class="marquee-item"><i class="fas fa-code"></i> AI Web Builds</span><span class="marquee-star">✦</span>
-                    <span class="marquee-item"><i class="fab fa-python"></i> Automation</span><span class="marquee-star">✦</span>
-                    <span class="marquee-item"><i class="fas fa-cart-shopping"></i> E-Commerce</span><span class="marquee-star">✦</span>
-                    <span class="marquee-item"><i class="fas fa-brain"></i> LLM Integration</span><span class="marquee-star">✦</span>
-                    <span class="marquee-item"><i class="fas fa-film"></i> Video Editing</span><span class="marquee-star">✦</span>
-                    <span class="marquee-item"><i class="fas fa-chart-line"></i> Digital Marketing</span><span class="marquee-star">✦</span>
+                    <span class="marquee-item"><i class="fas fa-clapperboard"></i> Video Editing</span><span class="marquee-star">✦</span>
+                    <span class="marquee-item"><i class="fas fa-wand-magic-sparkles"></i> Motion Graphics</span><span class="marquee-star">✦</span>
+                    <span class="marquee-item"><i class="fas fa-object-group"></i> UI / UX</span><span class="marquee-star">✦</span>
+                    <span class="marquee-item"><i class="fas fa-laptop-code"></i> Web Development</span><span class="marquee-star">✦</span>
+                    <span class="marquee-item"><i class="fas fa-server"></i> Backend</span><span class="marquee-star">✦</span>
+                    <span class="marquee-item"><i class="fas fa-robot"></i> AI Agents</span><span class="marquee-star">✦</span>
+                    <span class="marquee-item"><i class="fas fa-person-chalkboard"></i> Pitch Decks</span><span class="marquee-star">✦</span>
+                    <span class="marquee-item"><i class="fas fa-table"></i> Spreadsheets</span><span class="marquee-star">✦</span>
+                    <span class="marquee-item"><i class="fas fa-palette"></i> Branding</span><span class="marquee-star">✦</span>
+                    <span class="marquee-item"><i class="fas fa-bullhorn"></i> Marketing</span><span class="marquee-star">✦</span>
                 </div>
                 <div class="marquee-group" aria-hidden="true">
-                    <span class="marquee-item"><i class="fab fa-adobe"></i> Creative Suite</span><span class="marquee-star">✦</span>
-                    <span class="marquee-item"><i class="fas fa-code"></i> AI Web Builds</span><span class="marquee-star">✦</span>
-                    <span class="marquee-item"><i class="fab fa-python"></i> Automation</span><span class="marquee-star">✦</span>
-                    <span class="marquee-item"><i class="fas fa-cart-shopping"></i> E-Commerce</span><span class="marquee-star">✦</span>
-                    <span class="marquee-item"><i class="fas fa-brain"></i> LLM Integration</span><span class="marquee-star">✦</span>
-                    <span class="marquee-item"><i class="fas fa-film"></i> Video Editing</span><span class="marquee-star">✦</span>
-                    <span class="marquee-item"><i class="fas fa-chart-line"></i> Digital Marketing</span><span class="marquee-star">✦</span>
+                    <span class="marquee-item"><i class="fas fa-clapperboard"></i> Video Editing</span><span class="marquee-star">✦</span>
+                    <span class="marquee-item"><i class="fas fa-wand-magic-sparkles"></i> Motion Graphics</span><span class="marquee-star">✦</span>
+                    <span class="marquee-item"><i class="fas fa-object-group"></i> UI / UX</span><span class="marquee-star">✦</span>
+                    <span class="marquee-item"><i class="fas fa-laptop-code"></i> Web Development</span><span class="marquee-star">✦</span>
+                    <span class="marquee-item"><i class="fas fa-server"></i> Backend</span><span class="marquee-star">✦</span>
+                    <span class="marquee-item"><i class="fas fa-robot"></i> AI Agents</span><span class="marquee-star">✦</span>
+                    <span class="marquee-item"><i class="fas fa-person-chalkboard"></i> Pitch Decks</span><span class="marquee-star">✦</span>
+                    <span class="marquee-item"><i class="fas fa-table"></i> Spreadsheets</span><span class="marquee-star">✦</span>
+                    <span class="marquee-item"><i class="fas fa-palette"></i> Branding</span><span class="marquee-star">✦</span>
+                    <span class="marquee-item"><i class="fas fa-bullhorn"></i> Marketing</span><span class="marquee-star">✦</span>
                 </div>
             </div>
         </div>
@@ -550,68 +598,198 @@
                 <div class="head head-split">
                     <div class="reveal">
                         <span class="eyebrow">What I do</span>
-                        <h2 class="h-section">Premium digital services, <span class="text-gold serif-i">end to end.</span></h2>
+                        <h2 class="h-section">20 services, <span class="text-gold serif-i">one partner.</span></h2>
                     </div>
-                    <p class="lead reveal" style="--d:120ms">From creative visuals to complex technical workflows — one partner who designs it, builds it and keeps it running.</p>
+                    <p class="lead reveal" style="--d:120ms">Video, design, websites, apps, AI, documents and marketing — powered by the best AI tools and finished by hand. Pick a category to explore.</p>
                 </div>
 
-                <div class="cards">
-                    <article class="glass-card reveal" style="--d:0ms">
+                <div class="tabs reveal" role="toolbar" aria-label="Filter services">
+                    <button type="button" class="tab active" data-filter="all" aria-pressed="true">All <span class="tab-count">20</span></button>
+                    <button type="button" class="tab" data-filter="video" aria-pressed="false">Video &amp; Motion <span class="tab-count">3</span></button>
+                    <button type="button" class="tab" data-filter="design" aria-pressed="false">Design <span class="tab-count">3</span></button>
+                    <button type="button" class="tab" data-filter="web" aria-pressed="false">Web &amp; Apps <span class="tab-count">3</span></button>
+                    <button type="button" class="tab" data-filter="ai" aria-pressed="false">AI &amp; Automation <span class="tab-count">3</span></button>
+                    <button type="button" class="tab" data-filter="docs" aria-pressed="false">Docs &amp; Slides <span class="tab-count">4</span></button>
+                    <button type="button" class="tab" data-filter="growth" aria-pressed="false">Marketing &amp; Business <span class="tab-count">4</span></button>
+                </div>
+
+                <div class="cards" id="svcGrid">
+                    <article class="glass-card svc reveal" data-cat="video" style="--d:0ms">
                         <span class="spot"></span><span class="card-num">01</span>
-                        <span class="app-icon"><i class="fas fa-palette"></i></span>
-                        <h3>Graphic Design</h3>
-                        <p>Visual identities, logos, marketing materials and social assets that capture attention and say exactly what your brand stands for.</p>
-                        <div class="tags"><span class="tag">Branding</span><span class="tag">Social posts</span><span class="tag">Print</span></div>
-                    </article>
-                    <article class="glass-card reveal" style="--d:90ms">
-                        <span class="spot"></span><span class="card-num">02</span>
-                        <span class="app-icon"><i class="fas fa-globe"></i></span>
-                        <h3>Websites built with AI</h3>
-                        <p>Fast, modern, mobile-first websites with smooth motion and sharp copy — launched in days, not months.</p>
-                        <div class="tags"><span class="tag">Landing pages</span><span class="tag">Business sites</span><span class="tag">SEO</span></div>
-                    </article>
-                    <article class="glass-card reveal" style="--d:180ms">
-                        <span class="spot"></span><span class="card-num">03</span>
                         <span class="app-icon"><i class="fas fa-clapperboard"></i></span>
                         <h3>Video Editing</h3>
-                        <p>Reels, YouTube and corporate videos with clean cuts, motion graphics, colour and sound that keep viewers watching.</p>
-                        <div class="tags"><span class="tag">Reels</span><span class="tag">YouTube</span><span class="tag">Ads</span></div>
+                        <p>Reels, YouTube videos, ads and corporate films with clean cuts, colour grading, sound design and captions that keep people watching.</p>
+                        <div class="tags"><span class="tag">Reels &amp; Shorts</span><span class="tag">YouTube</span><span class="tag">Ads</span><span class="tag">Subtitles</span></div>
                     </article>
-                    <article class="glass-card reveal" style="--d:0ms">
+                    <article class="glass-card svc reveal" data-cat="video" style="--d:90ms">
+                        <span class="spot"></span><span class="card-num">02</span>
+                        <span class="app-icon"><i class="fas fa-wand-magic-sparkles"></i></span>
+                        <h3>Motion Graphics</h3>
+                        <p>Animated logos, kinetic typography, explainer animations, lower thirds and social motion posts that make your brand move.</p>
+                        <div class="tags"><span class="tag">Logo animation</span><span class="tag">Explainers</span><span class="tag">Kinetic text</span><span class="tag">Intros</span></div>
+                    </article>
+                    <article class="glass-card svc reveal" data-cat="video" style="--d:180ms">
+                        <span class="spot"></span><span class="card-num">03</span>
+                        <span class="app-icon"><i class="fas fa-film"></i></span>
+                        <h3>AI Video &amp; Voiceover</h3>
+                        <p>Ad clips and visuals generated with Google Veo and other AI video tools, plus natural AI voiceovers and avatar videos.</p>
+                        <div class="tags"><span class="tag">Veo</span><span class="tag">AI ads</span><span class="tag">Voiceover</span><span class="tag">Avatars</span></div>
+                    </article>
+                    <article class="glass-card svc reveal" data-cat="design" style="--d:0ms">
                         <span class="spot"></span><span class="card-num">04</span>
-                        <span class="app-icon"><i class="fas fa-store"></i></span>
-                        <h3>E-Commerce Management</h3>
-                        <p>Store setup, registration and day-to-day management with optimised product listings so your shop runs smoothly.</p>
-                        <div class="tags"><span class="tag">Store setup</span><span class="tag">Listings</span><span class="tag">Operations</span></div>
+                        <span class="app-icon"><i class="fas fa-palette"></i></span>
+                        <h3>Graphic Design &amp; Branding</h3>
+                        <p>Logos, brand kits, social posts, posters, menus and packaging — a consistent look that makes your business recognisable.</p>
+                        <div class="tags"><span class="tag">Logos</span><span class="tag">Brand kits</span><span class="tag">Social posts</span><span class="tag">Print</span></div>
                     </article>
-                    <article class="glass-card reveal" style="--d:90ms">
+                    <article class="glass-card svc reveal" data-cat="design" style="--d:90ms">
                         <span class="spot"></span><span class="card-num">05</span>
-                        <span class="app-icon"><i class="fas fa-robot"></i></span>
-                        <h3>AI Automation (SLM/LLM)</h3>
-                        <p>Language-model assistants and automated workflows that take repetitive work off your plate and speed up your business.</p>
-                        <div class="tags"><span class="tag">Chatbots</span><span class="tag">Workflows</span><span class="tag">Integrations</span></div>
+                        <span class="app-icon"><i class="fas fa-object-group"></i></span>
+                        <h3>UI / UX Design</h3>
+                        <p>Wireframes, user flows and polished interfaces for websites and apps, with clickable prototypes before a line of code is written.</p>
+                        <div class="tags"><span class="tag">Wireframes</span><span class="tag">Prototypes</span><span class="tag">Design systems</span><span class="tag">Figma</span></div>
                     </article>
-                    <article class="glass-card reveal" style="--d:180ms">
+                    <article class="glass-card svc reveal" data-cat="design" style="--d:180ms">
                         <span class="spot"></span><span class="card-num">06</span>
+                        <span class="app-icon"><i class="fas fa-image"></i></span>
+                        <h3>AI Image Generation</h3>
+                        <p>Product photos, ad creatives, thumbnails and illustrations made with Gemini (Nano Banana) and other image models, then retouched by hand.</p>
+                        <div class="tags"><span class="tag">Product shots</span><span class="tag">Ad creatives</span><span class="tag">Thumbnails</span><span class="tag">Retouching</span></div>
+                    </article>
+                    <article class="glass-card svc reveal" data-cat="web" style="--d:0ms">
+                        <span class="spot"></span><span class="card-num">07</span>
+                        <span class="app-icon"><i class="fas fa-laptop-code"></i></span>
+                        <h3>Web Development</h3>
+                        <p>Fast, responsive websites and landing pages with smooth animation, SEO and WhatsApp integration — built and launched for you.</p>
+                        <div class="tags"><span class="tag">Business sites</span><span class="tag">Landing pages</span><span class="tag">SEO</span><span class="tag">Hosting</span></div>
+                    </article>
+                    <article class="glass-card svc reveal" data-cat="web" style="--d:90ms">
+                        <span class="spot"></span><span class="card-num">08</span>
+                        <span class="app-icon"><i class="fas fa-server"></i></span>
+                        <h3>Backend &amp; Databases</h3>
+                        <p>APIs, databases, login systems, admin panels, form backends and payments — the engine behind your website or app.</p>
+                        <div class="tags"><span class="tag">APIs</span><span class="tag">Auth</span><span class="tag">Admin panels</span><span class="tag">Payments</span></div>
+                    </article>
+                    <article class="glass-card svc reveal" data-cat="web" style="--d:180ms">
+                        <span class="spot"></span><span class="card-num">09</span>
+                        <span class="app-icon"><i class="fas fa-mobile-screen"></i></span>
+                        <h3>Web Apps &amp; Custom Tools</h3>
+                        <p>Dashboards, booking systems, internal tools and browser extensions built with AI coding agents like Claude Code and Codex.</p>
+                        <div class="tags"><span class="tag">Dashboards</span><span class="tag">Booking</span><span class="tag">Internal tools</span><span class="tag">Extensions</span></div>
+                    </article>
+                    <article class="glass-card svc reveal" data-cat="ai" style="--d:0ms">
+                        <span class="spot"></span><span class="card-num">10</span>
+                        <span class="app-icon"><i class="fas fa-robot"></i></span>
+                        <h3>AI Chatbots &amp; Agents</h3>
+                        <p>Custom assistants for your website or WhatsApp that answer customers, take bookings and qualify leads around the clock.</p>
+                        <div class="tags"><span class="tag">Website bots</span><span class="tag">WhatsApp bots</span><span class="tag">AI agents</span><span class="tag">LLM</span></div>
+                    </article>
+                    <article class="glass-card svc reveal" data-cat="ai" style="--d:90ms">
+                        <span class="spot"></span><span class="card-num">11</span>
+                        <span class="app-icon"><i class="fas fa-gears"></i></span>
+                        <h3>Workflow Automation</h3>
+                        <p>Connect your apps and let routine work run itself — emails, reports, data entry, follow-ups and scheduled tasks.</p>
+                        <div class="tags"><span class="tag">Email</span><span class="tag">Reports</span><span class="tag">Integrations</span><span class="tag">Scheduling</span></div>
+                    </article>
+                    <article class="glass-card svc reveal" data-cat="ai" style="--d:180ms">
+                        <span class="spot"></span><span class="card-num">12</span>
+                        <span class="app-icon"><i class="fas fa-magnifying-glass-chart"></i></span>
+                        <h3>AI Research &amp; Analysis</h3>
+                        <p>Deep research on markets, competitors and ideas, turned into clear summaries and recommendations you can act on.</p>
+                        <div class="tags"><span class="tag">Market research</span><span class="tag">Competitors</span><span class="tag">Summaries</span><span class="tag">Insights</span></div>
+                    </article>
+                    <article class="glass-card svc reveal" data-cat="docs" style="--d:0ms">
+                        <span class="spot"></span><span class="card-num">13</span>
+                        <span class="app-icon"><i class="fas fa-person-chalkboard"></i></span>
+                        <h3>Presentations &amp; Pitch Decks</h3>
+                        <p>Investor pitches, company profiles, sales decks and training slides in PowerPoint, Google Slides or Keynote.</p>
+                        <div class="tags"><span class="tag">Pitch decks</span><span class="tag">Company profiles</span><span class="tag">Google Slides</span><span class="tag">PowerPoint</span></div>
+                    </article>
+                    <article class="glass-card svc reveal" data-cat="docs" style="--d:90ms">
+                        <span class="spot"></span><span class="card-num">14</span>
+                        <span class="app-icon"><i class="fas fa-file-lines"></i></span>
+                        <h3>Documents &amp; Reports</h3>
+                        <p>Proposals, quotations, reports, CVs, letters and manuals — written, formatted and exported to Word, PDF or Google Docs.</p>
+                        <div class="tags"><span class="tag">Proposals</span><span class="tag">Quotations</span><span class="tag">CVs</span><span class="tag">PDF</span></div>
+                    </article>
+                    <article class="glass-card svc reveal" data-cat="docs" style="--d:180ms">
+                        <span class="spot"></span><span class="card-num">15</span>
+                        <span class="app-icon"><i class="fas fa-table"></i></span>
+                        <h3>Spreadsheets &amp; Data</h3>
+                        <p>Excel and Google Sheets trackers, formulas, invoices, data cleaning and dashboards with clear charts.</p>
+                        <div class="tags"><span class="tag">Excel</span><span class="tag">Google Sheets</span><span class="tag">Dashboards</span><span class="tag">Data cleanup</span></div>
+                    </article>
+                    <article class="glass-card svc reveal" data-cat="docs" style="--d:0ms">
+                        <span class="spot"></span><span class="card-num">16</span>
+                        <span class="app-icon"><i class="fas fa-graduation-cap"></i></span>
+                        <h3>Student &amp; Academic Help</h3>
+                        <p>Formatting, project structure, presentations, diagrams and data entry for assignments and academic projects.</p>
+                        <div class="tags"><span class="tag">Formatting</span><span class="tag">Projects</span><span class="tag">Diagrams</span><span class="tag">Data entry</span></div>
+                    </article>
+                    <article class="glass-card svc reveal" data-cat="growth" style="--d:90ms">
+                        <span class="spot"></span><span class="card-num">17</span>
                         <span class="app-icon"><i class="fas fa-bullhorn"></i></span>
                         <h3>Marketing, Ads &amp; Social</h3>
-                        <p>Targeted ad campaigns and a curated social presence that build brand awareness and turn followers into customers.</p>
-                        <div class="tags"><span class="tag">Meta ads</span><span class="tag">Content plans</span><span class="tag">Growth</span></div>
+                        <p>Targeted Meta and Google ad campaigns, content calendars and social media management that turn followers into customers.</p>
+                        <div class="tags"><span class="tag">Meta ads</span><span class="tag">Google ads</span><span class="tag">Content plans</span><span class="tag">Social media</span></div>
                     </article>
-                    <article class="glass-card reveal" style="--d:0ms">
-                        <span class="spot"></span><span class="card-num">07</span>
-                        <span class="app-icon"><i class="fas fa-file-lines"></i></span>
-                        <h3>Doc Ops &amp; Student Help</h3>
-                        <p>Precise document formatting, conversions, data entry and structured help for assignments and academic projects.</p>
-                        <div class="tags"><span class="tag">Formatting</span><span class="tag">Data entry</span><span class="tag">Academic</span></div>
+                    <article class="glass-card svc reveal" data-cat="growth" style="--d:180ms">
+                        <span class="spot"></span><span class="card-num">18</span>
+                        <span class="app-icon"><i class="fas fa-pen-nib"></i></span>
+                        <h3>Content &amp; Copywriting</h3>
+                        <p>Website copy, blogs, product descriptions, captions and scripts — written for your audience and for search engines.</p>
+                        <div class="tags"><span class="tag">Web copy</span><span class="tag">Blogs</span><span class="tag">Scripts</span><span class="tag">Captions</span></div>
                     </article>
-                    <article class="glass-card card-wide card-cta card-last reveal" style="--d:90ms">
+                    <article class="glass-card svc reveal" data-cat="growth" style="--d:0ms">
+                        <span class="spot"></span><span class="card-num">19</span>
+                        <span class="app-icon"><i class="fas fa-store"></i></span>
+                        <h3>E-Commerce Management</h3>
+                        <p>Store setup, product listings, descriptions and day-to-day management so your online shop runs smoothly.</p>
+                        <div class="tags"><span class="tag">Store setup</span><span class="tag">Listings</span><span class="tag">Operations</span><span class="tag">Shopify</span></div>
+                    </article>
+                    <article class="glass-card svc reveal" data-cat="growth" style="--d:90ms">
+                        <span class="spot"></span><span class="card-num">20</span>
+                        <span class="app-icon"><i class="fas fa-briefcase"></i></span>
+                        <h3>Business Setup &amp; Google Workspace</h3>
+                        <p>Professional email, Google Business Profile, Drive, Calendar and Forms set up properly so your business runs organised.</p>
+                        <div class="tags"><span class="tag">Gmail</span><span class="tag">Business Profile</span><span class="tag">Drive</span><span class="tag">Forms</span></div>
+                    </article>
+                    <article class="glass-card card-wide card-cta card-last reveal">
                         <span class="spot"></span>
-                        <span class="eyebrow">Something else?</span>
-                        <h3 style="margin-top:1rem">Have a project that doesn't fit a box?</h3>
-                        <p>Tell me what you need — if it's digital, there's a good chance I can build it.</p>
+                        <div>
+                            <span class="eyebrow">Something else?</span>
+                            <h3>Have a project that doesn't fit a box?</h3>
+                            <p>If Claude, Gemini, Codex or Kimi can help make it, I can deliver it — tell me what you need.</p>
+                        </div>
                         <a href="https://wa.me/917892681741?text=Hi%20Hashir%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Ask on WhatsApp</a>
                     </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== AI toolkit ===== -->
+        <section id="toolkit" class="section" style="padding-top:0">
+            <div class="wrap">
+                <div class="toolkit">
+                    <div>
+                        <span class="eyebrow reveal">My AI toolkit</span>
+                        <h2 class="h-section reveal" style="--d:80ms">Built with the world's <span class="text-gold serif-i">best AI.</span></h2>
+                        <p class="lead reveal" style="--d:160ms">I work with the leading models from Anthropic, Google, OpenAI and Moonshot — and pick the right one for each job, so you get faster delivery without cutting corners on quality.</p>
+                    </div>
+                    <div class="tools">
+                        <div class="tool reveal" style="--d:0ms"><span class="tool-name">Claude</span><span class="tool-by">Anthropic</span></div>
+                        <div class="tool reveal" style="--d:60ms"><span class="tool-name">Claude Code</span><span class="tool-by">Anthropic</span></div>
+                        <div class="tool reveal" style="--d:120ms"><span class="tool-name">Gemini</span><span class="tool-by">Google</span></div>
+                        <div class="tool reveal" style="--d:180ms"><span class="tool-name">Veo &amp; Nano Banana</span><span class="tool-by">Google</span></div>
+                        <div class="tool reveal" style="--d:240ms"><span class="tool-name">Google Workspace</span><span class="tool-by">Docs · Sheets · Slides</span></div>
+                        <div class="tool reveal" style="--d:300ms"><span class="tool-name">Codex</span><span class="tool-by">OpenAI</span></div>
+                        <div class="tool reveal" style="--d:0ms"><span class="tool-name">ChatGPT</span><span class="tool-by">OpenAI</span></div>
+                        <div class="tool reveal" style="--d:60ms"><span class="tool-name">Kimi</span><span class="tool-by">Moonshot AI</span></div>
+                        <div class="tool reveal" style="--d:120ms"><span class="tool-name">Figma</span><span class="tool-by">UI design</span></div>
+                        <div class="tool reveal" style="--d:180ms"><span class="tool-name">Canva</span><span class="tool-by">Design</span></div>
+                        <div class="tool reveal" style="--d:240ms"><span class="tool-name">Adobe Suite</span><span class="tool-by">Creative</span></div>
+                        <div class="tool reveal" style="--d:300ms"><span class="tool-name">CapCut &amp; Premiere</span><span class="tool-by">Video</span></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -723,13 +901,26 @@
                         <div>
                             <label for="service" class="label">Service required</label>
                             <select id="service" name="service" class="field">
-                                <option>Graphic Design</option>
-                                <option>Website</option>
                                 <option>Video Editing</option>
-                                <option>E-Commerce Management</option>
-                                <option>AI Automation</option>
+                                <option>Motion Graphics</option>
+                                <option>AI Video &amp; Voiceover</option>
+                                <option>Graphic Design &amp; Branding</option>
+                                <option>UI / UX Design</option>
+                                <option>AI Image Generation</option>
+                                <option>Web Development</option>
+                                <option>Backend &amp; Databases</option>
+                                <option>Web Apps &amp; Custom Tools</option>
+                                <option>AI Chatbots &amp; Agents</option>
+                                <option>Workflow Automation</option>
+                                <option>AI Research &amp; Analysis</option>
+                                <option>Presentations &amp; Pitch Decks</option>
+                                <option>Documents &amp; Reports</option>
+                                <option>Spreadsheets &amp; Data</option>
+                                <option>Student &amp; Academic Help</option>
                                 <option>Marketing, Ads &amp; Social</option>
-                                <option>Doc Ops / Student Help</option>
+                                <option>Content &amp; Copywriting</option>
+                                <option>E-Commerce Management</option>
+                                <option>Business Setup &amp; Google Workspace</option>
                                 <option>Other</option>
                             </select>
                         </div>
@@ -837,6 +1028,25 @@
                 revealEls.forEach(el => io.observe(el));
             } else {
                 revealEls.forEach(el => el.classList.add('in'));
+            }
+
+            // Service filter tabs
+            const tabsEl = $('.tabs');
+            if (tabsEl) {
+                const svcCards = $$('.svc');
+                tabsEl.addEventListener('click', e => {
+                    const tab = e.target.closest('.tab');
+                    if (!tab || tab.classList.contains('active')) return;
+                    $$('.tab', tabsEl).forEach(t => { const on = t === tab; t.classList.toggle('active', on); t.setAttribute('aria-pressed', on); });
+                    const f = tab.dataset.filter;
+                    let n = 0;
+                    svcCards.forEach(card => {
+                        const show = f === 'all' || card.dataset.cat === f;
+                        card.classList.remove('pop', 'reveal', 'in');
+                        card.hidden = !show;
+                        if (show && !reduce) { void card.offsetWidth; card.style.setProperty('--pd', (n++ * 60) + 'ms'); card.classList.add('pop'); }
+                    });
+                });
             }
 
             // Process line draws in
