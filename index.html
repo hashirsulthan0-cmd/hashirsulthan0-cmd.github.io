@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hashir Sulthan | Digital Alchemist</title>
-    <meta name="description" content="Hashir Sulthan — freelance designer, video editor and web developer. Video editing, motion graphics, UI/UX, websites, business automation and chatbots, presentations, documents and marketing.">
+    <title>Digital Alchemist Studio – Design, Video, Web &amp; Automation</title>
+    <meta name="description" content="Digital Alchemist Studio, founded by Hashir Sulthan: brand films, motion graphics, websites, pitch decks, 3D visualisation and business automation for growing businesses in India, the UAE and worldwide.">
     <meta name="theme-color" content="#0a0907">
-    <meta property="og:title" content="Hashir Sulthan | Digital Alchemist">
-    <meta property="og:description" content="Design, video, websites and automation to grow your business.">
+    <meta property="og:title" content="Digital Alchemist Studio – Design, Video, Web &amp; Automation">
+    <meta property="og:description" content="Design, video, websites, 3D and automation under one roof. Led by founder Hashir Sulthan.">
     <meta property="og:image" content="https://hashirsulthan0-cmd.github.io/Gemini_Generated_Image_hwthxvhwthxvhwth.png">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23f6dc96'/%3E%3Cstop offset='1' stop-color='%23b8862d'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%230a0907'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-size='34' font-weight='700' fill='url(%23g)'%3EH%3C/text%3E%3C/svg%3E">
 
@@ -744,6 +744,196 @@
             .svc-more { display: flex; width: 100%; margin-top: .9rem; }
             .svc-more[hidden] { display: none; }
         }
+
+        /* ================= Work: category tiles (closed until clicked) ================= */
+        .wtiles { display: grid; gap: .85rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .wtiles > .wtile:last-child { grid-column: 1 / -1; }
+        @media (min-width: 680px) { .wtiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } .wtiles > .wtile:last-child { grid-column: auto; } }
+        @media (min-width: 1040px) { .wtiles { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; } }
+        .wtile { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: .35rem; min-height: 12.5rem; padding: 1.15rem 1.15rem 1rem;
+            text-align: left; font: inherit; color: inherit; cursor: pointer; border-radius: 1.35rem; border: 1px solid var(--line); overflow: hidden; isolation: isolate;
+            background: linear-gradient(160deg, var(--glass-a), var(--glass-b)), var(--surface);
+            box-shadow: inset 0 1px 0 var(--glass-hi), 0 14px 30px -22px rgba(0,0,0,.6);
+            transition: transform .45s var(--ease), border-color .3s ease, box-shadow .4s ease, opacity .3s ease; }
+        .wtile::after { content: ""; position: absolute; inset: auto -30% -60% -30%; height: 70%; z-index: -1; opacity: 0; transition: opacity .45s ease;
+            background: radial-gradient(closest-side, rgba(212,166,74,.22), transparent); }
+        .wtile:hover, .wtile:focus-visible { transform: translateY(-4px); border-color: rgba(212,166,74,.6); box-shadow: inset 0 1px 0 var(--glass-hi), 0 22px 44px -24px rgba(212,166,74,.45); }
+        .wtile:hover::after, .wtile.on::after { opacity: 1; }
+        .wtile.on { border-color: var(--gold); box-shadow: inset 0 1px 0 var(--glass-hi), 0 0 0 1px rgba(212,166,74,.35), 0 22px 44px -24px rgba(212,166,74,.5); }
+        .wtiles.has-open .wtile:not(.on) { opacity: .62; }
+        .wtiles.has-open .wtile:not(.on):hover { opacity: 1; }
+        .wtile-top { display: flex; width: 100%; justify-content: space-between; align-items: center; margin-bottom: .7rem; }
+        .wtile-ico { width: 2.6rem; height: 2.6rem; border-radius: .85rem; display: grid; place-items: center; color: #2a1b04; font-size: 1rem; background: var(--gold-grad);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.6), 0 8px 18px -10px rgba(212,166,74,.7); }
+        .wtile-n { font-family: var(--font-display); font-size: .75rem; font-weight: 600; letter-spacing: .12em; color: var(--muted); }
+        .wtile-t { font-family: var(--font-display); font-weight: 600; font-size: 1.12rem; letter-spacing: -.015em; line-height: 1.2; }
+        .wtile-d { font-size: .84rem; color: var(--muted); line-height: 1.4; }
+        .wtile-foot { margin-top: auto; padding-top: .9rem; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+        .wtile-c { font-size: .75rem; font-weight: 600; color: var(--gold-text); }
+        .wtile-go { display: inline-flex; align-items: center; gap: .3rem; padding: .35rem .55rem .35rem .8rem; border-radius: 999px; font-size: .78rem; font-weight: 600;
+            border: 1px solid rgba(212,166,74,.45); color: var(--gold-text); transition: background-color .3s ease, color .3s ease; }
+        .wtile-go svg { width: .95rem; height: .95rem; transition: transform .45s var(--ease); }
+        .wtile:hover .wtile-go, .wtile.on .wtile-go { background: var(--gold); color: #1a1206; border-color: var(--gold); }
+        .wtile.on .wtile-go svg { transform: rotate(180deg); }
+        .wtile-close { display: none; } .wtile.on .wtile-open { display: none; } .wtile.on .wtile-close { display: inline; }
+
+        .wpanel { position: relative; margin-top: 1.25rem; padding: 1.75rem; border-radius: 1.6rem; border: 1px solid var(--line); background: var(--bg); }
+        @media (min-width: 900px) { .wpanel { padding: 2.25rem; } }
+        .wpanel-close { position: absolute; top: 1.1rem; right: 1.1rem; display: inline-flex; align-items: center; gap: .35rem; min-height: 2.5rem; padding: .4rem .85rem;
+            border-radius: 999px; font: inherit; font-size: .8rem; font-weight: 600; cursor: pointer; color: var(--muted); border: 1px solid var(--glass-border); background: transparent; }
+        .wpanel-close:hover { color: var(--fg); border-color: var(--gold); }
+        .wpanel-close svg { width: .9rem; height: .9rem; }
+        .wpanel .wcap { padding-right: 6rem; }
+        .w3d-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); }
+        .w3d-card { display: grid; gap: .35rem; padding: 1rem; border-radius: 1.2rem; border: 1px solid var(--line); background: var(--bg-soft); transition: border-color .3s ease; }
+        .w3d-card:hover { border-color: var(--gold); }
+        .w3d-art { aspect-ratio: 16 / 9; border-radius: .9rem; display: grid; place-items: center; font-size: 2.4rem; color: var(--gold); margin-bottom: .5rem;
+            background: radial-gradient(circle at 50% 40%, rgba(212,166,74,.25), transparent 60%), repeating-linear-gradient(90deg, rgba(212,166,74,.08) 0 1px, transparent 1px 28px), repeating-linear-gradient(0deg, rgba(212,166,74,.08) 0 1px, transparent 1px 28px), var(--bg); }
+        .w3d-go { margin-top: .35rem; font-size: .82rem; font-weight: 600; color: var(--gold-text); }
+        @media (max-width: 679.98px) {
+            .wtile { min-height: 10.5rem; padding: 1rem .95rem .9rem; }
+            .wtile-t { font-size: 1rem; }
+            .wtile-d { font-size: .78rem; }
+            .wpanel { padding: 1.25rem 1.25rem 1rem; border-radius: 1.3rem; }
+            .wpanel .wgrid, .wpanel .wcodes { margin: 0 -1.25rem; padding: 0 1.25rem .5rem; }
+            .wpanel .wcap { padding-right: 5rem; font-size: 1.35rem; }
+        }
+
+        /* ================= Studio brand details ================= */
+        .logo-mark { font-size: 1rem; letter-spacing: -.04em; }
+        .hero .lead strong { color: var(--fg); font-weight: 600; }
+
+        /* ================= Automation lab ================= */
+        .auto-board { display: grid; gap: 1rem; padding: 1rem; border-radius: 1.8rem; border: 1px solid var(--line);
+            background: linear-gradient(160deg, var(--glass-a), var(--glass-b)), var(--surface); box-shadow: inset 0 1px 0 var(--glass-hi), 0 30px 60px -40px rgba(0,0,0,.7); }
+        @media (min-width: 940px) { .auto-board { grid-template-columns: .85fr 1.15fr; gap: 1.25rem; padding: 1.25rem; } }
+        .auto-label { margin: .25rem .4rem .6rem; font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+        .auto-pick { display: flex; flex-direction: column; gap: .4rem; }
+        .auto-tab { display: flex; align-items: center; gap: .85rem; width: 100%; padding: .8rem .9rem; border-radius: 1rem; cursor: pointer; text-align: left;
+            font: inherit; color: var(--fg); border: 1px solid transparent; background: transparent; transition: background-color .3s ease, border-color .3s ease; }
+        .auto-tab i { width: 2.4rem; height: 2.4rem; flex-shrink: 0; display: grid; place-items: center; border-radius: .8rem; color: var(--gold-text);
+            background: rgba(212,166,74,.1); border: 1px solid rgba(212,166,74,.25); transition: background .3s ease, color .3s ease; }
+        .auto-tab b { display: block; font-family: var(--font-display); font-weight: 600; font-size: .98rem; }
+        .auto-tab small { display: block; color: var(--muted); font-size: .8rem; }
+        .auto-tab:hover { background: rgba(212,166,74,.06); border-color: var(--line); }
+        .auto-tab.on { background: var(--bg); border-color: rgba(212,166,74,.55); }
+        .auto-tab.on i { color: #1a1206; background: var(--gold-grad); border-color: transparent; }
+        .auto-flow { position: relative; padding: 1.25rem 1.25rem 1.4rem; border-radius: 1.3rem; background: var(--bg); border: 1px solid var(--line); min-height: 25rem; }
+        .auto-flow-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .6rem; margin-bottom: 1.1rem; }
+        .auto-chip { display: inline-flex; align-items: center; gap: .45rem; padding: .3rem .7rem; border-radius: 999px; font-size: .75rem; font-weight: 600;
+            color: #3ddc84; background: rgba(61,220,132,.1); border: 1px solid rgba(61,220,132,.3); }
+        .auto-dot { position: relative; width: .5rem; height: .5rem; border-radius: 50%; background: #3ddc84; display: inline-block; }
+        .auto-dot::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: #3ddc84; animation: ping 1.8s cubic-bezier(0,0,.2,1) infinite; }
+        .auto-compare { font-size: .82rem; color: var(--muted); }
+        .auto-compare b { color: var(--gold-text); }
+        .auto-steps { list-style: none; margin: 0; padding: 0 0 0 .2rem; position: relative; display: grid; gap: .55rem; }
+        .auto-steps::before { content: ""; position: absolute; left: 1.35rem; top: 1rem; bottom: 1rem; width: 2px; background: var(--line); border-radius: 2px; }
+        .auto-steps::after { content: ""; position: absolute; left: calc(1.35rem - 3px); width: 8px; height: 8px; border-radius: 50%; background: var(--gold-hi);
+            box-shadow: 0 0 0 4px rgba(212,166,74,.18), 0 0 16px 3px rgba(212,166,74,.55); top: var(--py, 1rem); transition: top .55s var(--ease); }
+        .auto-step { position: relative; display: flex; align-items: center; gap: .85rem; padding: .55rem .75rem .55rem .35rem; border-radius: .9rem;
+            opacity: 0; transform: translateX(-8px); animation: stepIn .5s var(--ease) forwards; animation-delay: calc(var(--i) * 70ms);
+            transition: background-color .35s ease, border-color .35s ease; border: 1px solid transparent; }
+        .auto-step .si { position: relative; z-index: 1; width: 2.3rem; height: 2.3rem; flex-shrink: 0; border-radius: 50%; display: grid; place-items: center;
+            font-size: .85rem; color: var(--muted); background: var(--surface); border: 1px solid var(--line); transition: all .35s ease; }
+        .auto-step .st { font-size: .92rem; line-height: 1.35; }
+        .auto-step .sb { margin-left: auto; flex-shrink: 0; font-size: .68rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: .2rem .5rem;
+            border-radius: 999px; color: var(--muted); border: 1px solid var(--line); }
+        .auto-step .sb.you { color: var(--gold-text); border-color: rgba(212,166,74,.45); }
+        .auto-step.done .si { color: var(--gold-text); border-color: rgba(212,166,74,.5); }
+        .auto-step.lit { background: rgba(212,166,74,.07); border-color: rgba(212,166,74,.3); }
+        .auto-step.lit .si { color: #1a1206; background: var(--gold-grad); border-color: transparent; box-shadow: 0 0 18px -2px rgba(212,166,74,.6); }
+        @keyframes stepIn { to { opacity: 1; transform: none; } }
+
+        .auto-lower { display: grid; gap: 1rem; margin-top: 1rem; }
+        @media (min-width: 940px) { .auto-lower { grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.25rem; } }
+        .calc, .auto-side { padding: 1.5rem; border-radius: 1.6rem; border: 1px solid var(--line); background: var(--bg-soft); }
+        @media (min-width: 768px) { .calc, .auto-side { padding: 2rem; } }
+        .calc h3, .auto-side h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.2rem; letter-spacing: -.01em; margin: 0 0 1.1rem; }
+        .calc-row { display: grid; grid-template-columns: 1fr auto; gap: .35rem .75rem; align-items: center; margin-bottom: 1rem; }
+        .calc-row label { font-size: .88rem; color: var(--muted); }
+        .calc-row output { font-family: var(--font-display); font-weight: 600; color: var(--fg); }
+        .calc-row input { grid-column: 1 / -1; width: 100%; accent-color: var(--gold); height: 1.6rem; cursor: pointer; }
+        .calc-out { margin-top: 1.25rem; padding: 1.25rem; border-radius: 1.1rem; background: var(--bg); border: 1px solid rgba(212,166,74,.35); }
+        .calc-big { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: clamp(2.4rem, 6vw, 3.4rem); letter-spacing: -.03em; line-height: 1; }
+        .calc-big span { background: var(--gold-text-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .calc-big small { font-size: 1rem; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+        .calc-sub { margin: .5rem 0 0; color: var(--fg); font-weight: 500; }
+        .calc-formula { margin: .4rem 0 0; font-size: .78rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+        .calc-note { margin: .9rem 0 0; font-size: .78rem; color: var(--muted); }
+        .auto-tags { margin: 0 0 1.5rem; }
+        .auto-h { margin-top: .5rem !important; }
+        .auto-how { margin: 0 0 1.5rem; padding-left: 1.15rem; color: var(--muted); display: grid; gap: .45rem; font-size: .92rem; }
+        .auto-how b { color: var(--fg); }
+
+        /* ================= 3D studio ================= */
+        .studio3d { background: var(--bg-soft); border-block: 1px solid var(--line); }
+        .s3d-grid { display: grid; gap: 2.25rem; align-items: center; }
+        @media (min-width: 960px) { .s3d-grid { grid-template-columns: .85fr 1.15fr; gap: 3.5rem; } }
+        .s3d-list { list-style: none; padding: 0; margin: 1.5rem 0 2rem; display: grid; gap: .7rem; }
+        .s3d-list li { display: flex; gap: .75rem; align-items: flex-start; color: var(--muted); font-size: .95rem; }
+        .s3d-list i { color: var(--gold); width: 1.1rem; margin-top: .25rem; text-align: center; }
+        .v3d { position: relative; border-radius: 1.8rem; overflow: hidden; border: 1px solid var(--line);
+            background: radial-gradient(80% 70% at 50% 35%, rgba(212,166,74,.16), transparent 70%), linear-gradient(180deg, var(--surface), var(--bg)); }
+        .v3d-bar { position: absolute; z-index: 2; left: .9rem; right: .9rem; top: .9rem; display: flex; align-items: center; justify-content: space-between; gap: .5rem; pointer-events: none; }
+        .v3d-seg { display: inline-flex; padding: .25rem; border-radius: 999px; border: 1px solid var(--glass-border); background: var(--surface); pointer-events: auto; }
+        .v3d-seg button { font: inherit; font-size: .8rem; font-weight: 600; min-height: 2.4rem; padding: .35rem .95rem; border-radius: 999px; border: 0; cursor: pointer; color: var(--muted); background: transparent; }
+        .v3d-seg button.on { color: #1a1206; background: var(--gold-grad); }
+        .v3d-live { display: inline-flex; align-items: center; gap: .45rem; padding: .35rem .7rem; border-radius: 999px; font-size: .72rem; font-weight: 600; color: var(--fg);
+            background: var(--surface); border: 1px solid var(--glass-border); }
+        .v3d-stage { position: relative; aspect-ratio: 4 / 3; cursor: grab; touch-action: pan-y; }
+        .v3d-stage:active { cursor: grabbing; }
+        .v3d-stage canvas { display: block; width: 100% !important; height: 100% !important; }
+        .v3d-msg { position: absolute; inset: 0; margin: 0; display: grid; place-items: center; color: var(--muted); font-size: .9rem; text-align: center; padding: 1rem; }
+        .v3d-hint { position: absolute; z-index: 2; bottom: .9rem; left: 50%; transform: translateX(-50%); margin: 0; padding: .35rem .8rem; border-radius: 999px; font-size: .75rem;
+            color: var(--muted); background: var(--surface); border: 1px solid var(--glass-border); white-space: nowrap; pointer-events: none; transition: opacity .6s ease; }
+        .v3d.used .v3d-hint { opacity: 0; }
+
+        .founder { margin-top: 1.5rem; padding: 1.1rem 1.25rem; border-radius: 1.1rem; border: 1px solid var(--line); border-left: 3px solid var(--gold); background: var(--bg); }
+        .founder p { margin: 0; color: var(--muted); font-size: .95rem; }
+        .founder strong { color: var(--fg); }
+        .founder .langs { margin-top: .6rem; font-size: .85rem; }
+        .founder .langs i { color: var(--gold); margin-right: .35rem; }
+
+        @media (max-width: 679.98px) {
+            .auto-board { padding: .6rem; border-radius: 1.3rem; }
+            .auto-pick { flex-direction: row; overflow-x: auto; scrollbar-width: none; gap: .5rem; padding-bottom: .2rem; }
+            .auto-pick::-webkit-scrollbar { display: none; }
+            .auto-label { display: none; }
+            .auto-tab { flex: 0 0 auto; width: auto; padding: .55rem .8rem; border-color: var(--line); }
+            .auto-tab small { display: none; }
+            .auto-tab i { width: 2rem; height: 2rem; font-size: .8rem; }
+            .auto-tab b { font-size: .85rem; white-space: nowrap; }
+            .auto-flow { min-height: 0; padding: 1rem .8rem; }
+            .auto-step .st { font-size: .85rem; }
+            .calc, .auto-side { padding: 1.25rem; border-radius: 1.3rem; }
+            .auto-how { display: none; }
+            .auto-h { display: none; }
+            .s3d-list { margin: 1rem 0 1.25rem; gap: .5rem; }
+            .s3d-list li { font-size: .88rem; }
+            .v3d { border-radius: 1.3rem; }
+            .v3d-stage { aspect-ratio: 1 / 1; }
+            .founder { padding: .9rem 1rem; }
+            .founder p { font-size: .88rem; }
+        }
+        @media (prefers-reduced-motion: reduce) { .auto-step { animation: none; opacity: 1; transform: none; } .auto-steps::after { transition: none; } }
+        @media (max-width: 679.98px) {
+            .auto-step { padding: .3rem .5rem .3rem .2rem; gap: .65rem; }
+            .auto-step .si { width: 1.95rem; height: 1.95rem; font-size: .75rem; }
+            .auto-steps { gap: .3rem; }
+            .auto-steps::before, .auto-steps::after { left: calc(1.17rem); }
+            .auto-steps::after { left: calc(1.17rem - 3px); }
+            .auto-step .sb:not(.you) { display: none; }
+            .auto-flow-head { margin-bottom: .7rem; }
+            .calc-row { margin-bottom: .7rem; }
+            .calc-note { display: none; }
+            .calc-out { padding: 1rem; margin-top: .9rem; }
+            .auto-tags { margin-bottom: 1.1rem; }
+            #about .about-visual { display: none; }
+            .logo-text small .lt-b { display: none; }
+            .dock { gap: .4rem; }
+            .dock a { width: 2.4rem; height: 2.4rem; font-size: .7rem; }
+            .dock a i { font-size: .9rem; }
+        }
     </style>
     <script>(function(){var t='dark';try{t=localStorage.getItem('theme')||'dark'}catch(e){}document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');})();</script>
     <script>document.documentElement.classList.add('js');</script>
@@ -757,17 +947,17 @@
     <!-- ===== Header ===== -->
     <header class="header" id="header">
         <div class="wrap nav">
-            <a href="#home" class="logo" aria-label="Hashir Sulthan — home">
-                <span class="logo-mark">H</span>
-                <span class="logo-text">Hashir Sulthan<small>Digital Alchemist</small></span>
+            <a href="#home" class="logo" aria-label="Digital Alchemist Studio – home">
+                <span class="logo-mark">DA</span>
+                <span class="logo-text">Digital Alchemist<small><span class="lt-a">Studio</span><span class="lt-b"> · by Hashir Sulthan</span></small></span>
             </a>
             <nav class="nav-links" aria-label="Main">
-                <a href="#home">Home</a>
-                <a href="#services">Services</a>
                 <a href="#work">Work</a>
-                <a href="#about">About</a>
-                <a href="#process">Process</a>
-                <a href="#contact" class="btn btn-gold">Hire Me</a>
+                <a href="#automation">Automation</a>
+                <a href="#services">Services</a>
+                <a href="#studio3d">3D</a>
+                <a href="#about">Studio</a>
+                <a href="#contact" class="btn btn-gold">Start a project</a>
             </nav>
             <div class="nav-end"><button type="button" class="theme-btn" id="themeBtn" aria-label="Switch to light mode" title="Switch theme">
                 <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -779,11 +969,13 @@
 
     <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
         <a href="#home" class="m-link" style="--i:0">Home <small>01</small></a>
-        <a href="#services" class="m-link" style="--i:1">Services <small>02</small></a>
-        <a href="#work" class="m-link" style="--i:2">Work <small>03</small></a>
-        <a href="#about" class="m-link" style="--i:3">About <small>04</small></a>
-        <a href="#process" class="m-link" style="--i:4">Process <small>05</small></a>
-        <a href="#contact" class="m-link" style="--i:5">Contact <small>06</small></a>
+        <a href="#work" class="m-link" style="--i:1">Work <small>02</small></a>
+        <a href="#automation" class="m-link" style="--i:2">Automation <small>03</small></a>
+        <a href="#services" class="m-link" style="--i:3">Services <small>04</small></a>
+        <a href="#studio3d" class="m-link" style="--i:4">3D studio <small>05</small></a>
+        <a href="#about" class="m-link" style="--i:5">Studio <small>06</small></a>
+        <a href="#process" class="m-link" style="--i:6">Process <small>07</small></a>
+        <a href="#contact" class="m-link" style="--i:7">Contact <small>08</small></a>
         <a href="https://wa.me/917892681741?text=Hi%20Hashir%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
     </div>
 
@@ -796,16 +988,16 @@
 
             <div class="wrap hero-grid">
                 <div>
-                    <div class="pill fade-up" style="--d:100ms"><span class="dot"></span> Available for freelance projects</div>
+                    <div class="pill fade-up" style="--d:100ms"><span class="dot"></span> Studio open for new projects</div>
                     <h1>
-                        <span class="line"><span style="--i:0">I turn ideas</span></span>
-                        <span class="line"><span style="--i:1">into <span class="text-gold serif-i">digital</span></span></span>
-                        <span class="line"><span style="--i:2">reality.</span></span>
+                        <span class="line"><span style="--i:0">Design, video</span></span>
+                        <span class="line"><span style="--i:1">&amp; <span class="text-gold serif-i">automation</span></span></span>
+                        <span class="line"><span style="--i:2">under one roof.</span></span>
                     </h1>
-                    <p class="lead fade-up" style="--d:700ms">I'm Hashir Sulthan — a multidisciplinary freelancer specialising in design, video, websites and business automation that helps businesses look sharper and work faster.</p>
+                    <p class="lead fade-up" style="--d:700ms">Digital Alchemist Studio helps growing businesses look premium online and run smoothly behind the scenes. Led by founder <strong>Hashir Sulthan</strong>, we make brand films, websites, decks and 3D – and build the automations that take repetitive work off your team.</p>
                     <div class="hero-cta fade-up" style="--d:850ms">
-                        <a href="#services" class="btn btn-gold">Explore services <i class="fas fa-arrow-right"></i></a>
-                        <a href="https://wa.me/917892681741?text=Hi%20Hashir%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener" class="btn btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp me</a>
+                        <a href="#work" class="btn btn-gold">See selected work <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://wa.me/917892681741?text=Hi%20Hashir%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Talk to Hashir</a>
                     </div>
                     <div class="hero-meta fade-up" style="--d:1000ms">
                         <div><i class="fas fa-bolt"></i> Reply within 24 hours</div>
@@ -820,20 +1012,20 @@
                         <div class="ring" aria-hidden="true"></div>
                         <div class="ring ring-2" aria-hidden="true"></div>
                         <div class="portrait">
-                            <img src="Gemini_Generated_Image_hwthxvhwthxvhwth.png" alt="Portrait of Hashir Sulthan" width="400" height="400" fetchpriority="high" onerror="this.src='https://placehold.co/400x400/16130f/d4a64a?text=HS'">
+                            <img src="Gemini_Generated_Image_hwthxvhwthxvhwth.png" alt="Hashir Sulthan, founder of Digital Alchemist Studio" width="400" height="400" fetchpriority="high" onerror="this.src='https://placehold.co/400x400/16130f/d4a64a?text=HS'">
                         </div>
                         <div class="float-card fc-1">
-                            <span class="app-icon app-icon-sm"><i class="fas fa-robot"></i></span>
-                            <div><p class="k">Specialist</p><p class="v">AI Automation</p></div>
+                            <span class="app-icon app-icon-sm"><i class="fas fa-gears"></i></span>
+                            <div><p class="k">We automate</p><p class="v">Repetitive work</p></div>
                         </div>
                         <div class="float-card fc-2">
-                            <span class="app-icon app-icon-sm"><i class="fas fa-pen-nib"></i></span>
-                            <div><p class="k">Creative</p><p class="v">Design &amp; Video</p></div>
+                            <span class="app-icon app-icon-sm"><i class="fas fa-user-tie"></i></span>
+                            <div><p class="k">Founder &amp; lead</p><p class="v">Hashir Sulthan</p></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <a href="#services" class="scroll-cue" aria-label="Scroll to services">Scroll<span></span></a>
+            <a href="#work" class="scroll-cue" aria-label="Scroll to work">Scroll<span></span></a>
         </section>
 
         <!-- ===== Marquee ===== -->
@@ -867,20 +1059,283 @@
         </div>
 
         <!-- ===== Services ===== -->
+
+        <!-- ===== AI toolkit ===== -->
+
+        <!-- ===== About ===== -->
+
+        <!-- ===== Work ===== -->
+        <section id="work" class="section work">
+            <div class="wrap">
+                <div class="head head-split">
+                    <div class="reveal">
+                        <span class="eyebrow">Work</span>
+                        <h2 class="h-section">Selected <span class="text-gold serif-i">work.</span></h2>
+                    </div>
+                    <p class="lead reveal" style="--d:120ms">Real projects for real businesses. Choose a category to open it – every piece can be played or flipped through.</p>
+                </div>
+
+                <div class="wtiles reveal"><button type="button" class="wtile" id="wt-motion" aria-expanded="false" aria-controls="wp-motion">
+  <span class="wtile-top"><span class="wtile-ico"><i class="fas fa-film" aria-hidden="true"></i></span><span class="wtile-n">01</span></span>
+  <span class="wtile-t">Motion graphics</span><span class="wtile-d">Brand films, reels and explainer Shorts</span>
+  <span class="wtile-foot"><span class="wtile-c">9 pieces</span><span class="wtile-go"><span class="wtile-open">Open</span><span class="wtile-close">Close</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+</button><button type="button" class="wtile" id="wt-decks" aria-expanded="false" aria-controls="wp-decks">
+  <span class="wtile-top"><span class="wtile-ico"><i class="fas fa-display" aria-hidden="true"></i></span><span class="wtile-n">02</span></span>
+  <span class="wtile-t">Presentations</span><span class="wtile-d">Pitch decks, seminars and training</span>
+  <span class="wtile-foot"><span class="wtile-c">4 decks</span><span class="wtile-go"><span class="wtile-open">Open</span><span class="wtile-close">Close</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+</button><button type="button" class="wtile" id="wt-docs" aria-expanded="false" aria-controls="wp-docs">
+  <span class="wtile-top"><span class="wtile-ico"><i class="fas fa-file-lines" aria-hidden="true"></i></span><span class="wtile-n">03</span></span>
+  <span class="wtile-t">Documents &amp; design</span><span class="wtile-d">Quotations, rate cards, logos and print</span>
+  <span class="wtile-foot"><span class="wtile-c">9 pieces</span><span class="wtile-go"><span class="wtile-open">Open</span><span class="wtile-close">Close</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+</button><button type="button" class="wtile" id="wt-code" aria-expanded="false" aria-controls="wp-code">
+  <span class="wtile-top"><span class="wtile-ico"><i class="fas fa-code" aria-hidden="true"></i></span><span class="wtile-n">04</span></span>
+  <span class="wtile-t">Code &amp; websites</span><span class="wtile-d">Websites and in-house software</span>
+  <span class="wtile-foot"><span class="wtile-c">4 projects</span><span class="wtile-go"><span class="wtile-open">Open</span><span class="wtile-close">Close</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+</button><button type="button" class="wtile" id="wt-3d" aria-expanded="false" aria-controls="wp-3d">
+  <span class="wtile-top"><span class="wtile-ico"><i class="fas fa-cube" aria-hidden="true"></i></span><span class="wtile-n">05</span></span>
+  <span class="wtile-t">3D studio</span><span class="wtile-d">Spaces for real estate and restaurants</span>
+  <span class="wtile-foot"><span class="wtile-c">Live demo</span><span class="wtile-go"><span class="wtile-open">Open</span><span class="wtile-close">Close</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+</button></div>
+
+                <div class="wpanel" id="wp-motion" role="region" aria-labelledby="wt-motion" hidden>
+                    <button type="button" class="wpanel-close" aria-label="Close this category">Close <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+                    <p class="wcap">Our <span class="text-gold serif-i">motion graphics.</span></p>
+                    <p class="wsub">Brand films, reels and explainer Shorts – planned, designed, animated and edited in-house.</p>
+                    <div class="wfeature">
+                        <div class="wplayer" data-o="w">
+                            <video id="featVideo" src="work/renz-dark-16x9.mp4" poster="work/renz-dark-16x9.jpg" controls playsinline preload="none" aria-label="RENZ brand film"></video>
+                        </div>
+                        <div class="wfeature-body">
+                            <span class="wkicker">Featured · 1:48</span>
+                            <h3>RENZ brand film</h3>
+                            <p>A promo for a UAE document attestation and business setup company: logo reveal, a “paperwork shouldn’t slow you down” hook, animated service cards, ready-made packages and the digital-solutions division. Delivered in four versions.</p>
+                            <div class="wvers" role="group" aria-label="Choose a version"><button type="button" class="wver on" data-src="work/renz-dark-16x9.mp4" data-poster="work/renz-dark-16x9.jpg" data-o="w" aria-pressed="true">Dark · 16:9</button><button type="button" class="wver" data-src="work/renz-light-16x9.mp4" data-poster="work/renz-light-16x9.jpg" data-o="w" aria-pressed="false">Light · 16:9</button><button type="button" class="wver" data-src="work/renz-dark-9x16.mp4" data-poster="work/renz-dark-9x16.jpg" data-o="v" aria-pressed="false">Dark · 9:16</button><button type="button" class="wver" data-src="work/renz-light-9x16.mp4" data-poster="work/renz-light-9x16.jpg" data-o="v" aria-pressed="false">Light · 9:16</button></div>
+                            <div class="tags"><span class="tag">After Effects</span><span class="tag">Premiere Pro</span><span class="tag">Canva</span></div>
+                        </div>
+                    </div>
+                    <div class="wgrid wgrid-motion"><button type="button" class="wcard wcard-v" data-kind="video" data-src="work/renz-short-dark.mp4" data-o="v" data-title="Brand film, 33-second cut">
+  <span class="wthumb"><img src="work/renz-short-dark.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:33</span></span>
+  <span class="wmeta"><span class="wt">Brand film, 33-second cut</span><span class="wd">Short teaser cut for Reels and Shorts</span></span>
+</button><button type="button" class="wcard wcard-v" data-kind="video" data-src="work/renz-short-light.mp4" data-o="v" data-title="Brand film, light cut">
+  <span class="wthumb"><img src="work/renz-short-light.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:33</span></span>
+  <span class="wmeta"><span class="wt">Brand film, light cut</span><span class="wd">Same teaser in the light colourway</span></span>
+</button><button type="button" class="wcard wcard-v" data-kind="video" data-src="work/renz-reel.mp4" data-o="v" data-title="RENZ service reel">
+  <span class="wthumb"><img src="work/renz-reel.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:40</span></span>
+  <span class="wmeta"><span class="wt">RENZ service reel</span><span class="wd">Presenter reel with kinetic captions and a 3D globe</span></span>
+</button><button type="button" class="wcard wcard-v" data-kind="video" data-src="work/unravels-clock.mp4" data-o="v" data-title="The 7:42 clock puzzle">
+  <span class="wthumb"><img src="work/unravels-clock.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:54</span></span>
+  <span class="wmeta"><span class="wt">The 7:42 clock puzzle</span><span class="wd">Hashir Unravels Short: presenter plus animated logic steps</span></span>
+</button><button type="button" class="wcard wcard-v" data-kind="video" data-src="work/unravels-bertrand.mp4" data-o="v" data-title="Bertrand’s Box Paradox">
+  <span class="wthumb"><img src="work/unravels-bertrand.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:47</span></span>
+  <span class="wmeta"><span class="wt">Bertrand’s Box Paradox</span><span class="wd">Hand-drawn explainer Short for the Hashir Unravels channel</span></span>
+</button><button type="button" class="wcard wcard-v" data-kind="video" data-src="work/unravels-doorway.mp4" data-o="v" data-title="The Doorway Effect">
+  <span class="wthumb"><img src="work/unravels-doorway.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:55</span></span>
+  <span class="wmeta"><span class="wt">The Doorway Effect</span><span class="wd">Hand-drawn explainer Short about memory</span></span>
+</button><button type="button" class="wcard wcard-w" data-kind="video" data-src="work/showreel.mp4" data-o="w" data-title="Motion graphics showreel">
+  <span class="wthumb"><img src="work/showreel.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:20</span></span>
+  <span class="wmeta"><span class="wt">Motion graphics showreel</span><span class="wd">Lower thirds, titles, social cards and animated charts</span></span>
+</button><button type="button" class="wcard wcard-w" data-kind="video" data-src="work/renz-logo-intro.mp4" data-o="w" data-title="RENZ logo intro">
+  <span class="wthumb"><img src="work/renz-logo-intro.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:07</span></span>
+  <span class="wmeta"><span class="wt">RENZ logo intro</span><span class="wd">Logo reveal sting for videos and socials</span></span>
+</button></div>
+                </div>
+
+                <div class="wpanel" id="wp-decks" role="region" aria-labelledby="wt-decks" hidden>
+                    <button type="button" class="wpanel-close" aria-label="Close this category">Close <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+                    <p class="wcap">Our <span class="text-gold serif-i">presentations.</span></p>
+                    <p class="wsub">Pitch decks, seminar slides and training decks. Open one to flip through every slide.</p>
+                    <div class="wgrid wgrid-decks"><button type="button" class="wcard wcard-deck" data-kind="gallery" data-id="deck-hospital" data-n="10" data-title="Hospital digital transformation &amp; AI">
+  <span class="wthumb"><img src="work/img/deck-hospital-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">10 slides</span></span>
+  <span class="wmeta"><span class="wt">Hospital digital transformation &amp; AI</span><span class="wd">Pitch deck for modernising a hospital’s admin, patient records and online presence.</span></span>
+</button><button type="button" class="wcard wcard-deck" data-kind="gallery" data-id="deck-agency" data-n="9" data-title="Digital agency pitch deck">
+  <span class="wthumb"><img src="work/img/deck-agency-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">9 slides</span></span>
+  <span class="wmeta"><span class="wt">Digital agency pitch deck</span><span class="wd">“Is your business invisible to 80% of local customers?” – a sales deck for local businesses in Kerala.</span></span>
+</button><button type="button" class="wcard wcard-deck" data-kind="gallery" data-id="deck-blockchain" data-n="9" data-title="Blockchain technology seminar">
+  <span class="wthumb"><img src="work/img/deck-blockchain-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">9 slides</span></span>
+  <span class="wmeta"><span class="wt">Blockchain technology seminar</span><span class="wd">Seminar slides explaining blockchain for Class XI Informatics Practices, with a speaker script.</span></span>
+</button><button type="button" class="wcard wcard-deck" data-kind="gallery" data-id="deck-phishing" data-n="4" data-title="Phishing awareness training">
+  <span class="wthumb"><img src="work/img/deck-phishing-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">4 slides</span></span>
+  <span class="wmeta"><span class="wt">Phishing awareness training</span><span class="wd">Staff training deck built from real simulation data, made in a job simulation.</span></span>
+</button></div>
+                </div>
+
+                <div class="wpanel" id="wp-docs" role="region" aria-labelledby="wt-docs" hidden>
+                    <button type="button" class="wpanel-close" aria-label="Close this category">Close <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+                    <p class="wcap">Our <span class="text-gold serif-i">documents &amp; design.</span></p>
+                    <p class="wsub">Quotations, rate cards, business kits, logos and print. Client names and prices are blurred where needed.</p>
+                    <div class="wgrid wgrid-docs"><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="doc-ratecard-attestation" data-n="4" data-title="Attestation rate card 2026">
+  <span class="wthumb"><img src="work/img/doc-ratecard-attestation-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">4 pages</span></span>
+  <span class="wmeta"><span class="wt">Attestation rate card 2026</span><span class="wd">RENZ master price list for attestation and legalisation.</span></span>
+</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="doc-ratecard-digital" data-n="5" data-title="Digital solutions rate card 2026">
+  <span class="wthumb"><img src="work/img/doc-ratecard-digital-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">5 pages</span></span>
+  <span class="wmeta"><span class="wt">Digital solutions rate card 2026</span><span class="wd">RENZ packages for websites, AI chatbots and marketing.</span></span>
+</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="doc-quotation-design" data-n="1" data-title="Quotation, premium design">
+  <span class="wthumb"><img src="work/img/doc-quotation-design-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">1 page</span></span>
+  <span class="wmeta"><span class="wt">Quotation, premium design</span><span class="wd">Black-and-orange quotation layout for RENZ.</span><span class="wnote">Client details blurred</span></span>
+</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="doc-quotation" data-n="1" data-title="Quotation, classic design">
+  <span class="wthumb"><img src="work/img/doc-quotation-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">1 page</span></span>
+  <span class="wmeta"><span class="wt">Quotation, classic design</span><span class="wd">Clean single-page quotation template.</span><span class="wnote">Client details blurred</span></span>
+</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="doc-receipt" data-n="1" data-title="Receipt voucher (A5)">
+  <span class="wthumb"><img src="work/img/doc-receipt-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">1 page</span></span>
+  <span class="wmeta"><span class="wt">Receipt voucher (A5)</span><span class="wd">Bilingual English/Arabic receipt voucher.</span></span>
+</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="doc-gbp-kit" data-n="3" data-title="Google Business Profile kit">
+  <span class="wthumb"><img src="work/img/doc-gbp-kit-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">3 pages</span></span>
+  <span class="wmeta"><span class="wt">Google Business Profile kit</span><span class="wd">Step-by-step setup kit with a requirements checklist.</span></span>
+</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="design-3d-logo" data-n="1" data-title="RENZ 3D wall logo">
+  <span class="wthumb"><img src="work/img/design-3d-logo-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">1 page</span></span>
+  <span class="wmeta"><span class="wt">RENZ 3D wall logo</span><span class="wd">Production spec for the office wall sign.</span></span>
+</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="design-zadco" data-n="1" data-title="ZADCO logo concept">
+  <span class="wthumb"><img src="work/img/design-zadco-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">1 page</span></span>
+  <span class="wmeta"><span class="wt">ZADCO logo concept</span><span class="wd">Logo concept and colour direction for a client.</span></span>
+</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="design-poster" data-n="2" data-title="VIP Thattukada poster &amp; menu">
+  <span class="wthumb"><img src="work/img/design-poster-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">2 pages</span></span>
+  <span class="wmeta"><span class="wt">VIP Thattukada poster &amp; menu</span><span class="wd">Launch poster and full menu for a Kerala canteen.</span></span>
+</button></div>
+                </div>
+
+                <div class="wpanel" id="wp-code" role="region" aria-labelledby="wt-code" hidden>
+                    <button type="button" class="wpanel-close" aria-label="Close this category">Close <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+                    <p class="wcap">Our <span class="text-gold serif-i">code.</span></p>
+                    <p class="wsub">Websites we built and the software we wrote for our own video production.</p>
+                    <div class="wcodes"><article class="wcode reveal">
+  <button type="button" class="wcode-shot" data-kind="gallery" data-id="web-renz" data-n="1" data-title="renz.ae company website" aria-label="View screenshot: renz.ae company website">
+    <img src="work/img/web-renz-1.webp" alt="" loading="lazy" decoding="async">
+  </button>
+  <div class="wcode-body">
+    <h3>renz.ae company website</h3>
+    <p>Full website for a UAE attestation and business-setup company: service pages driven from one data file, WhatsApp quote form, light and dark themes, auto-deploys from GitHub.</p>
+    <div class="tags"><span class="tag">Astro</span><span class="tag">Tailwind CSS</span><span class="tag">PHP</span></div>
+    <div class="wcode-actions"><button type="button" class="btn btn-ghost" data-kind="gallery" data-id="web-renz" data-n="1" data-title="renz.ae company website">View screenshot</button><a class="btn btn-ghost wlink" href="https://renz.ae" target="_blank" rel="noopener">Visit renz.ae <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+  </div>
+</article><article class="wcode reveal">
+  <button type="button" class="wcode-shot" data-kind="gallery" data-id="web-globex" data-n="1" data-title="GLOBE-X landing page" aria-label="View full page: GLOBE-X landing page">
+    <img src="work/img/web-globex-1.webp" alt="" loading="lazy" decoding="async">
+  </button>
+  <div class="wcode-body">
+    <h3>GLOBE-X landing page</h3>
+    <p>Landing page for a UAE document-services brand: services grid, how-it-works steps, FAQ and enquiry call-to-actions.</p>
+    <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span></div>
+    <div class="wcode-actions"><button type="button" class="btn btn-ghost" data-kind="gallery" data-id="web-globex" data-n="1" data-title="GLOBE-X landing page">View full page</button></div>
+  </div>
+</article><article class="wcode reveal">
+  <button type="button" class="wcode-shot" data-kind="gallery" data-id="code-explainer" data-n="2" data-title="Explainer video pipeline" aria-label="View screens: Explainer video pipeline">
+    <img src="work/img/code-explainer-1.webp" alt="" loading="lazy" decoding="async">
+  </button>
+  <div class="wcode-body">
+    <h3>Explainer video pipeline</h3>
+    <p>Turns a written script into a hand-drawn explainer video: voiceover, drawings that appear stroke by stroke, music and captions, in six visual styles. It powers the Hashir Unravels Shorts.</p>
+    <div class="tags"><span class="tag">Python</span><span class="tag">FFmpeg</span><span class="tag">Automation</span></div>
+    <div class="wcode-actions"><button type="button" class="btn btn-ghost" data-kind="gallery" data-id="code-explainer" data-n="2" data-title="Explainer video pipeline">View screens</button></div>
+  </div>
+</article><article class="wcode reveal">
+  <button type="button" class="wcode-shot" data-kind="gallery" data-id="code-studio" data-n="1" data-title="Video production studio" aria-label="View screenshot: Video production studio">
+    <img src="work/img/code-studio-1.webp" alt="" loading="lazy" decoding="async">
+  </button>
+  <div class="wcode-body">
+    <h3>Video production studio</h3>
+    <p>Our in-house editing workstation: it transcribes footage, trims dead air, lays in captions, motion graphics and sound, then runs quality checks on every render before delivery.</p>
+    <div class="tags"><span class="tag">Python</span><span class="tag">FFmpeg</span><span class="tag">Three.js</span><span class="tag">Whisper</span></div>
+    <div class="wcode-actions"><button type="button" class="btn btn-ghost" data-kind="gallery" data-id="code-studio" data-n="1" data-title="Video production studio">View screenshot</button></div>
+  </div>
+</article></div>
+                </div>
+
+                <div class="wpanel" id="wp-3d" role="region" aria-labelledby="wt-3d" hidden>
+                    <button type="button" class="wpanel-close" aria-label="Close this category">Close <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+                    <p class="wcap">Our <span class="text-gold serif-i">3D studio.</span></p>
+                    <p class="wsub">Interiors and buildings you can walk around before anything is built. Start with the live scene below – it runs right in your browser.</p>
+                    <div class="w3d-grid">
+                        <a class="w3d-card" href="#studio3d">
+                            <span class="w3d-art" aria-hidden="true"><i class="fas fa-cube"></i></span>
+                            <span class="wt">Interactive 3D scene</span>
+                            <span class="wd">A restaurant and an apartment, rendered live. Drag to look around.</span>
+                            <span class="w3d-go">Open the live scene <i class="fas fa-arrow-down" aria-hidden="true"></i></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <dialog class="lb" id="lb" aria-label="Work viewer">
+            <div class="lb-top"><p class="lb-title" id="lbTitle"></p><span class="lb-count" id="lbCount"></span>
+                <button type="button" class="lb-x" id="lbClose" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
+            <div class="lb-stage" id="lbStage"></div>
+            <button type="button" class="lb-nav lb-prev" id="lbPrev" aria-label="Previous page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button type="button" class="lb-nav lb-next" id="lbNext" aria-label="Next page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </dialog>
+
+        <!-- ===== Automation lab ===== -->
+        <section id="automation" class="section glass-stage auto">
+            <div class="wrap">
+                <div class="head head-split">
+                    <div class="reveal">
+                        <span class="eyebrow">Automation</span>
+                        <h2 class="h-section">Your team shouldn&rsquo;t do the same task <span class="text-gold serif-i">twice.</span></h2>
+                    </div>
+                    <p class="lead reveal" style="--d:120ms">We find the jobs your people repeat every day &ndash; copying enquiries, typing quotes, chasing payments, building reports &ndash; and turn them into systems that run on their own. You approve; the system does the rest.</p>
+                </div>
+
+                <div class="auto-board reveal">
+                    <div class="auto-pick" role="tablist" aria-label="Example automations">
+                        <p class="auto-label">Pick a task we automate</p>
+                        <button type="button" class="auto-tab on" role="tab" aria-selected="true" data-flow="0"><i class="fas fa-file-invoice-dollar" aria-hidden="true"></i><span><b>Enquiry to quote</b><small>From WhatsApp message to branded PDF</small></span></button>
+                        <button type="button" class="auto-tab" role="tab" aria-selected="false" data-flow="1"><i class="fas fa-receipt" aria-hidden="true"></i><span><b>Invoices &amp; reminders</b><small>Get paid without chasing</small></span></button>
+                        <button type="button" class="auto-tab" role="tab" aria-selected="false" data-flow="2"><i class="fas fa-chart-line" aria-hidden="true"></i><span><b>Daily owner report</b><small>Your numbers on WhatsApp at 8 am</small></span></button>
+                        <button type="button" class="auto-tab" role="tab" aria-selected="false" data-flow="3"><i class="fas fa-file-import" aria-hidden="true"></i><span><b>Documents to data</b><small>Forms and receipts filed for you</small></span></button>
+                        <button type="button" class="auto-tab" role="tab" aria-selected="false" data-flow="4"><i class="fas fa-share-nodes" aria-hidden="true"></i><span><b>Social publishing</b><small>One post, every platform</small></span></button>
+                    </div>
+                    <div class="auto-flow" role="tabpanel" aria-live="polite">
+                        <div class="auto-flow-head">
+                            <span class="auto-chip"><span class="auto-dot"></span> Running</span>
+                            <span class="auto-compare"><span id="autoManual">7</span> manual steps <i class="fas fa-arrow-right-long" aria-hidden="true"></i> <b>1 approval</b></span>
+                        </div>
+                        <ol class="auto-steps" id="autoSteps"></ol>
+                    </div>
+                </div>
+
+                <div class="auto-lower">
+                    <div class="calc reveal" aria-labelledby="calcTitle">
+                        <h3 id="calcTitle">How much time could you get back?</h3>
+                        <div class="calc-row"><label for="cHours">Hours of repetitive work per person, per week</label><output id="oHours">8 h</output><input type="range" id="cHours" min="1" max="30" value="8"></div>
+                        <div class="calc-row"><label for="cPeople">People doing it</label><output id="oPeople">3</output><input type="range" id="cPeople" min="1" max="25" value="3"></div>
+                        <div class="calc-row"><label for="cShare">Share of that work a system could do</label><output id="oShare">60%</output><input type="range" id="cShare" min="20" max="90" step="5" value="60"></div>
+                        <div class="calc-out">
+                            <p class="calc-big"><span id="cResult">662</span> <small>hours a year</small></p>
+                            <p class="calc-sub">&asymp; <span id="cDays">83</span> working days back for your team</p>
+                            <p class="calc-formula" id="cFormula">8 h &times; 3 people &times; 46 weeks &times; 60%</p>
+                        </div>
+                        <p class="calc-note">An estimate from your own numbers. We work out the real figure with you on the first call.</p>
+                    </div>
+                    <div class="auto-side reveal" style="--d:120ms">
+                        <h3>What we connect</h3>
+                        <div class="tags auto-tags"><span class="tag">WhatsApp Business</span><span class="tag">Gmail &amp; Outlook</span><span class="tag">Google Sheets</span><span class="tag">Google Drive</span><span class="tag">Calendars</span><span class="tag">Website forms</span><span class="tag">PDF documents</span><span class="tag">CRMs</span><span class="tag">Payment links</span><span class="tag">AI chatbots</span></div>
+                        <h3 class="auto-h">How an automation project runs</h3>
+                        <ol class="auto-how">
+                            <li><b>Map</b> &ndash; we watch how the task is done today, step by step.</li>
+                            <li><b>Build</b> &ndash; we automate it with the tools you already use.</li>
+                            <li><b>Test</b> &ndash; it runs alongside your team until the results match.</li>
+                            <li><b>Hand over</b> &ndash; a short guide and support while it settles in.</li>
+                        </ol>
+                        <a href="https://wa.me/917892681741?text=Hi%20Hashir%2C%20I%27d%20like%20to%20automate%20a%20task" target="_blank" rel="noopener" class="btn btn-gold">Tell us a task to automate <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="services" class="section glass-stage">
             <div class="wrap">
                 <div class="head head-split">
                     <div class="reveal">
-                        <span class="eyebrow">What I do</span>
-                        <h2 class="h-section">20 services, <span class="text-gold serif-i">one partner.</span></h2>
+                        <span class="eyebrow">What we do</span>
+                        <h2 class="h-section">21 services, <span class="text-gold serif-i">one studio.</span></h2>
                     </div>
-                    <p class="lead reveal" style="--d:120ms">Video, design, websites, apps, automation, documents and marketing — planned, made and finished by me. Pick a category to explore.</p>
+                    <p class="lead reveal" style="--d:120ms">Video, design, websites, apps, automation, documents and marketing — planned, made and finished in-house. Pick a category to explore.</p>
                 </div>
 
                 <div class="tabs reveal" role="toolbar" aria-label="Filter services">
-                    <button type="button" class="tab active" data-filter="all" aria-pressed="true">All <span class="tab-count">20</span></button>
+                    <button type="button" class="tab active" data-filter="all" aria-pressed="true">All <span class="tab-count">21</span></button>
                     <button type="button" class="tab" data-filter="video" aria-pressed="false">Video &amp; Motion <span class="tab-count">3</span></button>
-                    <button type="button" class="tab" data-filter="design" aria-pressed="false">Design <span class="tab-count">3</span></button>
+                    <button type="button" class="tab" data-filter="design" aria-pressed="false">Design &amp; 3D <span class="tab-count">4</span></button>
                     <button type="button" class="tab" data-filter="web" aria-pressed="false">Web &amp; Apps <span class="tab-count">3</span></button>
                     <button type="button" class="tab" data-filter="ai" aria-pressed="false">AI &amp; Automation <span class="tab-count">3</span></button>
                     <button type="button" class="tab" data-filter="docs" aria-pressed="false">Docs &amp; Slides <span class="tab-count">4</span></button>
@@ -930,279 +1385,202 @@
                         <p>Product photos, ad creatives, thumbnails and illustrations, art-directed and retouched to match your brand.</p>
                         <div class="tags"><span class="tag">Product shots</span><span class="tag">Ad creatives</span><span class="tag">Thumbnails</span><span class="tag">Retouching</span></div>
                     </article>
-                    <article class="glass-card svc reveal" data-cat="web" style="--d:0ms">
+                    <article class="glass-card svc reveal" data-cat="design" style="--d:270ms">
                         <span class="spot"></span><span class="card-num">07</span>
+                        <span class="app-icon"><i class="fas fa-cube"></i></span>
+                        <h3>3D Visualisation</h3>
+                        <p>Realistic and interactive 3D for real estate, restaurants and interiors – see the space, layout and materials before anything is built.</p>
+                        <div class="tags"><span class="tag">Real estate</span><span class="tag">Restaurants</span><span class="tag">Interiors</span><span class="tag">3D viewers</span></div>
+                    </article>
+                    <article class="glass-card svc reveal" data-cat="web" style="--d:0ms">
+                        <span class="spot"></span><span class="card-num">08</span>
                         <span class="app-icon"><i class="fas fa-laptop-code"></i></span>
                         <h3>Web Development</h3>
                         <p>Fast, responsive websites and landing pages with smooth animation, SEO and WhatsApp integration — built and launched for you.</p>
                         <div class="tags"><span class="tag">Business sites</span><span class="tag">Landing pages</span><span class="tag">SEO</span><span class="tag">Hosting</span></div>
                     </article>
                     <article class="glass-card svc reveal" data-cat="web" style="--d:90ms">
-                        <span class="spot"></span><span class="card-num">08</span>
+                        <span class="spot"></span><span class="card-num">09</span>
                         <span class="app-icon"><i class="fas fa-server"></i></span>
                         <h3>Backend &amp; Databases</h3>
                         <p>APIs, databases, login systems, admin panels, form backends and payments — the engine behind your website or app.</p>
                         <div class="tags"><span class="tag">APIs</span><span class="tag">Auth</span><span class="tag">Admin panels</span><span class="tag">Payments</span></div>
                     </article>
                     <article class="glass-card svc reveal" data-cat="web" style="--d:180ms">
-                        <span class="spot"></span><span class="card-num">09</span>
+                        <span class="spot"></span><span class="card-num">10</span>
                         <span class="app-icon"><i class="fas fa-mobile-screen"></i></span>
                         <h3>Web Apps &amp; Custom Tools</h3>
                         <p>Dashboards, booking systems, internal tools and browser extensions, built around how your team actually works.</p>
                         <div class="tags"><span class="tag">Dashboards</span><span class="tag">Booking</span><span class="tag">Internal tools</span><span class="tag">Extensions</span></div>
                     </article>
                     <article class="glass-card svc reveal" data-cat="ai" style="--d:0ms">
-                        <span class="spot"></span><span class="card-num">10</span>
+                        <span class="spot"></span><span class="card-num">11</span>
                         <span class="app-icon"><i class="fas fa-robot"></i></span>
                         <h3>AI Chatbots &amp; Agents</h3>
                         <p>Custom assistants for your website or WhatsApp that answer customers, take bookings and qualify leads around the clock.</p>
                         <div class="tags"><span class="tag">Website bots</span><span class="tag">WhatsApp bots</span><span class="tag">AI agents</span><span class="tag">LLM</span></div>
                     </article>
                     <article class="glass-card svc reveal" data-cat="ai" style="--d:90ms">
-                        <span class="spot"></span><span class="card-num">11</span>
+                        <span class="spot"></span><span class="card-num">12</span>
                         <span class="app-icon"><i class="fas fa-gears"></i></span>
                         <h3>Workflow Automation</h3>
                         <p>Connect your apps and let routine work run itself — emails, reports, data entry, follow-ups and scheduled tasks.</p>
                         <div class="tags"><span class="tag">Email</span><span class="tag">Reports</span><span class="tag">Integrations</span><span class="tag">Scheduling</span></div>
                     </article>
                     <article class="glass-card svc reveal" data-cat="ai" style="--d:180ms">
-                        <span class="spot"></span><span class="card-num">12</span>
+                        <span class="spot"></span><span class="card-num">13</span>
                         <span class="app-icon"><i class="fas fa-magnifying-glass-chart"></i></span>
                         <h3>Market Research &amp; Analysis</h3>
                         <p>Deep research on markets, competitors and ideas, turned into clear summaries and recommendations you can act on.</p>
                         <div class="tags"><span class="tag">Market research</span><span class="tag">Competitors</span><span class="tag">Summaries</span><span class="tag">Insights</span></div>
                     </article>
                     <article class="glass-card svc reveal" data-cat="docs" style="--d:0ms">
-                        <span class="spot"></span><span class="card-num">13</span>
+                        <span class="spot"></span><span class="card-num">14</span>
                         <span class="app-icon"><i class="fas fa-person-chalkboard"></i></span>
                         <h3>Presentations &amp; Pitch Decks</h3>
                         <p>Investor pitches, company profiles, sales decks and training slides in PowerPoint, Google Slides or Keynote.</p>
                         <div class="tags"><span class="tag">Pitch decks</span><span class="tag">Company profiles</span><span class="tag">Google Slides</span><span class="tag">PowerPoint</span></div>
                     </article>
                     <article class="glass-card svc reveal" data-cat="docs" style="--d:90ms">
-                        <span class="spot"></span><span class="card-num">14</span>
+                        <span class="spot"></span><span class="card-num">15</span>
                         <span class="app-icon"><i class="fas fa-file-lines"></i></span>
                         <h3>Documents &amp; Reports</h3>
                         <p>Proposals, quotations, reports, CVs, letters and manuals — written, formatted and exported to Word, PDF or Google Docs.</p>
                         <div class="tags"><span class="tag">Proposals</span><span class="tag">Quotations</span><span class="tag">CVs</span><span class="tag">PDF</span></div>
                     </article>
                     <article class="glass-card svc reveal" data-cat="docs" style="--d:180ms">
-                        <span class="spot"></span><span class="card-num">15</span>
+                        <span class="spot"></span><span class="card-num">16</span>
                         <span class="app-icon"><i class="fas fa-table"></i></span>
                         <h3>Spreadsheets &amp; Data</h3>
                         <p>Excel and Google Sheets trackers, formulas, invoices, data cleaning and dashboards with clear charts.</p>
                         <div class="tags"><span class="tag">Excel</span><span class="tag">Google Sheets</span><span class="tag">Dashboards</span><span class="tag">Data cleanup</span></div>
                     </article>
                     <article class="glass-card svc reveal" data-cat="docs" style="--d:0ms">
-                        <span class="spot"></span><span class="card-num">16</span>
+                        <span class="spot"></span><span class="card-num">17</span>
                         <span class="app-icon"><i class="fas fa-graduation-cap"></i></span>
                         <h3>Student &amp; Academic Help</h3>
                         <p>Formatting, project structure, presentations, diagrams and data entry for assignments and academic projects.</p>
                         <div class="tags"><span class="tag">Formatting</span><span class="tag">Projects</span><span class="tag">Diagrams</span><span class="tag">Data entry</span></div>
                     </article>
                     <article class="glass-card svc reveal" data-cat="growth" style="--d:90ms">
-                        <span class="spot"></span><span class="card-num">17</span>
+                        <span class="spot"></span><span class="card-num">18</span>
                         <span class="app-icon"><i class="fas fa-bullhorn"></i></span>
                         <h3>Marketing, Ads &amp; Social</h3>
                         <p>Targeted Meta and Google ad campaigns, content calendars and social media management that turn followers into customers.</p>
                         <div class="tags"><span class="tag">Meta ads</span><span class="tag">Google ads</span><span class="tag">Content plans</span><span class="tag">Social media</span></div>
                     </article>
                     <article class="glass-card svc reveal" data-cat="growth" style="--d:180ms">
-                        <span class="spot"></span><span class="card-num">18</span>
+                        <span class="spot"></span><span class="card-num">19</span>
                         <span class="app-icon"><i class="fas fa-pen-nib"></i></span>
                         <h3>Content &amp; Copywriting</h3>
                         <p>Website copy, blogs, product descriptions, captions and scripts — written for your audience and for search engines.</p>
                         <div class="tags"><span class="tag">Web copy</span><span class="tag">Blogs</span><span class="tag">Scripts</span><span class="tag">Captions</span></div>
                     </article>
                     <article class="glass-card svc reveal" data-cat="growth" style="--d:0ms">
-                        <span class="spot"></span><span class="card-num">19</span>
+                        <span class="spot"></span><span class="card-num">20</span>
                         <span class="app-icon"><i class="fas fa-store"></i></span>
                         <h3>E-Commerce Management</h3>
                         <p>Store setup, product listings, descriptions and day-to-day management so your online shop runs smoothly.</p>
                         <div class="tags"><span class="tag">Store setup</span><span class="tag">Listings</span><span class="tag">Operations</span><span class="tag">Shopify</span></div>
                     </article>
                     <article class="glass-card svc reveal" data-cat="growth" style="--d:90ms">
-                        <span class="spot"></span><span class="card-num">20</span>
+                        <span class="spot"></span><span class="card-num">21</span>
                         <span class="app-icon"><i class="fas fa-briefcase"></i></span>
                         <h3>Business Setup &amp; Google Workspace</h3>
                         <p>Professional email, Google Business Profile, Drive, Calendar and Forms set up properly so your business runs organised.</p>
                         <div class="tags"><span class="tag">Gmail</span><span class="tag">Business Profile</span><span class="tag">Drive</span><span class="tag">Forms</span></div>
                     </article>
                 </div>
-                <button type="button" class="btn btn-ghost svc-more" id="svcMore">Show all 20 services</button>
+                <button type="button" class="btn btn-ghost svc-more" id="svcMore">Show all 21 services</button>
             </div>
         </section>
 
-        <!-- ===== AI toolkit ===== -->
-        <!-- ===== Work ===== -->
-        <section id="work" class="section work">
+        <!-- ===== 3D studio ===== -->
+        <section id="studio3d" class="section studio3d">
+            <div class="wrap s3d-grid">
+                <div>
+                    <span class="eyebrow reveal">3D studio</span>
+                    <h2 class="h-section reveal" style="--d:80ms">See the space <span class="text-gold serif-i">before it&rsquo;s built.</span></h2>
+                    <p class="lead reveal" style="--d:160ms">3D visualisation for real estate, restaurants and interiors. Buyers, investors and owners understand a space in seconds when they can turn it around &ndash; the layout, the light and the materials.</p>
+                    <ul class="s3d-list reveal" style="--d:220ms">
+                        <li><i class="fas fa-building" aria-hidden="true"></i> Apartments, villas and show units for real-estate listings</li>
+                        <li><i class="fas fa-utensils" aria-hidden="true"></i> Restaurant, caf&eacute; and retail interiors before fit-out</li>
+                        <li><i class="fas fa-vr-cardboard" aria-hidden="true"></i> Interactive 3D viewers that live on your website</li>
+                        <li><i class="fas fa-film" aria-hidden="true"></i> Walkthrough videos for ads and social media</li>
+                    </ul>
+                    <a href="https://wa.me/917892681741?text=Hi%20Hashir%2C%20I%27d%20like%20to%20discuss%20a%203D%20project" target="_blank" rel="noopener" class="btn btn-gold reveal" style="--d:280ms">Discuss a 3D project <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="v3d reveal reveal-scale" id="v3d">
+                    <div class="v3d-bar">
+                        <div class="v3d-seg" role="group" aria-label="Choose a scene">
+                            <button type="button" class="on" data-scene="restaurant" aria-pressed="true">Restaurant</button>
+                            <button type="button" data-scene="apartment" aria-pressed="false">Apartment</button>
+                        </div>
+                        <span class="v3d-live"><span class="auto-dot"></span> Live 3D</span>
+                    </div>
+                    <div class="v3d-stage" id="v3dStage" aria-label="Interactive 3D scene. Drag to rotate." role="img">
+                        <p class="v3d-msg" id="v3dMsg">Loading 3D scene&hellip;</p>
+                    </div>
+                    <p class="v3d-hint"><i class="fas fa-hand-pointer" aria-hidden="true"></i> Drag to look around</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Process ===== -->
+        <section id="process" class="section">
             <div class="wrap">
                 <div class="head head-split">
                     <div class="reveal">
-                        <span class="eyebrow">Work</span>
-                        <h2 class="h-section">Things I have <span class="text-gold serif-i">made.</span></h2>
+                        <span class="eyebrow">How we work</span>
+                        <h2 class="h-section">A simple process, <span class="text-gold serif-i">beautiful results.</span></h2>
                     </div>
-                    <p class="lead reveal" style="--d:120ms">Real projects for real businesses: brand films, pitch decks, documents, logos, websites and the software I build. Pick a category.</p>
+                    <p class="lead reveal" style="--d:120ms">No confusing jargon or endless back-and-forth — just four clear steps from first message to final delivery.</p>
                 </div>
-
-                <div class="wtabs reveal" role="tablist" aria-label="Work categories"><button type="button" class="tab active" role="tab" id="wt-motion" aria-controls="wp-motion" aria-selected="true" tabindex="0">Motion graphics <span class="tab-count">9</span></button><button type="button" class="tab" role="tab" id="wt-decks" aria-controls="wp-decks" aria-selected="false" tabindex="-1">Presentations <span class="tab-count">4</span></button><button type="button" class="tab" role="tab" id="wt-docs" aria-controls="wp-docs" aria-selected="false" tabindex="-1">Documents &amp; design <span class="tab-count">9</span></button><button type="button" class="tab" role="tab" id="wt-code" aria-controls="wp-code" aria-selected="false" tabindex="-1">Code &amp; websites <span class="tab-count">4</span></button></div>
-
-                <div class="wpanel" id="wp-motion" role="tabpanel" aria-labelledby="wt-motion">
-                    <p class="wcap">This is my <span class="text-gold serif-i">motion graphics.</span></p>
-                    <p class="wsub">Brand films, reels and explainer Shorts I planned, designed, animated and edited.</p>
-                    <div class="wfeature">
-                        <div class="wplayer" data-o="w">
-                            <video id="featVideo" src="work/renz-dark-16x9.mp4" poster="work/renz-dark-16x9.jpg" controls playsinline preload="none" aria-label="RENZ brand film"></video>
-                        </div>
-                        <div class="wfeature-body">
-                            <span class="wkicker">Featured · 1:48</span>
-                            <h3>RENZ brand film</h3>
-                            <p>A promo for a UAE document attestation and business setup company: logo reveal, a “paperwork shouldn’t slow you down” hook, animated service cards, ready-made packages and the digital-solutions division. Delivered in four versions.</p>
-                            <div class="wvers" role="group" aria-label="Choose a version"><button type="button" class="wver on" data-src="work/renz-dark-16x9.mp4" data-poster="work/renz-dark-16x9.jpg" data-o="w" aria-pressed="true">Dark · 16:9</button><button type="button" class="wver" data-src="work/renz-light-16x9.mp4" data-poster="work/renz-light-16x9.jpg" data-o="w" aria-pressed="false">Light · 16:9</button><button type="button" class="wver" data-src="work/renz-dark-9x16.mp4" data-poster="work/renz-dark-9x16.jpg" data-o="v" aria-pressed="false">Dark · 9:16</button><button type="button" class="wver" data-src="work/renz-light-9x16.mp4" data-poster="work/renz-light-9x16.jpg" data-o="v" aria-pressed="false">Light · 9:16</button></div>
-                            <div class="tags"><span class="tag">After Effects</span><span class="tag">Premiere Pro</span><span class="tag">Canva</span></div>
-                        </div>
-                    </div>
-                    <div class="wgrid wgrid-motion"><button type="button" class="wcard wcard-v" data-kind="video" data-src="work/renz-short-dark.mp4" data-o="v" data-title="Brand film, 33-second cut">
-  <span class="wthumb"><img src="work/renz-short-dark.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:33</span></span>
-  <span class="wmeta"><span class="wt">Brand film, 33-second cut</span><span class="wd">Short teaser cut for Reels and Shorts</span></span>
-</button><button type="button" class="wcard wcard-v" data-kind="video" data-src="work/renz-short-light.mp4" data-o="v" data-title="Brand film, light cut">
-  <span class="wthumb"><img src="work/renz-short-light.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:33</span></span>
-  <span class="wmeta"><span class="wt">Brand film, light cut</span><span class="wd">Same teaser in the light colourway</span></span>
-</button><button type="button" class="wcard wcard-v" data-kind="video" data-src="work/renz-reel.mp4" data-o="v" data-title="RENZ service reel">
-  <span class="wthumb"><img src="work/renz-reel.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:40</span></span>
-  <span class="wmeta"><span class="wt">RENZ service reel</span><span class="wd">Presenter reel with kinetic captions and a 3D globe</span></span>
-</button><button type="button" class="wcard wcard-v" data-kind="video" data-src="work/unravels-clock.mp4" data-o="v" data-title="The 7:42 clock puzzle">
-  <span class="wthumb"><img src="work/unravels-clock.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:54</span></span>
-  <span class="wmeta"><span class="wt">The 7:42 clock puzzle</span><span class="wd">Hashir Unravels Short: presenter plus animated logic steps</span></span>
-</button><button type="button" class="wcard wcard-v" data-kind="video" data-src="work/unravels-bertrand.mp4" data-o="v" data-title="Bertrand’s Box Paradox">
-  <span class="wthumb"><img src="work/unravels-bertrand.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:47</span></span>
-  <span class="wmeta"><span class="wt">Bertrand’s Box Paradox</span><span class="wd">Hand-drawn explainer Short for my channel</span></span>
-</button><button type="button" class="wcard wcard-v" data-kind="video" data-src="work/unravels-doorway.mp4" data-o="v" data-title="The Doorway Effect">
-  <span class="wthumb"><img src="work/unravels-doorway.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:55</span></span>
-  <span class="wmeta"><span class="wt">The Doorway Effect</span><span class="wd">Hand-drawn explainer Short about memory</span></span>
-</button><button type="button" class="wcard wcard-w" data-kind="video" data-src="work/showreel.mp4" data-o="w" data-title="Motion graphics showreel">
-  <span class="wthumb"><img src="work/showreel.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:20</span></span>
-  <span class="wmeta"><span class="wt">Motion graphics showreel</span><span class="wd">Lower thirds, titles, social cards and animated charts</span></span>
-</button><button type="button" class="wcard wcard-w" data-kind="video" data-src="work/renz-logo-intro.mp4" data-o="w" data-title="RENZ logo intro">
-  <span class="wthumb"><img src="work/renz-logo-intro.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:07</span></span>
-  <span class="wmeta"><span class="wt">RENZ logo intro</span><span class="wd">Logo reveal sting for videos and socials</span></span>
-</button></div>
-                </div>
-
-                <div class="wpanel" id="wp-decks" role="tabpanel" aria-labelledby="wt-decks" hidden>
-                    <p class="wcap">These are my <span class="text-gold serif-i">presentations.</span></p>
-                    <p class="wsub">Pitch decks, seminar slides and training decks. Open one to flip through every slide.</p>
-                    <div class="wgrid wgrid-decks"><button type="button" class="wcard wcard-deck" data-kind="gallery" data-id="deck-hospital" data-n="10" data-title="Hospital digital transformation &amp; AI">
-  <span class="wthumb"><img src="work/img/deck-hospital-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">10 slides</span></span>
-  <span class="wmeta"><span class="wt">Hospital digital transformation &amp; AI</span><span class="wd">Pitch deck for modernising a hospital’s admin, patient records and online presence.</span></span>
-</button><button type="button" class="wcard wcard-deck" data-kind="gallery" data-id="deck-agency" data-n="9" data-title="Digital agency pitch deck">
-  <span class="wthumb"><img src="work/img/deck-agency-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">9 slides</span></span>
-  <span class="wmeta"><span class="wt">Digital agency pitch deck</span><span class="wd">“Is your business invisible to 80% of local customers?” – a sales deck for local businesses in Kerala.</span></span>
-</button><button type="button" class="wcard wcard-deck" data-kind="gallery" data-id="deck-blockchain" data-n="9" data-title="Blockchain technology seminar">
-  <span class="wthumb"><img src="work/img/deck-blockchain-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">9 slides</span></span>
-  <span class="wmeta"><span class="wt">Blockchain technology seminar</span><span class="wd">Seminar slides explaining blockchain for Class XI Informatics Practices, with a speaker script.</span></span>
-</button><button type="button" class="wcard wcard-deck" data-kind="gallery" data-id="deck-phishing" data-n="4" data-title="Phishing awareness training">
-  <span class="wthumb"><img src="work/img/deck-phishing-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">4 slides</span></span>
-  <span class="wmeta"><span class="wt">Phishing awareness training</span><span class="wd">Staff training deck built from real simulation data, made in a job simulation.</span></span>
-</button></div>
-                </div>
-
-                <div class="wpanel" id="wp-docs" role="tabpanel" aria-labelledby="wt-docs" hidden>
-                    <p class="wcap">This is my <span class="text-gold serif-i">documents &amp; design.</span></p>
-                    <p class="wsub">Quotations, rate cards, business kits, logos and print. Client names and prices are blurred where needed.</p>
-                    <div class="wgrid wgrid-docs"><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="doc-ratecard-attestation" data-n="4" data-title="Attestation rate card 2026">
-  <span class="wthumb"><img src="work/img/doc-ratecard-attestation-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">4 pages</span></span>
-  <span class="wmeta"><span class="wt">Attestation rate card 2026</span><span class="wd">RENZ master price list for attestation and legalisation.</span></span>
-</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="doc-ratecard-digital" data-n="5" data-title="Digital solutions rate card 2026">
-  <span class="wthumb"><img src="work/img/doc-ratecard-digital-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">5 pages</span></span>
-  <span class="wmeta"><span class="wt">Digital solutions rate card 2026</span><span class="wd">RENZ packages for websites, AI chatbots and marketing.</span></span>
-</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="doc-quotation-design" data-n="1" data-title="Quotation, premium design">
-  <span class="wthumb"><img src="work/img/doc-quotation-design-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">1 page</span></span>
-  <span class="wmeta"><span class="wt">Quotation, premium design</span><span class="wd">Black-and-orange quotation layout for RENZ.</span><span class="wnote">Client details blurred</span></span>
-</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="doc-quotation" data-n="1" data-title="Quotation, classic design">
-  <span class="wthumb"><img src="work/img/doc-quotation-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">1 page</span></span>
-  <span class="wmeta"><span class="wt">Quotation, classic design</span><span class="wd">Clean single-page quotation template.</span><span class="wnote">Client details blurred</span></span>
-</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="doc-receipt" data-n="1" data-title="Receipt voucher (A5)">
-  <span class="wthumb"><img src="work/img/doc-receipt-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">1 page</span></span>
-  <span class="wmeta"><span class="wt">Receipt voucher (A5)</span><span class="wd">Bilingual English/Arabic receipt voucher.</span></span>
-</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="doc-gbp-kit" data-n="3" data-title="Google Business Profile kit">
-  <span class="wthumb"><img src="work/img/doc-gbp-kit-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">3 pages</span></span>
-  <span class="wmeta"><span class="wt">Google Business Profile kit</span><span class="wd">Step-by-step setup kit with a requirements checklist.</span></span>
-</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="design-3d-logo" data-n="1" data-title="RENZ 3D wall logo">
-  <span class="wthumb"><img src="work/img/design-3d-logo-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">1 page</span></span>
-  <span class="wmeta"><span class="wt">RENZ 3D wall logo</span><span class="wd">Production spec for the office wall sign.</span></span>
-</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="design-zadco" data-n="1" data-title="ZADCO logo concept">
-  <span class="wthumb"><img src="work/img/design-zadco-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">1 page</span></span>
-  <span class="wmeta"><span class="wt">ZADCO logo concept</span><span class="wd">Logo concept and colour direction for a client.</span></span>
-</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="design-poster" data-n="2" data-title="VIP Thattukada poster &amp; menu">
-  <span class="wthumb"><img src="work/img/design-poster-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">2 pages</span></span>
-  <span class="wmeta"><span class="wt">VIP Thattukada poster &amp; menu</span><span class="wd">Launch poster and full menu for a Kerala canteen.</span></span>
-</button></div>
-                </div>
-
-                <div class="wpanel" id="wp-code" role="tabpanel" aria-labelledby="wt-code" hidden>
-                    <p class="wcap">This is my <span class="text-gold serif-i">code.</span></p>
-                    <p class="wsub">Websites I built and the software I wrote for my own video work.</p>
-                    <div class="wcodes"><article class="wcode reveal">
-  <button type="button" class="wcode-shot" data-kind="gallery" data-id="web-renz" data-n="1" data-title="renz.ae company website" aria-label="View screenshot: renz.ae company website">
-    <img src="work/img/web-renz-1.webp" alt="" loading="lazy" decoding="async">
-  </button>
-  <div class="wcode-body">
-    <h3>renz.ae company website</h3>
-    <p>Full website for a UAE attestation and business-setup company: service pages driven from one data file, WhatsApp quote form, light and dark themes, auto-deploys from GitHub.</p>
-    <div class="tags"><span class="tag">Astro</span><span class="tag">Tailwind CSS</span><span class="tag">PHP</span></div>
-    <div class="wcode-actions"><button type="button" class="btn btn-ghost" data-kind="gallery" data-id="web-renz" data-n="1" data-title="renz.ae company website">View screenshot</button><a class="btn btn-ghost wlink" href="https://renz.ae" target="_blank" rel="noopener">Visit renz.ae <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
-  </div>
-</article><article class="wcode reveal">
-  <button type="button" class="wcode-shot" data-kind="gallery" data-id="web-globex" data-n="1" data-title="GLOBE-X landing page" aria-label="View full page: GLOBE-X landing page">
-    <img src="work/img/web-globex-1.webp" alt="" loading="lazy" decoding="async">
-  </button>
-  <div class="wcode-body">
-    <h3>GLOBE-X landing page</h3>
-    <p>Landing page for a UAE document-services brand: services grid, how-it-works steps, FAQ and enquiry call-to-actions.</p>
-    <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span></div>
-    <div class="wcode-actions"><button type="button" class="btn btn-ghost" data-kind="gallery" data-id="web-globex" data-n="1" data-title="GLOBE-X landing page">View full page</button></div>
-  </div>
-</article><article class="wcode reveal">
-  <button type="button" class="wcode-shot" data-kind="gallery" data-id="code-explainer" data-n="2" data-title="Explainer video pipeline" aria-label="View screens: Explainer video pipeline">
-    <img src="work/img/code-explainer-1.webp" alt="" loading="lazy" decoding="async">
-  </button>
-  <div class="wcode-body">
-    <h3>Explainer video pipeline</h3>
-    <p>Turns a written script into a hand-drawn explainer video: voiceover, drawings that appear stroke by stroke, music and captions, in six visual styles. I use it for my Hashir Unravels Shorts.</p>
-    <div class="tags"><span class="tag">Python</span><span class="tag">FFmpeg</span><span class="tag">Automation</span></div>
-    <div class="wcode-actions"><button type="button" class="btn btn-ghost" data-kind="gallery" data-id="code-explainer" data-n="2" data-title="Explainer video pipeline">View screens</button></div>
-  </div>
-</article><article class="wcode reveal">
-  <button type="button" class="wcode-shot" data-kind="gallery" data-id="code-studio" data-n="1" data-title="Video production studio" aria-label="View screenshot: Video production studio">
-    <img src="work/img/code-studio-1.webp" alt="" loading="lazy" decoding="async">
-  </button>
-  <div class="wcode-body">
-    <h3>Video production studio</h3>
-    <p>My own editing workstation: it transcribes footage, trims dead air, lays in captions, motion graphics and sound, then runs quality checks on every render before delivery.</p>
-    <div class="tags"><span class="tag">Python</span><span class="tag">FFmpeg</span><span class="tag">Three.js</span><span class="tag">Whisper</span></div>
-    <div class="wcode-actions"><button type="button" class="btn btn-ghost" data-kind="gallery" data-id="code-studio" data-n="1" data-title="Video production studio">View screenshot</button></div>
-  </div>
-</article></div>
+                <div class="steps" id="steps">
+                    <div class="steps-line" aria-hidden="true"></div>
+                    <div class="step reveal" style="--d:0ms"><div class="step-n">01</div><h4>Discover</h4><p>We chat on WhatsApp or call to understand your goals, audience and budget.</p></div>
+                    <div class="step reveal" style="--d:120ms"><div class="step-n">02</div><h4>Plan</h4><p>You get a clear scope, timeline and price — no surprises later.</p></div>
+                    <div class="step reveal" style="--d:240ms"><div class="step-n">03</div><h4>Create</h4><p>We design and build, sharing previews so you can give feedback along the way.</p></div>
+                    <div class="step reveal" style="--d:360ms"><div class="step-n">04</div><h4>Deliver</h4><p>Final files and launch, plus support after delivery if anything needs a tweak.</p></div>
                 </div>
             </div>
         </section>
 
-        <dialog class="lb" id="lb" aria-label="Work viewer">
-            <div class="lb-top"><p class="lb-title" id="lbTitle"></p><span class="lb-count" id="lbCount"></span>
-                <button type="button" class="lb-x" id="lbClose" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
-            <div class="lb-stage" id="lbStage"></div>
-            <button type="button" class="lb-nav lb-prev" id="lbPrev" aria-label="Previous page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <button type="button" class="lb-nav lb-next" id="lbNext" aria-label="Next page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        </dialog>
+        <section id="about" class="section" style="background:var(--bg-soft)">
+            <div class="wrap about-grid">
+                <div class="about-visual reveal reveal-scale">
+                    <img src="Gemini_Generated_Image_hwthxvhwthxvhwth.png" alt="Hashir Sulthan, founder and creative lead" loading="lazy" onerror="this.src='https://placehold.co/400x500/16130f/d4a64a?text=HS'">
+                    <div class="about-frame" aria-hidden="true"></div>
+                    <div class="about-badge">
+                        <span class="app-icon app-icon-sm"><i class="fas fa-star"></i></span>
+                        <div><p class="n">Hashir Sulthan</p><p class="r">Founder &amp; creative lead</p></div>
+                    </div>
+                </div>
+                <div>
+                    <span class="eyebrow reveal">The studio</span>
+                    <h2 class="h-section reveal" style="--d:80ms">Small studio. <span class="text-gold serif-i">Senior attention.</span></h2>
+                    <p class="lead reveal" style="--d:160ms">Digital Alchemist Studio gives growing businesses one partner for everything digital – the look, the content and the systems behind them. Every project is led personally by founder Hashir Sulthan, from the first call to the final file, so nothing gets lost between departments.</p>
+                    <div class="founder reveal" style="--d:220ms">
+                        <p><strong>About Hashir.</strong> IT manager at a UAE business-services company, a published author and a former teacher – which is why our work is organised, clearly written and easy for your customers to understand.</p>
+                        <p class="langs"><i class="fas fa-language" aria-hidden="true"></i> We work in English, Hindi, Kannada, Urdu and Malayalam.</p>
+                    </div>
+                    <div class="values">
+                        <div class="value reveal" style="--d:0ms"><span class="app-icon app-icon-sm"><i class="fas fa-user-check"></i></span><div><h4>One point of contact</h4><p>You talk to the person who leads your project.</p></div></div>
+                        <div class="value reveal" style="--d:90ms"><span class="app-icon app-icon-sm"><i class="fas fa-diagram-project"></i></span><div><h4>Systems, not one-offs</h4><p>We build things your team can keep using.</p></div></div>
+                        <div class="value reveal" style="--d:180ms"><span class="app-icon app-icon-sm"><i class="fas fa-gem"></i></span><div><h4>Premium finish</h4><p>Every detail checked before it reaches you.</p></div></div>
+                        <div class="value reveal" style="--d:270ms"><span class="app-icon app-icon-sm"><i class="fas fa-comments"></i></span><div><h4>Clear communication</h4><p>Updates on WhatsApp, replies within 24 hours.</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section id="toolkit" class="section" style="padding-top:0">
             <div class="wrap">
                 <div class="toolkit">
                     <div>
-                        <span class="eyebrow reveal">My toolkit</span>
+                        <span class="eyebrow reveal">Our toolkit</span>
                         <h2 class="h-section reveal" style="--d:80ms">The tools behind <span class="text-gold serif-i">the work.</span></h2>
-                        <p class="lead reveal" style="--d:160ms">Industry-standard design, video and development tools, plus a working knowledge of today’s AI platforms – the same ones I use to build chatbots and automations for clients.</p>
+                        <p class="lead reveal" style="--d:160ms">Industry-standard design, video and development tools, plus a working knowledge of today’s AI platforms – the same ones we use to build chatbots and automations for clients.</p>
                     </div>
                     <div class="tools">
                         <div class="tool reveal" style="--d:0ms"><span class="tool-name">After Effects</span><span class="tool-by">Motion graphics</span></div>
@@ -1222,51 +1600,6 @@
             </div>
         </section>
 
-        <!-- ===== About ===== -->
-        <section id="about" class="section" style="background:var(--bg-soft)">
-            <div class="wrap about-grid">
-                <div class="about-visual reveal reveal-scale">
-                    <img src="Gemini_Generated_Image_hwthxvhwthxvhwth.png" alt="Hashir Sulthan at work" loading="lazy" onerror="this.src='https://placehold.co/400x500/16130f/d4a64a?text=HS'">
-                    <div class="about-frame" aria-hidden="true"></div>
-                    <div class="about-badge">
-                        <span class="app-icon app-icon-sm"><i class="fas fa-star"></i></span>
-                        <div><p class="n">Hashir Sulthan</p><p class="r">Digital Alchemist · Freelancer</p></div>
-                    </div>
-                </div>
-                <div>
-                    <span class="eyebrow reveal">About me</span>
-                    <h2 class="h-section reveal" style="--d:80ms">Creative eye. <span class="text-gold serif-i">Technical mind.</span></h2>
-                    <p class="lead reveal" style="--d:160ms">I blend design, video and technology to give businesses a polished look and smarter systems behind it. Instead of hiring five specialists, you work with one person who understands the whole picture — from your logo to your automations.</p>
-                    <div class="values">
-                        <div class="value reveal" style="--d:0ms"><span class="app-icon app-icon-sm"><i class="fas fa-gem"></i></span><div><h4>Premium quality</h4><p>Every detail polished before it reaches you.</p></div></div>
-                        <div class="value reveal" style="--d:90ms"><span class="app-icon app-icon-sm"><i class="fas fa-bolt"></i></span><div><h4>Fast turnaround</h4><p>An organised workflow and clear deadlines mean quicker delivery.</p></div></div>
-                        <div class="value reveal" style="--d:180ms"><span class="app-icon app-icon-sm"><i class="fas fa-comments"></i></span><div><h4>Clear communication</h4><p>Updates on WhatsApp, replies within 24 hours.</p></div></div>
-                        <div class="value reveal" style="--d:270ms"><span class="app-icon app-icon-sm"><i class="fas fa-layer-group"></i></span><div><h4>All-in-one partner</h4><p>Design, web, video and automation together.</p></div></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== Process ===== -->
-        <section id="process" class="section">
-            <div class="wrap">
-                <div class="head head-split">
-                    <div class="reveal">
-                        <span class="eyebrow">How it works</span>
-                        <h2 class="h-section">A simple process, <span class="text-gold serif-i">beautiful results.</span></h2>
-                    </div>
-                    <p class="lead reveal" style="--d:120ms">No confusing jargon or endless back-and-forth — just four clear steps from first message to final delivery.</p>
-                </div>
-                <div class="steps" id="steps">
-                    <div class="steps-line" aria-hidden="true"></div>
-                    <div class="step reveal" style="--d:0ms"><div class="step-n">01</div><h4>Discover</h4><p>We chat on WhatsApp or call to understand your goals, audience and budget.</p></div>
-                    <div class="step reveal" style="--d:120ms"><div class="step-n">02</div><h4>Plan</h4><p>You get a clear scope, timeline and price — no surprises later.</p></div>
-                    <div class="step reveal" style="--d:240ms"><div class="step-n">03</div><h4>Create</h4><p>I design and build, sharing previews so you can give feedback along the way.</p></div>
-                    <div class="step reveal" style="--d:360ms"><div class="step-n">04</div><h4>Deliver</h4><p>Final files and launch, plus support after delivery if anything needs a tweak.</p></div>
-                </div>
-            </div>
-        </section>
-
         <!-- ===== CTA band ===== -->
         <section class="section" style="padding-top:0">
             <div class="wrap">
@@ -1276,7 +1609,7 @@
                     <h2 class="h-section">Ready to make your brand look <span class="text-gold serif-i">premium?</span></h2>
                     <p class="lead">Send a message on WhatsApp and get a reply the same day.</p>
                     <div class="hero-cta">
-                        <a href="https://wa.me/917892681741?text=Hi%20Hashir%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+                        <a href="https://wa.me/917892681741?text=Hi%20Hashir%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Talk to Hashir on WhatsApp</a>
                         <a href="#contact" class="btn btn-ghost">Send a brief <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1289,7 +1622,7 @@
                 <div>
                     <span class="eyebrow reveal">Contact</span>
                     <h2 class="h-section reveal" style="--d:80ms">Let's build something <span class="text-gold serif-i">together.</span></h2>
-                    <p class="lead reveal" style="--d:160ms">Ready to streamline your workflow or create something beautiful? Message me directly or fill in the form — I'll get back to you within 24 hours.</p>
+                    <p class="lead reveal" style="--d:160ms">Ready to streamline your workflow or create something beautiful? Message Hashir directly or fill in the form – we reply within 24 hours.</p>
                     <div class="c-list">
                         <a class="c-item reveal" style="--d:0ms" href="https://wa.me/917892681741?text=Hi%20Hashir%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener">
                             <span class="app-icon app-icon-sm wa-ico"><i class="fab fa-whatsapp"></i></span>
@@ -1310,7 +1643,7 @@
 
                 <div class="glass-card form-card reveal" style="--d:120ms">
                     <form id="contactForm" action="https://formsubmit.co/hashirsulthan0@gmail.com" method="POST" class="form-grid">
-                        <input type="hidden" name="_subject" value="New Portfolio Inquiry!">
+                        <input type="hidden" name="_subject" value="New Digital Alchemist Studio enquiry">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_next" value="https://hashirsulthan0-cmd.github.io/">
@@ -1335,6 +1668,7 @@
                                 <option>Graphic Design &amp; Branding</option>
                                 <option>UI / UX Design</option>
                                 <option>AI Image Generation</option>
+                                <option>3D Visualisation</option>
                                 <option>Web Development</option>
                                 <option>Backend &amp; Databases</option>
                                 <option>Web Apps &amp; Custom Tools</option>
@@ -1371,15 +1705,15 @@
     <footer class="footer">
         <div class="wrap">
             <div class="footer-top">
-                <a href="#home" class="logo"><span class="logo-mark">H</span><span class="logo-text">Hashir Sulthan<small>Digital Alchemist</small></span></a>
+                <a href="#home" class="logo"><span class="logo-mark">DA</span><span class="logo-text">Digital Alchemist<small><span class="lt-a">Studio</span><span class="lt-b"> · by Hashir Sulthan</span></small></span></a>
                 <nav class="footer-nav" aria-label="Footer">
-                    <a href="#services">Services</a><a href="#work">Work</a><a href="#about">About</a><a href="#process">Process</a><a href="#contact">Contact</a>
+                    <a href="#work">Work</a><a href="#automation">Automation</a><a href="#services">Services</a><a href="#studio3d">3D</a><a href="#about">Studio</a><a href="#contact">Contact</a>
                     <a href="https://wa.me/917892681741?text=Hi%20Hashir%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener">WhatsApp</a>
                 </nav>
             </div>
-            <div class="footer-wordmark" aria-hidden="true">HASHIR</div>
+            <div class="footer-wordmark" aria-hidden="true">ALCHEMIST</div>
             <div class="footer-bottom">
-                <span>© <span id="year">2026</span> Hashir Sulthan — Digital Alchemist. All rights reserved.</span>
+                <span>© <span id="year">2026</span> Digital Alchemist Studio · Founded by Hashir Sulthan. All rights reserved.</span>
                 <a href="#home" class="to-top">Back to top <i class="fas fa-arrow-up"></i></a>
             </div>
         </div>
@@ -1593,27 +1927,33 @@
         try { localStorage.setItem('theme', next); } catch (e) {}
     });
 
-    /* ---------- Work tabs ---------- */
-    var tabs = Array.prototype.slice.call(document.querySelectorAll('.wtabs .tab'));
-    function selectTab(tab, focus) {
-        tabs.forEach(function (t) {
-            var on = t === tab;
-            t.classList.toggle('active', on);
-            t.setAttribute('aria-selected', on ? 'true' : 'false');
-            t.tabIndex = on ? 0 : -1;
+    /* ---------- Work: click a category to open it ---------- */
+    var tiles = Array.prototype.slice.call(document.querySelectorAll('.wtile'));
+    function setTile(tile, open) {
+        tiles.forEach(function (t) {
+            var on = open && t === tile;
+            t.setAttribute('aria-expanded', on ? 'true' : 'false');
+            t.classList.toggle('on', on);
             var p = document.getElementById(t.getAttribute('aria-controls'));
             if (p) { p.hidden = !on; p.classList.toggle('show', on); }
         });
-        if (tab.id !== 'wt-motion' && featVideo) featVideo.pause();
-        if (focus) tab.focus();
+        if (!(open && tile.id === 'wt-motion') && featVideo) featVideo.pause();
+        document.querySelector('.wtiles').classList.toggle('has-open', !!open);
+        if (open) {
+            var p = document.getElementById(tile.getAttribute('aria-controls'));
+            setTimeout(function () {
+                var top = p.getBoundingClientRect().top + window.scrollY - 110;
+                window.scrollTo({ top: top, behavior: reduce ? 'auto' : 'smooth' });
+            }, 60);
+        }
     }
-    tabs.forEach(function (t, i) {
-        t.addEventListener('click', function () { selectTab(t); });
-        t.addEventListener('keydown', function (e) {
-            var k = e.key, j = i;
-            if (k === 'ArrowRight') j = (i + 1) % tabs.length; else if (k === 'ArrowLeft') j = (i - 1 + tabs.length) % tabs.length;
-            else if (k === 'Home') j = 0; else if (k === 'End') j = tabs.length - 1; else return;
-            e.preventDefault(); selectTab(tabs[j], true);
+    tiles.forEach(function (t) {
+        t.addEventListener('click', function () { setTile(t, t.getAttribute('aria-expanded') !== 'true'); });
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('.wpanel-close'), function (b) {
+        b.addEventListener('click', function () {
+            var open = tiles.filter(function (t) { return t.classList.contains('on'); })[0];
+            if (open) { setTile(open, false); open.focus(); }
         });
     });
 
@@ -1722,6 +2062,266 @@
     more.addEventListener('click', expand);
     var tabs = document.querySelector('.tabs');
     if (tabs) tabs.addEventListener('click', function (e) { if (e.target.closest('.tab')) expand(); });
+})();
+
+/* ================= Automation lab ================= */
+(function () {
+    var stepsEl = document.getElementById('autoSteps');
+    if (!stepsEl) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var FLOWS = [
+        [['fa-whatsapp fab', 'Enquiry arrives on WhatsApp or your website', 'auto'],
+         ['fa-magnifying-glass', 'Request is read and sorted by service', 'auto'],
+         ['fa-tags', 'Prices pulled from your own rate card', 'auto'],
+         ['fa-file-pdf', 'Branded PDF quote is created', 'auto'],
+         ['fa-user-check', 'You glance at it and approve', 'you'],
+         ['fa-paper-plane', 'Quote sent back to the customer', 'auto'],
+         ['fa-table', 'Lead logged in your sheet or CRM', 'auto'],
+         ['fa-bell', 'Polite follow-up if there is no reply in 48 h', 'auto']],
+        [['fa-circle-check', 'Job is marked as done', 'you'],
+         ['fa-file-invoice', 'Invoice generated with the right details', 'auto'],
+         ['fa-envelope', 'Emailed with a payment link', 'auto'],
+         ['fa-clock', 'Friendly reminders on day 3 and day 7', 'auto'],
+         ['fa-money-check', 'Payment matched when it lands', 'auto'],
+         ['fa-book', 'Your books and dashboard update', 'auto']],
+        [['fa-sun', '8:00 every morning', 'auto'],
+         ['fa-database', 'Sales, bookings and leads collected', 'auto'],
+         ['fa-calculator', 'Totals and trends calculated', 'auto'],
+         ['fa-chart-column', 'A chart and a three-line summary written', 'auto'],
+         ['fa-whatsapp fab', 'Sent to the owner on WhatsApp', 'auto']],
+        [['fa-inbox', 'Form, receipt or document arrives', 'auto'],
+         ['fa-eye', 'Key details read from the file', 'auto'],
+         ['fa-list-check', 'Checked for missing information', 'auto'],
+         ['fa-folder-tree', 'Saved in the right folder with a clear name', 'auto'],
+         ['fa-table-cells', 'Spreadsheet row filled in', 'auto'],
+         ['fa-user-group', 'The right person is notified', 'auto']],
+        [['fa-pen-nib', 'One post is written and approved', 'you'],
+         ['fa-crop-simple', 'Resized for each platform', 'auto'],
+         ['fa-hashtag', 'Captions and hashtags adapted', 'auto'],
+         ['fa-calendar-check', 'Scheduled at the best times', 'auto'],
+         ['fa-chart-pie', 'Weekly results summary sent to you', 'auto']]
+    ];
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.auto-tab'));
+    var manual = document.getElementById('autoManual');
+    var timer = null, cur = 0, visible = false;
+
+    function render(k) {
+        var f = FLOWS[k];
+        stepsEl.innerHTML = f.map(function (st, i) {
+            var ic = st[0].indexOf('fab') > -1 ? 'fab ' + st[0].replace(' fab', '') : 'fas ' + st[0];
+            return '<li class="auto-step" style="--i:' + i + '"><span class="si"><i class="' + ic + '" aria-hidden="true"></i></span>' +
+                '<span class="st">' + st[1] + '</span><span class="sb' + (st[2] === 'you' ? ' you' : '') + '">' + (st[2] === 'you' ? 'You' : 'Auto') + '</span></li>';
+        }).join('');
+        manual.textContent = f.length;
+        cur = 0; light();
+    }
+    function light() {
+        var items = stepsEl.children;
+        for (var i = 0; i < items.length; i++) { items[i].classList.toggle('lit', i === cur); items[i].classList.toggle('done', i < cur); }
+        var el = items[cur];
+        if (el) stepsEl.style.setProperty('--py', (el.offsetTop + el.offsetHeight / 2 - 4) + 'px');
+    }
+    function tick() { cur = (cur + 1) % stepsEl.children.length; light(); }
+    function run() { stop(); if (!reduce && visible) timer = setInterval(tick, 1300); }
+    function stop() { if (timer) clearInterval(timer); timer = null; }
+    tabs.forEach(function (t, i) {
+        t.addEventListener('click', function () {
+            tabs.forEach(function (x) { x.classList.toggle('on', x === t); x.setAttribute('aria-selected', x === t ? 'true' : 'false'); });
+            render(+t.dataset.flow); run();
+        });
+        t.addEventListener('keydown', function (e) {
+            var j = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowUp' || e.key === 'ArrowLeft' ? i - 1 : null;
+            if (j === null) return; e.preventDefault(); j = (j + tabs.length) % tabs.length; tabs[j].focus(); tabs[j].click();
+        });
+    });
+    render(0);
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (en) { visible = en[0].isIntersecting; if (visible) { light(); run(); } else stop(); }, { threshold: .2 }).observe(stepsEl);
+    } else { visible = true; run(); }
+    document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else if (visible) run(); });
+    window.addEventListener('resize', light);
+
+    /* calculator */
+    var h = document.getElementById('cHours'), p = document.getElementById('cPeople'), sh = document.getElementById('cShare');
+    function calc() {
+        var hv = +h.value, pv = +p.value, sv = +sh.value, total = Math.round(hv * pv * 46 * sv / 100);
+        document.getElementById('oHours').textContent = hv + ' h';
+        document.getElementById('oPeople').textContent = pv;
+        document.getElementById('oShare').textContent = sv + '%';
+        document.getElementById('cResult').textContent = total.toLocaleString('en-US');
+        document.getElementById('cDays').textContent = Math.round(total / 8).toLocaleString('en-US');
+        document.getElementById('cFormula').textContent = hv + ' h × ' + pv + (pv === 1 ? ' person' : ' people') + ' × 46 weeks × ' + sv + '%';
+    }
+    [h, p, sh].forEach(function (x) { x.addEventListener('input', calc); });
+    calc();
+})();
+
+/* ================= 3D studio (Three.js, loaded only when needed) ================= */
+(function () {
+    var box = document.getElementById('v3d'), stage = document.getElementById('v3dStage'), msg = document.getElementById('v3dMsg');
+    if (!box || !stage) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var started = false;
+
+    function load(cb) {
+        if (window.THREE) return cb();
+        var sc = document.createElement('script');
+        sc.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+        sc.onload = cb; sc.onerror = function () { msg.textContent = 'The 3D preview could not load on this connection.'; };
+        document.head.appendChild(sc);
+    }
+    function start() {
+        if (started) return; started = true;
+        load(function () { try { init(); } catch (e) { msg.textContent = 'Your browser can’t show the 3D preview.'; } });
+    }
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { start(); io.disconnect(); } }, { rootMargin: '300px' });
+        io.observe(box);
+    } else start();
+
+    function init() {
+        var T = window.THREE;
+        var renderer = new T.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        renderer.shadowMap.enabled = true; renderer.shadowMap.type = T.PCFSoftShadowMap;
+        renderer.outputEncoding = T.sRGBEncoding;
+        renderer.toneMapping = T.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
+        stage.appendChild(renderer.domElement);
+        msg.style.display = 'none';
+
+        var scene = new T.Scene();
+        var camera = new T.PerspectiveCamera(32, 1, .1, 100);
+        var target = new T.Vector3(0, .9, 0);
+        var hemi = new T.HemisphereLight(0xfff3e0, 0x3a2c1c, .55); scene.add(hemi);
+        var sun = new T.DirectionalLight(0xffe2b8, 1.1); sun.position.set(6, 9, 5); sun.castShadow = true;
+        sun.shadow.mapSize.set(1024, 1024); sun.shadow.camera.left = -8; sun.shadow.camera.right = 8; sun.shadow.camera.top = 8; sun.shadow.camera.bottom = -8; sun.shadow.bias = -.0004;
+        scene.add(sun);
+
+        function mat(c, o) { o = o || {}; return new T.MeshStandardMaterial({ color: c, roughness: o.r !== undefined ? o.r : .7, metalness: o.m || 0, emissive: o.e || 0x000000, emissiveIntensity: o.ei || 0, transparent: !!o.t, opacity: o.t || 1 }); }
+        var M = {
+            wood: mat(0x8b6443, { r: .55 }), woodDark: mat(0x4a3424, { r: .6 }), wall: mat(0xe8dfd0, { r: .9 }), wallDark: mat(0x2b2620, { r: .85 }),
+            gold: mat(0xd4a64a, { r: .3, m: .85 }), black: mat(0x1b1814, { r: .5 }), leather: mat(0x6b3b26, { r: .6 }), green: mat(0x4f7a3a, { r: .8 }),
+            terracotta: mat(0xb5683f, { r: .8 }), fabric: mat(0xcfc3ad, { r: .95 }), sofa: mat(0x5d6b73, { r: .9 }), marble: mat(0xf1ece4, { r: .25 }),
+            glass: mat(0xbfd9e6, { r: .1, t: .35 }), lamp: mat(0xffe0a3, { e: 0xffc766, ei: 1.6, r: .4 }), rug: mat(0x9c7a55, { r: 1 }), tv: mat(0x0d0d0f, { r: .2 })
+        };
+        var group = null;
+        function B(g, w, h, d, m, x, y, z, ry) { var o = new T.Mesh(new T.BoxGeometry(w, h, d), m); o.position.set(x, y, z); if (ry) o.rotation.y = ry; o.castShadow = o.receiveShadow = true; g.add(o); return o; }
+        function C(g, rt, rb, h, m, x, y, z, seg) { var o = new T.Mesh(new T.CylinderGeometry(rt, rb, h, seg || 24), m); o.position.set(x, y, z); o.castShadow = o.receiveShadow = true; g.add(o); return o; }
+        function plant(g, x, z, s) { s = s || 1; C(g, .18 * s, .14 * s, .32 * s, M.terracotta, x, .16 * s, z);
+            var l = new T.Mesh(new T.IcosahedronGeometry(.32 * s, 0), M.green); l.position.set(x, .62 * s, z); l.castShadow = true; g.add(l);
+            var l2 = new T.Mesh(new T.IcosahedronGeometry(.22 * s, 0), M.green); l2.position.set(x + .12 * s, .9 * s, z - .05); l2.castShadow = true; g.add(l2); }
+        function chair(g, x, z, ry) { var c = new T.Group(); B(c, .42, .05, .42, M.leather, 0, .46, 0); B(c, .42, .45, .05, M.leather, 0, .7, -.19);
+            [[-.18, -.18], [.18, -.18], [-.18, .18], [.18, .18]].forEach(function (p) { B(c, .04, .46, .04, M.black, p[0], .23, p[1]); });
+            c.position.set(x, 0, z); c.rotation.y = ry || 0; g.add(c); }
+        function pendant(g, x, z, y) { C(g, .005, .005, 3.6 - y, M.black, x, y + (3.6 - y) / 2, z, 6);
+            var sh = new T.Mesh(new T.ConeGeometry(.2, .22, 24, 1, true), M.gold); sh.position.set(x, y, z); g.add(sh);
+            var b = new T.Mesh(new T.SphereGeometry(.07, 16, 12), M.lamp); b.position.set(x, y - .08, z); g.add(b);
+            var pl = new T.PointLight(0xffc56b, .55, 4.2, 2); pl.position.set(x, y - .15, z); g.add(pl); }
+        function shell(g, w, d, floorM, wallM) {
+            B(g, w, .12, d, floorM, 0, -.06, 0);
+            B(g, w, 3.6, .14, wallM, 0, 1.8, -d / 2 + .07);
+            B(g, .14, 3.6, d, wallM, -w / 2 + .07, 1.8, 0);
+            var base = new T.Mesh(new T.CircleGeometry(Math.max(w, d) * .9, 48), new T.ShadowMaterial({ opacity: .25 }));
+            base.rotation.x = -Math.PI / 2; base.position.y = -.121; base.receiveShadow = true; g.add(base);
+        }
+        function restaurant() {
+            var g = new T.Group(); var W = 7, D = 5.6;
+            shell(g, W, D, M.wood, M.wallDark);
+            // windows on back wall
+            for (var i = 0; i < 3; i++) { B(g, 1.1, 1.7, .05, M.glass, -1.6 + i * 1.6, 1.9, -D / 2 + .16); B(g, 1.2, .06, .1, M.gold, -1.6 + i * 1.6, 1.03, -D / 2 + .18); }
+            // bar counter along left wall
+            B(g, .7, 1.05, 3.4, M.woodDark, -W / 2 + .6, .525, -.4); B(g, .82, .06, 3.5, M.marble, -W / 2 + .62, 1.08, -.4);
+            B(g, .04, .9, 3.0, M.gold, -W / 2 + .97, .5, -.4);
+            for (var k = 0; k < 4; k++) { C(g, .17, .17, .05, M.leather, -W / 2 + 1.35, .78, -1.7 + k * .85); C(g, .02, .02, .76, M.gold, -W / 2 + 1.35, .38, -1.7 + k * .85, 8); }
+            // shelves + bottles on left wall
+            for (var s = 0; s < 2; s++) { B(g, .25, .04, 2.6, M.gold, -W / 2 + .2, 2.1 + s * .55, -.4);
+                for (var b = 0; b < 7; b++) C(g, .045, .045, .28, b % 2 ? M.green : M.terracotta, -W / 2 + .2, 2.27 + s * .55, -1.5 + b * .36, 10); }
+            // round tables with chairs
+            [[.4, -1.3], [2.2, -1.3], [.4, .9], [2.2, .9]].forEach(function (t) {
+                C(g, .48, .48, .05, M.marble, t[0], .76, t[1]); C(g, .04, .04, .74, M.black, t[0], .37, t[1], 8); C(g, .25, .25, .03, M.black, t[0], .015, t[1]);
+                chair(g, t[0] - .75, t[1], Math.PI / 2); chair(g, t[0] + .75, t[1], -Math.PI / 2);
+                pendant(g, t[0], t[1], 2.2);
+            });
+            // booth along back wall
+            B(g, 3.6, .45, .6, M.leather, 1.3, .225, -D / 2 + .5); B(g, 3.6, .7, .18, M.leather, 1.3, .8, -D / 2 + .26);
+            plant(g, W / 2 - .5, -D / 2 + .5, 1.3); plant(g, -W / 2 + .6, D / 2 - .5, 1.1);
+            // menu board
+            B(g, 1.3, .8, .04, M.black, 1.3, 2.5, -D / 2 + .16); B(g, 1.38, .88, .02, M.gold, 1.3, 2.5, -D / 2 + .14);
+            return g;
+        }
+        function apartment() {
+            var g = new T.Group(); var W = 7, D = 5.6;
+            shell(g, W, D, M.wood, M.wall);
+            for (var i = 0; i < 2; i++) B(g, 1.6, 2.2, .05, M.glass, -.6 + i * 2.1, 1.55, -D / 2 + .16);
+            B(g, 3.9, .05, .12, M.gold, .45, 2.7, -D / 2 + .2);
+            // rug + sofa + coffee table
+            B(g, 3, .02, 2.1, M.rug, .9, .01, .8);
+            B(g, 2.4, .42, .9, M.sofa, .9, .21, 1.6); B(g, 2.4, .5, .22, M.sofa, .9, .62, 1.98); B(g, .22, .55, .9, M.sofa, -.2, .48, 1.6); B(g, .22, .55, .9, M.sofa, 2.0, .48, 1.6);
+            B(g, 1.1, .05, .6, M.marble, .9, .4, .6); [[.45, .35], [1.35, .35], [.45, .85], [1.35, .85]].forEach(function (p) { B(g, .04, .38, .04, M.gold, p[0], .19, p[1]); });
+            // tv wall unit
+            B(g, 2.2, .45, .45, M.woodDark, .9, .23, -D / 2 + .38); B(g, 1.6, .9, .05, M.tv, .9, 1.35, -D / 2 + .17);
+            // dining corner
+            B(g, 1.4, .05, .85, M.wood, -2.1, .76, .4); [[-2.7, .05], [-1.5, .05], [-2.7, .75], [-1.5, .75]].forEach(function (p) { B(g, .05, .74, .05, M.black, p[0], .37, p[1]); });
+            chair(g, -2.1, -.25, 0); chair(g, -2.1, 1.05, Math.PI);
+            pendant(g, -2.1, .4, 2.0);
+            // kitchen along left wall
+            B(g, .65, .9, 2.2, M.wall, -W / 2 + .45, .45, -1.4); B(g, .7, .05, 2.25, M.marble, -W / 2 + .46, .92, -1.4);
+            B(g, .5, .7, 2.2, M.woodDark, -W / 2 + .35, 2.3, -1.4);
+            // floor lamp + plants
+            C(g, .02, .02, 1.5, M.gold, 2.6, .75, 2.2, 8); var sh = new T.Mesh(new T.CylinderGeometry(.16, .24, .3, 24, 1, true), M.fabric); sh.position.set(2.6, 1.6, 2.2); g.add(sh);
+            var pl = new T.PointLight(0xffd28a, .6, 4, 2); pl.position.set(2.6, 1.5, 2.2); g.add(pl);
+            plant(g, W / 2 - .5, -D / 2 + .55, 1.4); plant(g, -.6, -D / 2 + .5, .9);
+            return g;
+        }
+        var builders = { restaurant: restaurant, apartment: apartment };
+        function show(name) {
+            if (group) { scene.remove(group); group.traverse(function (o) { if (o.geometry) o.geometry.dispose(); }); }
+            group = builders[name](); scene.add(group); grow = 0;
+        }
+
+        var theta = -.75, phi = 1.02, radius = 11.5, auto = !reduce, dragging = false, lx = 0, ly = 0, grow = 1, idleT = 0;
+        function place() {
+            camera.position.set(target.x + radius * Math.sin(phi) * Math.sin(theta), target.y + radius * Math.cos(phi), target.z + radius * Math.sin(phi) * Math.cos(theta));
+            camera.lookAt(target);
+        }
+        function size() {
+            var w = stage.clientWidth, h = stage.clientHeight || w * .75;
+            renderer.setSize(w, h, false); camera.aspect = w / h;
+            radius = w < 520 ? 13.8 : 11.5; camera.updateProjectionMatrix(); place();
+        }
+        stage.addEventListener('pointerdown', function (e) { dragging = true; auto = false; lx = e.clientX; ly = e.clientY; box.classList.add('used'); stage.setPointerCapture(e.pointerId); });
+        stage.addEventListener('pointermove', function (e) {
+            if (!dragging) return;
+            theta -= (e.clientX - lx) * .008; phi = Math.min(1.35, Math.max(.55, phi - (e.clientY - ly) * .005));
+            lx = e.clientX; ly = e.clientY; place();
+        });
+        function up() { dragging = false; idleT = performance.now(); }
+        stage.addEventListener('pointerup', up); stage.addEventListener('pointercancel', up);
+
+        var running = false, last = 0;
+        function frame(t) {
+            if (!running) return;
+            var dt = Math.min(50, t - (last || t)); last = t;
+            if (!dragging && !auto && !reduce && idleT && t - idleT > 4000) auto = true;
+            if (auto) { theta += dt * .00009; place(); }
+            if (group && grow < 1) { grow = Math.min(1, grow + dt / 650); var e = 1 - Math.pow(1 - grow, 3); group.scale.setScalar(.85 + .15 * e); group.position.y = (1 - e) * -.4; }
+            renderer.render(scene, camera);
+            requestAnimationFrame(frame);
+        }
+        function play() { if (!running) { running = true; last = 0; requestAnimationFrame(frame); } }
+        function pause() { running = false; }
+        new IntersectionObserver(function (en) { if (en[0].isIntersecting && !document.hidden) play(); else pause(); }).observe(stage);
+        document.addEventListener('visibilitychange', function () { if (document.hidden) pause(); });
+        window.addEventListener('resize', size);
+
+        Array.prototype.forEach.call(box.querySelectorAll('.v3d-seg button'), function (b) {
+            b.addEventListener('click', function () {
+                Array.prototype.forEach.call(box.querySelectorAll('.v3d-seg button'), function (x) { x.classList.toggle('on', x === b); x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+                show(b.dataset.scene);
+            });
+        });
+        show('restaurant'); size(); play();
+    }
 })();
 
 </script>
