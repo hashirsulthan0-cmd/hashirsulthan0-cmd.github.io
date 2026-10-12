@@ -477,7 +477,158 @@
             *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
             .js .reveal, .js .fade-up, .js .hero h1 .line > span { opacity: 1; transform: none; filter: none; animation: none; }
         }
+
+        /* ================= Light theme (designed palette, not an inversion) ================= */
+        html[data-theme="light"] {
+            color-scheme: light;
+            --bg: #f6f1e7;
+            --bg-soft: #eee6d6;
+            --surface: #fffdf8;
+            --fg: #17130d;
+            --muted: #5a5243;
+            --line: #ddd0b8;
+            --gold: #b8862d;
+            --gold-hi: #7d5512;
+            --gold-lo: #c9a35a;
+            --gold-text: #7f5716;
+            --gold-text-grad: linear-gradient(100deg, #8a6119 0%, #b07c22 45%, #6f4a0f 70%, #a8771f 100%);
+            --glass-a: rgba(255, 255, 255, .82);
+            --glass-b: rgba(255, 255, 255, .5);
+            --glass-border: rgba(70, 50, 15, .14);
+            --glass-hi: rgba(255, 255, 255, .95);
+            --gloss: rgba(255, 255, 255, .55);
+        }
+        html[data-theme="light"] ::-webkit-scrollbar-thumb { background: #cdbfa5; }
+        html[data-theme="light"] .header.scrolled { background: rgba(246, 241, 231, .82); border-bottom-color: rgba(70, 50, 15, .1); }
+        html[data-theme="light"] .mobile-menu { background: rgba(246, 241, 231, .97); }
+        html[data-theme="light"] .bg-grid { background-image: linear-gradient(rgba(70,50,15,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(70,50,15,.06) 1px, transparent 1px); }
+        html[data-theme="light"] .glow { opacity: .55; }
+        html[data-theme="light"] .grain { opacity: .02; }
+        html[data-theme="light"] .btn-ghost, html[data-theme="light"] .menu-btn { background: rgba(255,255,255,.6); }
+        html[data-theme="light"] .marquee-item { color: #8a8070; }
+        html[data-theme="light"] .card-num { color: #a89c86; }
+        html[data-theme="light"] .tag, html[data-theme="light"] .value, html[data-theme="light"] .c-item { background: rgba(255,255,255,.55); }
+        html[data-theme="light"] .tab-count { background: rgba(70,50,15,.08); }
+        html[data-theme="light"] .glass-card { box-shadow: inset 0 1px 0 var(--glass-hi), 0 1px 2px rgba(70,50,15,.06), 0 18px 40px -24px rgba(70,50,15,.28); }
+        html[data-theme="light"] .glass-card:hover { box-shadow: inset 0 1px 0 var(--glass-hi), 0 0 0 1px rgba(184,134,45,.25), 0 28px 56px -26px rgba(150,100,20,.35); }
+        html[data-theme="light"] .float-card { background: linear-gradient(150deg, rgba(255,253,248,.94), rgba(246,241,231,.86)); box-shadow: inset 0 1px 0 #fff, 0 18px 36px -18px rgba(70,50,15,.35); }
+        html[data-theme="light"] .portrait { box-shadow: 0 0 0 1px rgba(70,50,15,.1), 0 40px 80px -36px rgba(70,50,15,.45), 0 0 80px -20px rgba(184,134,45,.35); }
+        html[data-theme="light"] .about-visual { box-shadow: 0 40px 80px -44px rgba(70,50,15,.5); }
+        html[data-theme="light"] .about-badge { color: #f7f3ea; }
+        html[data-theme="light"] .about-badge .r { color: #e6bf6a; }
+        html[data-theme="light"] .step-n { color: var(--gold-text); }
+        html[data-theme="light"] .field { background: #fffdf8; }
+        html[data-theme="light"] select.field { background-color: #fffdf8; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23946a1f' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; }
+        html[data-theme="light"] .field::placeholder { color: #8a8070; }
+        html[data-theme="light"] .field:hover { border-color: rgba(70,50,15,.28); }
+        html[data-theme="light"] .footer-bottom { color: #776d5d; }
+        html[data-theme="light"] .footer-wordmark { -webkit-text-stroke-color: rgba(150,105,30,.35); }
+        html[data-theme="light"] .wa-label, html[data-theme="light"] .toast { background: rgba(255,253,248,.96); box-shadow: 0 14px 30px -14px rgba(70,50,15,.35); }
+
+        /* ================= Theme toggle ================= */
+        .nav-end { display: flex; align-items: center; gap: .6rem; }
+        .theme-btn { width: 2.75rem; height: 2.75rem; display: grid; place-items: center; border-radius: 999px; cursor: pointer; color: var(--fg);
+            border: 1px solid var(--glass-border); background: linear-gradient(150deg, var(--glass-a), var(--glass-b));
+            transition: border-color .25s ease, color .25s ease, transform .4s var(--ease); }
+        .theme-btn:hover { border-color: var(--gold); color: var(--gold-text); }
+        .theme-btn:active { transform: scale(.92); }
+        .theme-btn svg { width: 1.2rem; height: 1.2rem; grid-area: 1 / 1; transition: opacity .35s ease, transform .5s var(--ease); }
+        html[data-theme="dark"] .theme-btn .i-moon, html:not([data-theme]) .theme-btn .i-moon { opacity: 0; transform: rotate(-60deg) scale(.6); }
+        html[data-theme="light"] .theme-btn .i-sun { opacity: 0; transform: rotate(60deg) scale(.6); }
+        @media (min-width: 900px) { .nav-end { margin-left: .5rem; } }
+        html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *::after { transition: background-color .45s ease, color .45s ease, border-color .45s ease, box-shadow .45s ease !important; }
+
+        /* ================= Work ================= */
+        .work { background: var(--bg-soft); border-block: 1px solid var(--line); }
+        .wtabs { display: flex; gap: .5rem; margin: -1.5rem 0 2.75rem; overflow-x: auto; scrollbar-width: none; padding: .25rem .1rem .5rem; }
+        .wtabs::-webkit-scrollbar { display: none; }
+        @media (min-width: 900px) { .wtabs { flex-wrap: wrap; } }
+        .wpanel[hidden] { display: none; }
+        .wpanel.show { animation: pop .55s var(--ease) both; }
+        .wcap { font-family: var(--font-display); font-weight: 600; letter-spacing: -.02em; line-height: 1.15; font-size: clamp(1.5rem, 3vw, 2.1rem); margin: 0; }
+        .wsub { color: var(--muted); margin: .5rem 0 2rem; max-width: 42rem; }
+
+        .wfeature { display: grid; gap: 1.75rem; align-items: center; padding: 1rem; border-radius: 1.6rem; border: 1px solid var(--line);
+            background: linear-gradient(150deg, var(--glass-a), var(--glass-b)); margin-bottom: 1.75rem; }
+        @media (min-width: 960px) { .wfeature { grid-template-columns: 1.45fr 1fr; gap: 2.5rem; padding: 1.25rem 2.25rem 1.25rem 1.25rem; } }
+        .wplayer { position: relative; border-radius: 1.1rem; overflow: hidden; background: #000; display: grid; place-items: center; aspect-ratio: 16 / 9; }
+        .wplayer[data-o="v"] { aspect-ratio: auto; height: min(68vh, 40rem); }
+        .wplayer video { width: 100%; height: 100%; display: block; object-fit: contain; background: #000; }
+        .wkicker { font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-text); }
+        .wfeature-body h3 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.4rem, 2.4vw, 1.9rem); letter-spacing: -.02em; margin: .5rem 0 .75rem; }
+        .wfeature-body p { color: var(--muted); margin: 0; }
+        .wvers { display: flex; flex-wrap: wrap; gap: .45rem; margin: 1.5rem 0 1rem; }
+        .wver { font: inherit; font-size: .82rem; font-weight: 600; min-height: 2.75rem; padding: .5rem 1rem; border-radius: 999px; cursor: pointer; color: var(--muted);
+            border: 1px solid var(--glass-border); background: transparent; transition: color .25s ease, border-color .25s ease, background-color .25s ease; }
+        .wver:hover { color: var(--fg); border-color: var(--gold); }
+        .wver.on { color: #1a1206; background: var(--gold-grad); border-color: rgba(150,105,30,.6); }
+
+        .wgrid { display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        @media (min-width: 640px) { .wgrid-motion { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+        @media (min-width: 1000px) { .wgrid-motion { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; } }
+        .wgrid-decks { grid-template-columns: 1fr; }
+        @media (min-width: 640px) { .wgrid-decks { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; } }
+        @media (min-width: 640px) { .wgrid-docs { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; } }
+        @media (min-width: 1000px) { .wgrid-docs { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+        .wcard { display: flex; flex-direction: column; gap: .8rem; padding: 0; text-align: left; font: inherit; color: inherit; cursor: pointer; background: none; border: 0; min-width: 0; }
+        .wcard-w { grid-column: span 2; }
+        .wthumb { position: relative; display: block; overflow: hidden; border-radius: 1.1rem; border: 1px solid var(--line); background: #0b0a08; }
+        .wcard-v .wthumb { aspect-ratio: 9 / 16; }
+        .wcard-w .wthumb, .wcard-deck .wthumb { aspect-ratio: 16 / 9; }
+        .wcard-doc .wthumb { aspect-ratio: 3 / 4; background: #fff; }
+        .wthumb img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform .9s var(--ease), filter .5s ease; }
+        .wcard:hover .wthumb img, .wcard:focus-visible .wthumb img { transform: scale(1.045); }
+        .wcard:hover .wthumb, .wcard:focus-visible .wthumb { border-color: var(--gold); }
+        .wcard:focus-visible { outline: none; }
+        .wcard:focus-visible .wthumb { outline: 2px solid var(--gold); outline-offset: 3px; }
+        .wplay { position: absolute; left: 50%; top: 50%; width: 3.4rem; height: 3.4rem; margin: -1.7rem 0 0 -1.7rem; border-radius: 50%; display: grid; place-items: center;
+            color: #1a1206; background: var(--gold-grad); box-shadow: inset 0 1px 0 rgba(255,255,255,.55), 0 10px 26px -8px rgba(0,0,0,.6); transition: transform .45s var(--ease); }
+        .wplay svg { width: 1.35rem; height: 1.35rem; margin-left: .15rem; }
+        .wcard:hover .wplay { transform: scale(1.1); }
+        .wdur, .wbadge { position: absolute; right: .6rem; bottom: .6rem; padding: .2rem .55rem; border-radius: 999px; font-size: .72rem; font-weight: 600;
+            color: #f7f3ea; background: rgba(10,9,7,.72); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+        .wmeta { display: grid; gap: .2rem; padding: 0 .15rem; }
+        .wt { font-family: var(--font-display); font-weight: 600; font-size: 1rem; letter-spacing: -.01em; line-height: 1.3; }
+        .wd { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+        .wnote { font-size: .74rem; color: var(--gold-text); font-weight: 600; margin-top: .1rem; }
+
+        .wcodes { display: grid; gap: 1.25rem; }
+        .wcode { display: grid; gap: 1.25rem; padding: 1rem; border-radius: 1.6rem; border: 1px solid var(--line); background: linear-gradient(150deg, var(--glass-a), var(--glass-b)); }
+        @media (min-width: 860px) { .wcode { grid-template-columns: 1.1fr 1fr; gap: 2.25rem; align-items: center; padding: 1.25rem 2.25rem 1.25rem 1.25rem; }
+            .wcode:nth-child(even) { grid-template-columns: 1fr 1.1fr; padding: 1.25rem 1.25rem 1.25rem 2.25rem; }
+            .wcode:nth-child(even) .wcode-shot { order: 2; } }
+        .wcode-shot { display: block; padding: 0; border: 1px solid var(--line); border-radius: 1.1rem; overflow: hidden; cursor: zoom-in; background: #0b0a08; aspect-ratio: 16 / 10; }
+        .wcode-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform .9s var(--ease); }
+        .wcode-shot:hover img { transform: scale(1.03); }
+        .wcode-body h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.35rem; letter-spacing: -.015em; margin: 0 0 .6rem; }
+        .wcode-body p { color: var(--muted); margin: 0; }
+        .wcode-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.4rem; }
+        .wcode-actions .btn { min-height: 2.75rem; padding: .55rem 1.2rem; font-size: .875rem; }
+
+        /* ================= Viewer (always dark: media looks best on black) ================= */
+        .lb { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; color: #f7f3ea; background: rgba(8,7,5,.96); }
+        .lb::backdrop { background: rgba(0,0,0,.6); }
+        .lb[open] { display: grid; grid-template-rows: auto 1fr; animation: fadeUp .35s var(--ease); }
+        .lb-top { display: flex; align-items: center; gap: 1rem; padding: .75rem max(1rem, env(safe-area-inset-right)) .75rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,.08); }
+        .lb-title { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 1rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .lb-count { font-size: .8rem; color: #a8a196; margin-left: auto; white-space: nowrap; }
+        .lb-x, .lb-nav { width: 2.75rem; height: 2.75rem; border-radius: 999px; display: grid; place-items: center; cursor: pointer; color: #f7f3ea;
+            border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.06); flex-shrink: 0; }
+        .lb-x:hover, .lb-nav:hover { border-color: #d4a64a; color: #f6dc96; }
+        .lb-x svg, .lb-nav svg { width: 1.25rem; height: 1.25rem; }
+        .lb-stage { position: relative; overflow: auto; display: grid; place-items: center; padding: 1rem; min-height: 0; overscroll-behavior: contain; }
+        .lb-stage img { max-width: min(100%, 1100px); max-height: calc(100dvh - 6rem); width: auto; height: auto; border-radius: .6rem; background: #fff; box-shadow: 0 30px 80px -30px #000; }
+        .lb-stage.tall { place-items: start center; }
+        .lb-stage.tall img { max-height: none; width: min(100%, 1000px); }
+        .lb-stage video { max-width: 100%; max-height: calc(100dvh - 6rem); border-radius: .6rem; background: #000; }
+        .lb-nav { position: fixed; top: 50%; transform: translateY(-50%); background: rgba(20,18,14,.8); }
+        .lb-prev { left: max(.75rem, env(safe-area-inset-left)); }
+        .lb-next { right: max(.75rem, env(safe-area-inset-right)); }
+        .lb-nav[hidden] { display: none; }
+        @media (max-width: 640px) { .lb-nav { top: auto; bottom: max(1rem, env(safe-area-inset-bottom)); transform: none; } }
     </style>
+    <script>(function(){var t='dark';try{t=localStorage.getItem('theme')||'dark'}catch(e){}document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');})();</script>
     <script>document.documentElement.classList.add('js');</script>
 </head>
 
@@ -501,7 +652,11 @@
                 <a href="#process">Process</a>
                 <a href="#contact" class="btn btn-gold">Hire Me</a>
             </nav>
-            <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
+            <div class="nav-end"><button type="button" class="theme-btn" id="themeBtn" aria-label="Switch to light mode" title="Switch theme">
+                <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8.3 8.3 0 0 1 9.4 4a8.3 8.3 0 1 0 10.6 10.6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span></button></div>
         </div>
     </header>
 
@@ -771,23 +926,169 @@
 
         <!-- ===== AI toolkit ===== -->
         <!-- ===== Work ===== -->
-        <section id="work" class="section" style="padding-top:0">
+        <section id="work" class="section work">
             <div class="wrap">
                 <div class="head head-split">
                     <div class="reveal">
-                        <span class="eyebrow">Recent work</span>
-                        <h2 class="h-section">Motion graphics <span class="text-gold serif-i">promo video.</span></h2>
+                        <span class="eyebrow">Work</span>
+                        <h2 class="h-section">Things I have <span class="text-gold serif-i">made.</span></h2>
                     </div>
-                    <p class="lead reveal" style="--d:120ms">A 1:48 promo for a UAE document attestation and business setup company. I planned the story, designed every scene and animated it: logo reveal, a "paperwork shouldn't slow you down" hook, animated service cards and ready-made package cards.</p>
+                    <p class="lead reveal" style="--d:120ms">Real projects for real businesses: brand films, pitch decks, documents, logos, websites and the AI tools behind them. Pick a category.</p>
                 </div>
-                <div class="reveal" style="border:1px solid var(--glass-border);border-radius:1.25rem;overflow:hidden;background:#000;box-shadow:0 30px 80px -40px rgba(212,166,74,.35)">
-                    <video src="Motion-Graphics-Promo-16x9.mp4#t=40" controls playsinline preload="metadata" style="display:block;width:100%;height:auto;aspect-ratio:16/9" aria-label="Motion graphics promo video for a UAE services company"></video>
+
+                <div class="wtabs reveal" role="tablist" aria-label="Work categories"><button type="button" class="tab active" role="tab" id="wt-motion" aria-controls="wp-motion" aria-selected="true" tabindex="0">Motion graphics <span class="tab-count">10</span></button><button type="button" class="tab" role="tab" id="wt-decks" aria-controls="wp-decks" aria-selected="false" tabindex="-1">Presentations <span class="tab-count">4</span></button><button type="button" class="tab" role="tab" id="wt-docs" aria-controls="wp-docs" aria-selected="false" tabindex="-1">Documents &amp; design <span class="tab-count">9</span></button><button type="button" class="tab" role="tab" id="wt-code" aria-controls="wp-code" aria-selected="false" tabindex="-1">Code &amp; websites <span class="tab-count">4</span></button></div>
+
+                <div class="wpanel" id="wp-motion" role="tabpanel" aria-labelledby="wt-motion">
+                    <p class="wcap">This is my <span class="text-gold serif-i">motion graphics.</span></p>
+                    <p class="wsub">Brand films, reels and explainer Shorts I planned, designed, animated and edited.</p>
+                    <div class="wfeature">
+                        <div class="wplayer" data-o="w">
+                            <video id="featVideo" src="work/renz-dark-16x9.mp4" poster="work/renz-dark-16x9.jpg" controls playsinline preload="none" aria-label="RENZ brand film"></video>
+                        </div>
+                        <div class="wfeature-body">
+                            <span class="wkicker">Featured · 1:48</span>
+                            <h3>RENZ brand film</h3>
+                            <p>A promo for a UAE document attestation and business setup company: logo reveal, a “paperwork shouldn’t slow you down” hook, animated service cards, ready-made packages and the digital-solutions division. Delivered in four versions.</p>
+                            <div class="wvers" role="group" aria-label="Choose a version"><button type="button" class="wver on" data-src="work/renz-dark-16x9.mp4" data-poster="work/renz-dark-16x9.jpg" data-o="w" aria-pressed="true">Dark · 16:9</button><button type="button" class="wver" data-src="work/renz-light-16x9.mp4" data-poster="work/renz-light-16x9.jpg" data-o="w" aria-pressed="false">Light · 16:9</button><button type="button" class="wver" data-src="work/renz-dark-9x16.mp4" data-poster="work/renz-dark-9x16.jpg" data-o="v" aria-pressed="false">Dark · 9:16</button><button type="button" class="wver" data-src="work/renz-light-9x16.mp4" data-poster="work/renz-light-9x16.jpg" data-o="v" aria-pressed="false">Light · 9:16</button></div>
+                            <div class="tags"><span class="tag">After Effects</span><span class="tag">Premiere Pro</span><span class="tag">Canva</span></div>
+                        </div>
+                    </div>
+                    <div class="wgrid wgrid-motion"><button type="button" class="wcard wcard-v" data-kind="video" data-src="work/renz-short-dark.mp4" data-o="v" data-title="Brand film, 33-second cut">
+  <span class="wthumb"><img src="work/renz-short-dark.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:33</span></span>
+  <span class="wmeta"><span class="wt">Brand film, 33-second cut</span><span class="wd">Short teaser cut for Reels and Shorts</span></span>
+</button><button type="button" class="wcard wcard-v" data-kind="video" data-src="work/renz-short-light.mp4" data-o="v" data-title="Brand film, light cut">
+  <span class="wthumb"><img src="work/renz-short-light.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:33</span></span>
+  <span class="wmeta"><span class="wt">Brand film, light cut</span><span class="wd">Same teaser in the light colourway</span></span>
+</button><button type="button" class="wcard wcard-v" data-kind="video" data-src="work/renz-reel.mp4" data-o="v" data-title="RENZ service reel">
+  <span class="wthumb"><img src="work/renz-reel.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:40</span></span>
+  <span class="wmeta"><span class="wt">RENZ service reel</span><span class="wd">Presenter reel with kinetic captions and a 3D globe</span></span>
+</button><button type="button" class="wcard wcard-v" data-kind="video" data-src="work/renz-talking.mp4" data-o="v" data-title="RENZ intro reel">
+  <span class="wthumb"><img src="work/renz-talking.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:30</span></span>
+  <span class="wmeta"><span class="wt">RENZ intro reel</span><span class="wd">Talking-head intro with branded backdrop</span></span>
+</button><button type="button" class="wcard wcard-v" data-kind="video" data-src="work/unravels-clock.mp4" data-o="v" data-title="The 7:42 clock puzzle">
+  <span class="wthumb"><img src="work/unravels-clock.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:54</span></span>
+  <span class="wmeta"><span class="wt">The 7:42 clock puzzle</span><span class="wd">Hashir Unravels Short: presenter plus animated logic steps</span></span>
+</button><button type="button" class="wcard wcard-v" data-kind="video" data-src="work/unravels-bertrand.mp4" data-o="v" data-title="Bertrand’s Box Paradox">
+  <span class="wthumb"><img src="work/unravels-bertrand.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:47</span></span>
+  <span class="wmeta"><span class="wt">Bertrand’s Box Paradox</span><span class="wd">Hand-drawn explainer Short with a cloned voice</span></span>
+</button><button type="button" class="wcard wcard-v" data-kind="video" data-src="work/unravels-doorway.mp4" data-o="v" data-title="The Doorway Effect">
+  <span class="wthumb"><img src="work/unravels-doorway.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:55</span></span>
+  <span class="wmeta"><span class="wt">The Doorway Effect</span><span class="wd">Hand-drawn explainer Short about memory</span></span>
+</button><button type="button" class="wcard wcard-w" data-kind="video" data-src="work/showreel.mp4" data-o="w" data-title="Motion graphics showreel">
+  <span class="wthumb"><img src="work/showreel.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:20</span></span>
+  <span class="wmeta"><span class="wt">Motion graphics showreel</span><span class="wd">Lower thirds, titles, social cards and animated charts</span></span>
+</button><button type="button" class="wcard wcard-w" data-kind="video" data-src="work/renz-logo-intro.mp4" data-o="w" data-title="RENZ logo intro">
+  <span class="wthumb"><img src="work/renz-logo-intro.jpg" alt="" loading="lazy" decoding="async"><span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="wdur">0:07</span></span>
+  <span class="wmeta"><span class="wt">RENZ logo intro</span><span class="wd">Logo reveal sting for videos and socials</span></span>
+</button></div>
                 </div>
-                <div class="reveal" style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.25rem">
-                    <span class="tag">After Effects</span><span class="tag">Premiere Pro</span><span class="tag">Canva</span><span class="tag">16:9 + 9:16 versions</span>
+
+                <div class="wpanel" id="wp-decks" role="tabpanel" aria-labelledby="wt-decks" hidden>
+                    <p class="wcap">These are my <span class="text-gold serif-i">presentations.</span></p>
+                    <p class="wsub">Pitch decks, seminar slides and training decks. Open one to flip through every slide.</p>
+                    <div class="wgrid wgrid-decks"><button type="button" class="wcard wcard-deck" data-kind="gallery" data-id="deck-hospital" data-n="10" data-title="Hospital digital transformation &amp; AI">
+  <span class="wthumb"><img src="work/img/deck-hospital-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">10 slides</span></span>
+  <span class="wmeta"><span class="wt">Hospital digital transformation &amp; AI</span><span class="wd">Pitch deck for modernising a hospital’s admin, patient records and online presence.</span></span>
+</button><button type="button" class="wcard wcard-deck" data-kind="gallery" data-id="deck-agency" data-n="9" data-title="Digital agency pitch deck">
+  <span class="wthumb"><img src="work/img/deck-agency-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">9 slides</span></span>
+  <span class="wmeta"><span class="wt">Digital agency pitch deck</span><span class="wd">“Is your business invisible to 80% of local customers?” – a sales deck for local businesses in Kerala.</span></span>
+</button><button type="button" class="wcard wcard-deck" data-kind="gallery" data-id="deck-blockchain" data-n="9" data-title="Blockchain technology seminar">
+  <span class="wthumb"><img src="work/img/deck-blockchain-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">9 slides</span></span>
+  <span class="wmeta"><span class="wt">Blockchain technology seminar</span><span class="wd">Seminar slides explaining blockchain for Class XI Informatics Practices, with a speaker script.</span></span>
+</button><button type="button" class="wcard wcard-deck" data-kind="gallery" data-id="deck-phishing" data-n="4" data-title="Phishing awareness training">
+  <span class="wthumb"><img src="work/img/deck-phishing-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">4 slides</span></span>
+  <span class="wmeta"><span class="wt">Phishing awareness training</span><span class="wd">Staff training deck built from real simulation data, made in a job simulation.</span></span>
+</button></div>
+                </div>
+
+                <div class="wpanel" id="wp-docs" role="tabpanel" aria-labelledby="wt-docs" hidden>
+                    <p class="wcap">This is my <span class="text-gold serif-i">documents &amp; design.</span></p>
+                    <p class="wsub">Quotations, rate cards, business kits, logos and print. Client names and prices are blurred where needed.</p>
+                    <div class="wgrid wgrid-docs"><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="doc-ratecard-attestation" data-n="4" data-title="Attestation rate card 2026">
+  <span class="wthumb"><img src="work/img/doc-ratecard-attestation-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">4 pages</span></span>
+  <span class="wmeta"><span class="wt">Attestation rate card 2026</span><span class="wd">RENZ master price list for attestation and legalisation.</span></span>
+</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="doc-ratecard-digital" data-n="5" data-title="Digital solutions rate card 2026">
+  <span class="wthumb"><img src="work/img/doc-ratecard-digital-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">5 pages</span></span>
+  <span class="wmeta"><span class="wt">Digital solutions rate card 2026</span><span class="wd">RENZ packages for websites, AI chatbots and marketing.</span></span>
+</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="doc-quotation-design" data-n="1" data-title="Quotation, premium design">
+  <span class="wthumb"><img src="work/img/doc-quotation-design-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">1 page</span></span>
+  <span class="wmeta"><span class="wt">Quotation, premium design</span><span class="wd">Black-and-orange quotation layout for RENZ.</span><span class="wnote">Client details blurred</span></span>
+</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="doc-quotation" data-n="1" data-title="Quotation, classic design">
+  <span class="wthumb"><img src="work/img/doc-quotation-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">1 page</span></span>
+  <span class="wmeta"><span class="wt">Quotation, classic design</span><span class="wd">Clean single-page quotation template.</span><span class="wnote">Client details blurred</span></span>
+</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="doc-receipt" data-n="1" data-title="Receipt voucher (A5)">
+  <span class="wthumb"><img src="work/img/doc-receipt-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">1 page</span></span>
+  <span class="wmeta"><span class="wt">Receipt voucher (A5)</span><span class="wd">Bilingual English/Arabic receipt voucher.</span></span>
+</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="doc-gbp-kit" data-n="3" data-title="Google Business Profile kit">
+  <span class="wthumb"><img src="work/img/doc-gbp-kit-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">3 pages</span></span>
+  <span class="wmeta"><span class="wt">Google Business Profile kit</span><span class="wd">Step-by-step setup kit with a requirements checklist.</span></span>
+</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="design-3d-logo" data-n="1" data-title="RENZ 3D wall logo">
+  <span class="wthumb"><img src="work/img/design-3d-logo-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">1 page</span></span>
+  <span class="wmeta"><span class="wt">RENZ 3D wall logo</span><span class="wd">Production spec for the office wall sign.</span></span>
+</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="design-zadco" data-n="1" data-title="ZADCO logo concept">
+  <span class="wthumb"><img src="work/img/design-zadco-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">1 page</span></span>
+  <span class="wmeta"><span class="wt">ZADCO logo concept</span><span class="wd">Logo concept and colour direction for a client.</span></span>
+</button><button type="button" class="wcard wcard-doc" data-kind="gallery" data-id="design-poster" data-n="2" data-title="VIP Thattukada poster &amp; menu">
+  <span class="wthumb"><img src="work/img/design-poster-1.webp" alt="" loading="lazy" decoding="async"><span class="wbadge">2 pages</span></span>
+  <span class="wmeta"><span class="wt">VIP Thattukada poster &amp; menu</span><span class="wd">Launch poster and full menu for a Kerala canteen.</span></span>
+</button></div>
+                </div>
+
+                <div class="wpanel" id="wp-code" role="tabpanel" aria-labelledby="wt-code" hidden>
+                    <p class="wcap">This is my <span class="text-gold serif-i">code.</span></p>
+                    <p class="wsub">Websites I built and the AI tools I wrote to make videos faster.</p>
+                    <div class="wcodes"><article class="wcode reveal">
+  <button type="button" class="wcode-shot" data-kind="gallery" data-id="web-renz" data-n="1" data-title="renz.ae company website" aria-label="View screenshot: renz.ae company website">
+    <img src="work/img/web-renz-1.webp" alt="" loading="lazy" decoding="async">
+  </button>
+  <div class="wcode-body">
+    <h3>renz.ae company website</h3>
+    <p>Full website for a UAE attestation and business-setup company: service pages driven from one data file, WhatsApp quote form, light and dark themes, auto-deploys from GitHub.</p>
+    <div class="tags"><span class="tag">Astro</span><span class="tag">Tailwind CSS</span><span class="tag">PHP</span></div>
+    <div class="wcode-actions"><button type="button" class="btn btn-ghost" data-kind="gallery" data-id="web-renz" data-n="1" data-title="renz.ae company website">View screenshot</button><a class="btn btn-ghost wlink" href="https://renz.ae" target="_blank" rel="noopener">Visit renz.ae <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+  </div>
+</article><article class="wcode reveal">
+  <button type="button" class="wcode-shot" data-kind="gallery" data-id="web-globex" data-n="1" data-title="GLOBE-X landing page" aria-label="View full page: GLOBE-X landing page">
+    <img src="work/img/web-globex-1.webp" alt="" loading="lazy" decoding="async">
+  </button>
+  <div class="wcode-body">
+    <h3>GLOBE-X landing page</h3>
+    <p>Landing page for a UAE document-services brand: services grid, how-it-works steps, FAQ and enquiry call-to-actions.</p>
+    <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span></div>
+    <div class="wcode-actions"><button type="button" class="btn btn-ghost" data-kind="gallery" data-id="web-globex" data-n="1" data-title="GLOBE-X landing page">View full page</button></div>
+  </div>
+</article><article class="wcode reveal">
+  <button type="button" class="wcode-shot" data-kind="gallery" data-id="code-explainer" data-n="2" data-title="Explainer video pipeline" aria-label="View screens: Explainer video pipeline">
+    <img src="work/img/code-explainer-1.webp" alt="" loading="lazy" decoding="async">
+  </button>
+  <div class="wcode-body">
+    <h3>Explainer video pipeline</h3>
+    <p>Turns a written script into a hand-drawn explainer video: cloned voiceover, drawings that appear stroke by stroke, music and captions, in six visual styles. It made the Hashir Unravels Shorts above.</p>
+    <div class="tags"><span class="tag">Python</span><span class="tag">FFmpeg</span><span class="tag">Local AI voice</span></div>
+    <div class="wcode-actions"><button type="button" class="btn btn-ghost" data-kind="gallery" data-id="code-explainer" data-n="2" data-title="Explainer video pipeline">View screens</button></div>
+  </div>
+</article><article class="wcode reveal">
+  <button type="button" class="wcode-shot" data-kind="gallery" data-id="code-studio" data-n="1" data-title="AI video studio" aria-label="View screenshot: AI video studio">
+    <img src="work/img/code-studio-1.webp" alt="" loading="lazy" decoding="async">
+  </button>
+  <div class="wcode-body">
+    <h3>AI video studio</h3>
+    <p>A local video workstation: it transcribes footage, edits out dead air, adds captions, motion graphics and sound, renders, then checks its own output for errors. It made the RENZ brand film.</p>
+    <div class="tags"><span class="tag">Python</span><span class="tag">FFmpeg</span><span class="tag">Three.js</span><span class="tag">Whisper</span></div>
+    <div class="wcode-actions"><button type="button" class="btn btn-ghost" data-kind="gallery" data-id="code-studio" data-n="1" data-title="AI video studio">View screenshot</button></div>
+  </div>
+</article></div>
                 </div>
             </div>
         </section>
+
+        <dialog class="lb" id="lb" aria-label="Work viewer">
+            <div class="lb-top"><p class="lb-title" id="lbTitle"></p><span class="lb-count" id="lbCount"></span>
+                <button type="button" class="lb-x" id="lbClose" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
+            <div class="lb-stage" id="lbStage"></div>
+            <button type="button" class="lb-nav lb-prev" id="lbPrev" aria-label="Previous page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button type="button" class="lb-nav lb-next" id="lbNext" aria-label="Next page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </dialog>
 
         <section id="toolkit" class="section" style="padding-top:0">
             <div class="wrap">
@@ -966,7 +1267,7 @@
             <div class="footer-top">
                 <a href="#home" class="logo"><span class="logo-mark">H</span><span class="logo-text">Hashir Sulthan<small>Digital Alchemist</small></span></a>
                 <nav class="footer-nav" aria-label="Footer">
-                    <a href="#services">Services</a><a href="#about">About</a><a href="#process">Process</a><a href="#contact">Contact</a>
+                    <a href="#services">Services</a><a href="#work">Work</a><a href="#about">About</a><a href="#process">Process</a><a href="#contact">Contact</a>
                     <a href="https://wa.me/917892681741?text=Hi%20Hashir%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener">WhatsApp</a>
                 </nav>
             </div>
@@ -1158,5 +1459,138 @@
             });
         })();
     </script>
+<script>
+(function () {
+    var root = document.documentElement;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ---------- Theme toggle ---------- */
+    var themeBtn = document.getElementById('themeBtn');
+    var meta = document.querySelector('meta[name="theme-color"]');
+    function applyTheme(t, animate) {
+        if (animate && !reduce) { root.classList.add('theme-anim'); setTimeout(function () { root.classList.remove('theme-anim'); }, 500); }
+        root.setAttribute('data-theme', t);
+        if (meta) meta.setAttribute('content', t === 'light' ? '#f6f1e7' : '#0a0907');
+        if (themeBtn) themeBtn.setAttribute('aria-label', t === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+    }
+    applyTheme(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark', false);
+    if (themeBtn) themeBtn.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        applyTheme(next, true);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+
+    /* ---------- Work tabs ---------- */
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.wtabs .tab'));
+    function selectTab(tab, focus) {
+        tabs.forEach(function (t) {
+            var on = t === tab;
+            t.classList.toggle('active', on);
+            t.setAttribute('aria-selected', on ? 'true' : 'false');
+            t.tabIndex = on ? 0 : -1;
+            var p = document.getElementById(t.getAttribute('aria-controls'));
+            if (p) { p.hidden = !on; p.classList.toggle('show', on); }
+        });
+        if (tab.id !== 'wt-motion' && featVideo) featVideo.pause();
+        if (focus) tab.focus();
+    }
+    tabs.forEach(function (t, i) {
+        t.addEventListener('click', function () { selectTab(t); });
+        t.addEventListener('keydown', function (e) {
+            var k = e.key, j = i;
+            if (k === 'ArrowRight') j = (i + 1) % tabs.length; else if (k === 'ArrowLeft') j = (i - 1 + tabs.length) % tabs.length;
+            else if (k === 'Home') j = 0; else if (k === 'End') j = tabs.length - 1; else return;
+            e.preventDefault(); selectTab(tabs[j], true);
+        });
+    });
+
+    /* ---------- Featured film: version switch ---------- */
+    var featVideo = document.getElementById('featVideo');
+    var player = featVideo ? featVideo.parentElement : null;
+    Array.prototype.forEach.call(document.querySelectorAll('.wver'), function (b) {
+        b.addEventListener('click', function () {
+            Array.prototype.forEach.call(document.querySelectorAll('.wver'), function (x) { x.classList.toggle('on', x === b); x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+            var playing = !featVideo.paused;
+            player.setAttribute('data-o', b.dataset.o);
+            featVideo.poster = b.dataset.poster;
+            featVideo.src = b.dataset.src;
+            if (playing) featVideo.play().catch(function () {});
+        });
+    });
+
+    /* ---------- Viewer ---------- */
+    var lb = document.getElementById('lb');
+    var stage = document.getElementById('lbStage');
+    var title = document.getElementById('lbTitle');
+    var count = document.getElementById('lbCount');
+    var prev = document.getElementById('lbPrev');
+    var next = document.getElementById('lbNext');
+    var pages = [], idx = 0, opener = null;
+
+    function showPage(i) {
+        idx = (i + pages.length) % pages.length;
+        stage.innerHTML = '';
+        var img = new Image();
+        img.alt = title.textContent + ' – page ' + (idx + 1) + ' of ' + pages.length;
+        img.decoding = 'async';
+        img.onload = function () { stage.classList.toggle('tall', img.naturalHeight > img.naturalWidth * 2); };
+        img.src = pages[idx];
+        stage.appendChild(img);
+        stage.scrollTop = 0;
+        count.textContent = pages.length > 1 ? (idx + 1) + ' / ' + pages.length : '';
+        prev.hidden = next.hidden = pages.length < 2;
+        if (pages.length > 1) { var pre = new Image(); pre.src = pages[(idx + 1) % pages.length]; }
+    }
+    function openViewer(el) {
+        opener = el;
+        title.textContent = el.dataset.title || '';
+        stage.classList.remove('tall');
+        if (el.dataset.kind === 'video') {
+            pages = [];
+            stage.innerHTML = '';
+            var v = document.createElement('video');
+            v.src = el.dataset.src; v.controls = true; v.playsInline = true; v.autoplay = true;
+            v.setAttribute('aria-label', el.dataset.title || 'Video');
+            stage.appendChild(v);
+            count.textContent = ''; prev.hidden = next.hidden = true;
+        } else {
+            var n = parseInt(el.dataset.n, 10) || 1, id = el.dataset.id;
+            pages = [];
+            for (var i = 1; i <= n; i++) pages.push('work/img/' + id + '-' + i + '.webp');
+            showPage(0);
+        }
+        if (featVideo) featVideo.pause();
+        if (typeof lb.showModal === 'function') lb.showModal(); else lb.setAttribute('open', '');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeViewer() { if (lb.open) lb.close(); }
+    lb.addEventListener('close', function () {
+        var v = stage.querySelector('video'); if (v) v.pause();
+        stage.innerHTML = '';
+        document.body.style.overflow = '';
+        if (opener) opener.focus();
+    });
+    document.getElementById('lbClose').addEventListener('click', closeViewer);
+    prev.addEventListener('click', function () { showPage(idx - 1); });
+    next.addEventListener('click', function () { showPage(idx + 1); });
+    lb.addEventListener('keydown', function (e) {
+        if (!pages.length) return;
+        if (e.key === 'ArrowRight') { e.preventDefault(); showPage(idx + 1); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); showPage(idx - 1); }
+    });
+    lb.addEventListener('click', function (e) { if (e.target === stage) closeViewer(); });
+    var sx = null;
+    stage.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+    stage.addEventListener('touchend', function (e) {
+        if (sx === null || pages.length < 2) return;
+        var dx = e.changedTouches[0].clientX - sx; sx = null;
+        if (Math.abs(dx) > 50) showPage(idx + (dx < 0 ? 1 : -1));
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('#work [data-kind]'), function (el) {
+        el.addEventListener('click', function () { openViewer(el); });
+    });
+})();
+
+</script>
 </body>
 </html>
